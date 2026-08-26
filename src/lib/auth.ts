@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth';
 import Google from 'next-auth/providers/google';
 
-const allowedEmails = (process.env.ALLOWED_EMAILS || 'janskifura@gmail.com')
+const allowedEmails = (process.env.ALLOWED_EMAILS || 'janskifura@gmail.com,lee13parkinson@gmail.com')
   .split(',')
   .map((e) => e.trim().toLowerCase());
 
