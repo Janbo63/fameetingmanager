@@ -1,0 +1,2612 @@
+﻿[
+  {
+    "id": "b27c5258-07b5-4e40-929b-b16438a871ab",
+    "name": "Review",
+    "category": "Wealth",
+    "icon": "\ud83d\udccb",
+    "status": "collected",
+    "sectionCount": 13,
+    "data": {
+      "templateId": "b27c5258-07b5-4e40-929b-b16438a871ab",
+      "companyId": "fed309ba-c3b2-4640-bda1-bed55caefc62",
+      "templateName": "Review",
+      "globalInstructions": [
+        "Ensure the writing style is concise, avoids unnecessary jargon, and focuses on clear, action-oriented language",
+        "Where appropriate, summarise key points or actions using bullet points for clarity and quick reference",
+        "Use spelling that is appropriate for the jurisdiction. This is very important to ensure consistency and professionalism",
+        "Document factual information rather than adviser opinions, or additional reflections/additions that were not discussed",
+        "Document only bullet points for topics actually discussed in the meeting",
+        "For each bullet point, summarise the topic of the bullet in bold in 4-6 words and then write the complete intended bullet point e.g.: \"Reasons for seeking advice: Sarah turned 35 and had a realisation about retirement and whether she's on track\""
+      ],
+      "sections": [
+        {
+          "id": "meeting_details",
+          "title": "Meeting details",
+          "contentToInclude": [
+            "All attendees and their roles",
+            "Key decision-makers present"
+          ],
+          "guidance": "Record all attendees and their roles. Note if key decision-makers are present. Example: \"Tom Jones (Client)\""
+        },
+        {
+          "id": "client_background",
+          "title": "Client background",
+          "subsections": [
+            {
+              "title": "Personal changes",
+              "contentToInclude": [
+                "Family updates",
+                "Significant life events",
+                "Health considerations",
+                "Location/living situation",
+                "Anticipated changes",
+                "Changes to employment"
+              ],
+              "guidance": "Document key changes since last review and note any health issues affecting planning. Record anticipated future changes including employment or business changes in detail. Document income variations and their impact, noting career plans or business developments."
+            },
+            {
+              "title": "Financial changes",
+              "contentToInclude": [
+                "Household income/expenses",
+                "Asset changes",
+                "Debt position",
+                "Potential windfalls/inheritances",
+                "Major purchases/sales"
+              ],
+              "guidance": "Document material changes to income, expenses, assets, or debts - be specific and quantify values. Note any unexpected financial events or windfalls. Record major purchases or sales with specific amounts."
+            }
+          ]
+        },
+        {
+          "id": "goals_review",
+          "title": "Goals review",
+          "subsections": [
+            {
+              "title": "Existing goals",
+              "contentToInclude": [
+                "Changes to goals (existing or new - short/medium/long term)",
+                "Changes to priority or timeline",
+                "Current allocation and strategy alignment to goals"
+              ],
+              "guidance": "Note any changes to goals (either change in existing or new goals - short/medium/long term). Changes could include change to priority or timeline. Check current allocation and strategy reflects alignment to goals."
+            }
+          ]
+        },
+        {
+          "id": "current_position",
+          "title": "Current position",
+          "subsections": [
+            {
+              "title": "Financial position table",
+              "type": "table",
+              "guidance": "Create a table of key financial data with columns: Financial Data (e.g. Client 1 salary, Mortgage etc.), Category (e.g. income), Value (e.g. \u00a380,000)."
+            },
+            {
+              "title": "Portfolio snapshot",
+              "contentToInclude": [
+                "Portfolio performance details",
+                "Income generated and portfolio costs",
+                "Current versus target asset allocation"
+              ],
+              "guidance": "Note portfolio performance and be specific about quantifying values of income or losses against each asset type. Document current versus target asset allocation with specific percentages."
+            },
+            {
+              "title": "Pension position",
+              "contentToInclude": [
+                "Balance and contribution levels",
+                "Investment strategy effectiveness",
+                "Insurance adequacy within pension arrangements",
+                "Beneficiary status"
+              ],
+              "guidance": "Record balance, contribution levels and patterns. Document investment strategy effectiveness. Note insurance adequacy within pension arrangements and beneficiary status."
+            },
+            {
+              "title": "Wealth position",
+              "contentToInclude": [
+                "Overall net worth progression",
+                "Debt levels and serviceability",
+                "Cash flow patterns",
+                "Tax position",
+                "Estate position"
+              ],
+              "guidance": "Document overall net worth progression and analyse debt levels and serviceability. Record cash flow patterns, tax position, and estate position."
+            },
+            {
+              "title": "Insurance review",
+              "contentToInclude": [
+                "Coverage adequacy for current situation",
+                "Claims experience",
+                "Policy updates",
+                "Premium changes and impact",
+                "Recommended adjustments"
+              ],
+              "guidance": "Document coverage adequacy for current situation and record any claims experience. Note policy updates and premium changes with their impact. Record any recommended adjustments."
+            }
+          ]
+        },
+        {
+          "id": "risk_profile",
+          "title": "Risk profile",
+          "subsections": [
+            {
+              "title": "Current state",
+              "contentToInclude": [
+                "Changes to risk tolerance or capacity",
+                "Client comfort with current market conditions",
+                "Direct quotes from client responses about risk tolerance",
+                "Misalignment between profile and strategy"
+              ],
+              "guidance": "Record any changes to risk tolerance or capacity. Document client's comfort with current market conditions using direct quotes. Note any misalignment between profile and strategy."
+            },
+            {
+              "title": "Strategy alignment",
+              "contentToInclude": [
+                "Portfolio alignment with risk profile",
+                "Efficiency or diversification concerns",
+                "Liquidity adequacy for goals",
+                "Income sustainability notes"
+              ],
+              "guidance": "Analyse portfolio alignment with risk profile. Document any efficiency or diversification concerns. Record liquidity adequacy for goals and any notes on income sustainability."
+            }
+          ]
+        },
+        {
+          "id": "summary_of_recommendations",
+          "title": "Summary of recommendations",
+          "type": "table",
+          "guidance": "Create a table summarising key recommendations with two columns: Recommendation and Rationale."
+        },
+        {
+          "id": "service_review",
+          "title": "Service review",
+          "subsections": [
+            {
+              "title": "Fee review",
+              "contentToInclude": [
+                "Current fees, structure and any changes",
+                "Specific client responses as quotes",
+                "Fee questions or concerns",
+                "Fee consent if covered"
+              ],
+              "guidance": "Document current fees, structure and any changes. Record specific client responses as quotes. Note any fee questions or concerns. Only record fee consent if it was covered."
+            },
+            {
+              "title": "Service satisfaction",
+              "contentToInclude": [
+                "Client feedback on service delivery as direct quotes",
+                "Service gaps or improvement needs",
+                "Communication effectiveness"
+              ],
+              "guidance": "Record client feedback on service delivery as direct quotes. Document any service gaps or improvement needs. Note communication effectiveness. Write this section as a brief natural language mini paragraph instead of bullet points."
+            }
+          ]
+        },
+        {
+          "id": "next_steps",
+          "title": "Next steps",
+          "subsections": [
+            {
+              "title": "Action items (list)",
+              "guidance": "List clear next steps with owners and timeframes as bullet points. Don't include information from \"Documents required\"."
+            },
+            {
+              "title": "Action items (table)",
+              "type": "table",
+              "guidance": "Create a table of actions with columns for: owner, due date (if discussed), action, dependency."
+            },
+            {
+              "title": "Review schedule",
+              "contentToInclude": [
+                "Next review timing and focus",
+                "Interim check-in requirements",
+                "Required preparation discussed"
+              ],
+              "guidance": "Document next review timing and focus. Record any interim check-in requirements. Note any required preparation discussed."
+            }
+          ]
+        },
+        {
+          "id": "fiduciary_data",
+          "title": "Fiduciary/Suitability impacting data",
+          "type": "table",
+          "contentToInclude": [
+            "Demographics",
+            "Occupation",
+            "Net worth",
+            "Liquid net worth",
+            "Annual income",
+            "Liquidity needs",
+            "Investment objective",
+            "Risk tolerance",
+            "Time horizon",
+            "Changes in financial situation"
+          ],
+          "guidance": "Create a two-column summary table titled \"Fiduciary/Suitability Impacting Data\" with column headers \"As of [DATE]\" and \"Comment\". Include only the content items above that were actually discussed during the meeting. Format as a table with the first column containing the category name and the second column containing the relevant client details. Keep entries concise and factual, focusing on data points that will influence recommendation suitability and fiduciary considerations."
+        },
+        {
+          "id": "internal_notes",
+          "title": "Internal notes",
+          "subsections": [
+            {
+              "title": "Key insights",
+              "contentToInclude": [
+                "Changes in client engagement or sophistication",
+                "Family dynamics affecting advice",
+                "Vulnerability indicators assessment"
+              ],
+              "guidance": "Record changes in client engagement or sophistication. Note family dynamics affecting advice. MUST always record any observations that may deem the client as vulnerable (this could be a significant life event, health issues, low emotional resilience and capability). If there are none, always confirm this explicitly."
+            },
+            {
+              "title": "Points to watch",
+              "contentToInclude": [
+                "Areas requiring closer monitoring",
+                "Potential future challenges"
+              ],
+              "guidance": "Document areas requiring closer monitoring. Note potential future challenges."
+            },
+            {
+              "title": "Opportunities",
+              "contentToInclude": [
+                "Potential future advice needs",
+                "Cross-referral opportunities"
+              ],
+              "guidance": "Record potential future advice needs. Note cross-referral opportunities."
+            },
+            {
+              "title": "Additional notes",
+              "contentToInclude": [
+                "Other insights relevant for ongoing advice relationship"
+              ],
+              "guidance": "Document any other insights relevant for ongoing advice relationship. Do not include if there are none."
+            },
+            {
+              "title": "Not covered",
+              "contentToInclude": [
+                "Any sections not covered during the meeting"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "compliance",
+          "title": "Compliance",
+          "type": "table",
+          "guidance": "Answer these compliance questions in a table with columns: Question, Result (\u2713/\u2717/? if unclear), Evidence",
+          "questions": [
+            "Did the adviser clearly explain the purpose and scope of the review meeting?",
+            "Were any limitations on the advice scope clearly explained upfront?",
+            "Did the adviser confirm their FCA authorisation status?",
+            "Did the adviser raise their fee disclosures?",
+            "Did the adviser ask about any changes in the client's personal circumstances?",
+            "Did the adviser ask about any changes in the client's goals and objectives?",
+            "Did the client understand key risks and implications?",
+            "Were next steps and timelines clearly communicated?"
+          ]
+        },
+        {
+          "id": "email_draft",
+          "title": "Email draft",
+          "type": "template",
+          "guidance": "Create a follow-up email using this exact format with single line gaps between paragraphs:\n\nHi [client],\n\nGreat to discuss the below today!\n\n[Summarise the meeting in 3-5 bullet points with max one sentence each]\n\nI've noted the following actions for you: [Only include this section if there are client action items]\n\nThanks, [Adviser]"
+        },
+        {
+          "id": "paraplanning_request",
+          "title": "Paraplanning request",
+          "type": "template",
+          "guidance": "Create a paraplanning request formatted as an email with bullet points for key details. Use new paragraphs where necessary. Maximum 250 words. Use this format:\n\nHi,\n\nI discussed the below with [client] today. Could you please help me: [summarise paraplanning related actions or next steps for my firm]\n\nThanks, [Adviser]"
+        }
+      ]
+    }
+  },
+  {
+    "id": "519d3791-2711-4eac-945c-be7354458d7d",
+    "name": "Advice Presentation",
+    "category": "Wealth",
+    "icon": "\ud83d\udcc4",
+    "status": "collected",
+    "sectionCount": 10,
+    "data": {
+      "templateId": "519d3791-2711-4eac-945c-be7354458d7d",
+      "companyId": "fed309ba-c3b2-4640-bda1-bed55caefc62",
+      "templateName": "Advice Presentation",
+      "globalInstructions": [
+        "Ensure the writing style is concise, avoids unnecessary jargon, and focuses on clear, action-oriented language",
+        "Where appropriate, summarise key points or actions using bullet points for clarity and quick reference",
+        "Use British English spelling conventions for consistency and professionalism. This is very important to ensure",
+        "Document factual information rather than adviser opinions, or additional reflections / additions that were not discussed",
+        "Document only bullet points for topics actually discussed in the meeting",
+        "For each bullet point, summarise the topic of the bullet in bold in 4-6 words and then write the actual bullet point e.g.: \"Reasons for seeking advice: Client turned 40 and realised they need a comprehensive financial plan for retirement and children's education\""
+      ],
+      "sections": [
+        {
+          "id": "meeting_details",
+          "title": "Meeting details",
+          "guidance": "Record all attendees and their roles. Note if key decision-makers are present. Include meeting date, time, and location/platform. E.g. \"John Smith - Client, Mary Smith - Spouse, Mike Johnson - Financial Adviser\""
+        },
+        {
+          "id": "scope_confirmation",
+          "title": "Scope confirmation",
+          "subsections": [
+            {
+              "title": "Advice scope",
+              "guidance": "Record explicit confirmation of advice scope. Document client understanding of exclusions and limitations. Note any scope expansion requests. Include confirmation of services covered such as retirement planning, investment advice, tax planning, estate planning, risk management."
+            },
+            {
+              "title": "Information basis",
+              "guidance": "Document any circumstance changes since fact find (only if raised). Outline key information considered including current financial statements, pension statements, investment portfolios, insurance policies. Record impact of any missing information. Note key assumptions confirmed with client."
+            }
+          ]
+        },
+        {
+          "id": "goals_and_circumstance_review",
+          "title": "Goals and circumstance review",
+          "subsections": [
+            {
+              "title": "Confirmed goals",
+              "guidance": "Note down any goals and objectives covered. Record client confirmation of documented goals such as retirement planning, children's education funding, property acquisition, emergency fund establishment. Note any goal priority changes. Document any new goals or objectives raised."
+            },
+            {
+              "title": "Current situation",
+              "guidance": "Document client confirmation of current financial position including salary, bonus structures, allowances, rental income, investment returns, monthly expenses, debt obligations. Note any recent changes to circumstances such as job changes, family additions, inheritance. Record any clarifications needed."
+            }
+          ]
+        },
+        {
+          "id": "strategy_presentation",
+          "title": "Strategy presentation",
+          "subsections": [
+            {
+              "title": "Strategy overview",
+              "guidance": "Note down key recommendations presented. Record client's initial reaction to recommendations. Document specific questions raised about strategies. Note areas requiring deeper explanation such as pension contributions, salary sacrifice, ISAs, and collective investment schemes."
+            },
+            {
+              "title": "Investment strategy",
+              "guidance": "Note down asset allocation recommendations, product selection including unit trusts, investment trusts, exchange-traded funds, and platform choices such as investment management companies or wrap platforms. Document client understanding of currency hedge exposure, UK vs overseas allocation. Record specific product queries or concerns. Note client comfort with investment approach and risk levels."
+            },
+            {
+              "title": "Risk management",
+              "guidance": "Document client response to life assurance, critical illness cover, income protection, and private medical insurance recommendations (only note if discussed). Record estate planning discussion points including wills, trusts, and beneficiary nominations (only note if discussed). Note risk mitigation preferences and existing group scheme benefits."
+            },
+            {
+              "title": "Structural recommendations",
+              "guidance": "Document client comprehension of tax-efficient structures including pensions, ISAs, salary sacrifice, and general investment accounts. Record questions about allowance limits and tax implications. Note any implementation concerns regarding HMRC compliance."
+            },
+            {
+              "title": "Summary of recommendations",
+              "type": "table",
+              "guidance": "Create a table summarising key recommendations. Use columns for: Recommendation, Rationale, and Implementation Priority."
+            }
+          ]
+        },
+        {
+          "id": "implementation_detail",
+          "title": "Implementation detail",
+          "subsections": [
+            {
+              "title": "Financial impact",
+              "guidance": "Document any discussion on financial projections including retirement funding shortfalls, education cost estimates, and tax savings. Record client's understanding of projected outcomes. Record specific concerns about affordability and cash flow impact. Note questions about inflation impact and currency volatility."
+            },
+            {
+              "title": "Product details",
+              "guidance": "Record specific product questions about pension schemes, ISAs, unit trusts, and insurance policies. Document client understanding of key features including liquidity, tax implications, and withdrawal restrictions. Note down the risks and constraints outlined including market risk, currency risk, and regulatory changes. Note any alternative product requests."
+            },
+            {
+              "title": "Implementation sequence",
+              "guidance": "Document client comfort with proposed timeline for pension transfers, ISA applications, and insurance setup. Record any timing constraints raised such as bonus payments, tax year-end deadlines, or HMRC requirements. Note resource availability issues."
+            },
+            {
+              "title": "Questions and clarifications",
+              "guidance": "Record specific questions asked by the client about UK tax implications, overseas investment rules, pension transfers, estate planning, and summarise responses as sub-bullets (that aren't captured elsewhere in this summary)"
+            }
+          ]
+        },
+        {
+          "id": "fees_and_costs",
+          "title": "Fees and costs",
+          "subsections": [
+            {
+              "title": "Advice costs",
+              "guidance": "Break down initial advice fees, implementation costs, and ongoing financial planning fees (only include bullets if they were discussed). Document detailed fee discussions including fee structures as percentage of funds under management or fixed annual retainers. Record specific client questions about costs. Note any fee negotiation or concerns."
+            },
+            {
+              "title": "Product costs",
+              "guidance": "Record client understanding of initial charges, annual management charges, performance fees, and platform costs for unit trusts, pension schemes, and investment platforms. Document fee comparison discussions between different product providers and investment management companies."
+            }
+          ]
+        },
+        {
+          "id": "next_steps",
+          "title": "Next steps",
+          "subsections": [
+            {
+              "title": "Client decision",
+              "guidance": "Document client's initial decision indication regarding proceeding with recommendations. Record any decision barriers such as affordability concerns or need for spouse consultation. Note additional information requests such as key features documents or tax calculations."
+            },
+            {
+              "title": "Implementation plan",
+              "guidance": "Note down any actions for adviser or support team including application preparation, client money procedures, and platform setup. Document client commitments including provision of required documents, banking details, and signature scheduling. Note any implementation concerns."
+            },
+            {
+              "title": "Future reviews",
+              "guidance": "Document agreed review frequency such as quarterly, bi-annual, or annual reviews. Record communication preferences including face-to-face meetings, video calls, or telephone reviews. Note service expectations for portfolio reporting and performance updates."
+            }
+          ]
+        },
+        {
+          "id": "internal_notes",
+          "title": "Internal notes",
+          "subsections": [
+            {
+              "title": "Client engagement",
+              "guidance": "Record observations of client engagement level and financial sophistication. Note any resistance to specific recommendations or enthusiasm for particular strategies. Document decision-making dynamics between spouses or family members."
+            },
+            {
+              "title": "Points to watch",
+              "guidance": "Document potential implementation challenges such as client money compliance, beneficiary nominations, or regulatory changes. Record any concerning client reactions to risk warnings or fee disclosures. Note areas needing extra attention during implementation."
+            },
+            {
+              "title": "Opportunities",
+              "guidance": "Record identified future advice needs such as estate planning, education funding, or property investment advice. Note cross-referral opportunities to tax advisers, estate planners, or property specialists. Document potential strategy extensions as client circumstances change."
+            },
+            {
+              "title": "Additional notes",
+              "guidance": "Record any other insights relevant to implementation success or ongoing relationship including client communication preferences, family dynamics, or specific concerns about UK economic conditions. Document any vulnerable client indicators observed under FCA guidelines or confirm \"No vulnerable client indicators identified.\""
+            },
+            {
+              "title": "Not covered",
+              "guidance": "Record here any sections of the above that were not discussed during the meeting"
+            }
+          ]
+        },
+        {
+          "id": "compliance",
+          "title": "Compliance",
+          "type": "table",
+          "guidance": "Answer these compliance questions and provide evidence/quotes as sub-bullets. Create a table with columns for: Question, Result (\u2713/\u2717/?), and Evidence",
+          "questions": [
+            "Did the adviser clearly explain the purpose and scope of the advice?",
+            "Were any limitations on the advice scope clearly explained upfront?",
+            "Did the adviser raise their disclosures including FCA compliance and conflicts of interest?",
+            "Did the client understand key risks including market risk, currency risk, and regulatory changes?",
+            "Were next steps and timelines clearly communicated?"
+          ]
+        },
+        {
+          "id": "email_draft",
+          "title": "Email draft",
+          "type": "template",
+          "guidance": "Create a follow-up email to the client, focusing on the key points discussed and using the format below. Maximum one sentence bullets. Use the format:\n\nHi [client],\n\nGreat to discuss the below today!\n\n[summarise the meeting in 3-5 bullet points covering key recommendations and decisions]\n\nI've noted the following actions for you:\n\n[include any action items for the client, and only include this section if there are action items for the client]\n\nThanks, [Adviser]"
+        }
+      ]
+    }
+  },
+  {
+    "id": "efc0f9e5-acac-4f30-adcb-8ceaad7314b3",
+    "name": "Onboarding",
+    "category": "Wealth",
+    "icon": "\ud83d\udcac",
+    "status": "collected",
+    "sectionCount": 10,
+    "data": {
+      "templateId": "efc0f9e5-acac-4f30-adcb-8ceaad7314b3",
+      "companyId": "fed309ba-c3b2-4640-bda1-bed55caefc62",
+      "templateName": "Onboarding",
+      "globalInstructions": [
+        "Ensure the writing style is concise, avoids unnecessary jargon, and focuses on clear, action-oriented language",
+        "Where appropriate, summarise key points or actions using bullet points for clarity and quick reference",
+        "Use British English spelling conventions for consistency and professionalism. This is very important to ensure",
+        "Document factual information rather than adviser opinions, or additional reflections / additions that were not discussed",
+        "Document only bullet points for topics actually discussed in the meeting",
+        "For each bullet point, summarise the topic of the bullet in bold in 4-6 words and then write the actual bullet point e.g.: \"Reasons for seeking advice: Client turned 40 and realised they need a comprehensive financial plan for retirement and children's education\""
+      ],
+      "sections": [
+        {
+          "id": "meeting_details",
+          "title": "Meeting details",
+          "guidance": "Record all attendees and their roles. Note if key decision-makers are present. E.g. \"Tom Jones - Client\".",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "id": "goal_confirmation",
+          "title": "Goal confirmation",
+          "guidance": "",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Short-term priorities",
+              "guidance": "Confirm immediate priorities and note any changes since initial meeting. Document specific actions needed in next 30-90 days. Record any new urgent matters raised.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Medium-term goals",
+              "guidance": "Review and confirm previously identified goals. Document any changes to priorities or timeframes. Note any new goals identified.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Long-term objectives",
+              "guidance": "Confirm core strategy alignment with long-term goals. Document key milestones for tracking progress. Note any changes to long-term vision.",
+              "contentToInclude": []
+            }
+          ]
+        },
+        {
+          "id": "implementation_considerations",
+          "title": "Implementation considerations",
+          "guidance": "",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Investment approach",
+              "guidance": "Document specific asset allocation preferences and ideas. Record proposed platforms and products. Note rebalancing preferences and authorities. Capture reporting preferences and frequency.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Risk management",
+              "guidance": "Record specific insurance needs and implementation priorities. Document estate planning requirements. Note emergency fund strategy and targets.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Structural considerations",
+              "guidance": "Document agreed entity structures and implementation sequence. Note tax implications discussed. Record estate planning priorities and timeline. Note down any points discussed on business succession or family considerations",
+              "contentToInclude": []
+            }
+          ]
+        },
+        {
+          "id": "documentation_and_initialisation",
+          "title": "Documentation and initialisation",
+          "guidance": "",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Required documents",
+              "guidance": "Create checklist of outstanding documents needed (e.g. identity documents, tax details, bank accounts, trust/company docs, power of attorney). Note any special requirements for document collection. Record any concerns about document availability.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Platform setup",
+              "guidance": "Document required platform access and authority levels. Note any special reporting requirements.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Professional liaison",
+              "guidance": "Record contact details and preferred communication methods for other professionals. Document information sharing authorities. Note coordination requirements.",
+              "contentToInclude": []
+            }
+          ]
+        },
+        {
+          "id": "implementation_plan",
+          "title": "Implementation plan",
+          "guidance": "",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Immediate actions",
+              "guidance": "List specific tasks with owners and deadlines. Document dependencies between tasks. Note any potential roadblocks.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Timeline & milestones",
+              "guidance": "Record key dates and completion targets. Document critical path items. Note contingency timeframes. Note review points / progress checks.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Responsibilities",
+              "guidance": "Document who is responsible for each action. Record follow-up protocols. Note any resource constraints.",
+              "contentToInclude": []
+            }
+          ]
+        },
+        {
+          "id": "service_agreement",
+          "title": "Service agreement",
+          "guidance": "",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Fee structure",
+              "guidance": "Document specific one off and ongoing fees (amounts or %s) and payment arrangements. Record client's understanding of all costs. Note any fee questions or concerns raised. Capture specific client acknowledgment of fees.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Service offering",
+              "guidance": "Record selected service package and client's understanding of inclusions. Document any additional services requested. Note any service level questions or customisation needs. Note the meeting frequency and review process",
+              "contentToInclude": []
+            },
+            {
+              "title": "Communication preferences",
+              "guidance": "Document preferred contact methods and frequency for different types of communication. Note any specific requirements for urgent matters. Record authorised parties for different types of instructions.",
+              "contentToInclude": []
+            }
+          ]
+        },
+        {
+          "id": "next_steps",
+          "title": "Next steps",
+          "guidance": "",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Upcoming meetings",
+              "guidance": "Record next meeting details and purpose. Document preparation requirements. Note expected outcomes.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Documentation timeline",
+              "guidance": "Create timeline for document collection and processing. Note any external deadlines affecting implementation.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Action items (list)",
+              "guidance": "List clear next steps with owners and timeframes as bullet points. Don't include information from \"Documents required\"",
+              "contentToInclude": []
+            },
+            {
+              "title": "Action items (table)",
+              "guidance": "In addition to the above list of actions, create a table of actions, with columns for: owner, due date (if discussed), action, dependency",
+              "contentToInclude": [],
+              "type": "table"
+            }
+          ]
+        },
+        {
+          "id": "internal_notes",
+          "title": "Internal notes",
+          "guidance": "",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Setup notes",
+              "guidance": "Record any special handling requirements or implementation complexities.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Watch points",
+              "guidance": "Note potential implementation challenges or dependencies. Document any concerns about client commitment or capacity.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Opportunities",
+              "guidance": "Record potential future advice opportunities identified during onboarding.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Additional notes",
+              "guidance": "Document any other insights relevant to successful implementation. Document any vulnerable client indicators observed under FCA guidelines or confirm \"No vulnerable client indicators identified.\"",
+              "contentToInclude": []
+            },
+            {
+              "title": "Not covered",
+              "guidance": "Record here any sections of the above that we didn't cover",
+              "contentToInclude": []
+            }
+          ]
+        },
+        {
+          "id": "compliance",
+          "title": "Compliance",
+          "guidance": "Answer these in a table with columns for: question, result (\u2713/\u2717/? if it is not clear), and evidence",
+          "contentToInclude": [],
+          "subsections": [],
+          "questions": [
+            "Did the adviser seek a comprehensive overview of the client's financial situation?",
+            "Did the adviser ask about the client's goals and objectives?",
+            "Did the adviser discuss a scope of service?",
+            "Did the adviser raise their disclosures?",
+            "Were next steps and timelines clearly communicated?"
+          ]
+        },
+        {
+          "id": "email_draft",
+          "title": "Email draft",
+          "guidance": "Create a follow up email to the client, focusing on the key points discussed and using the below format. Single line gaps between paragraphs. Max one sentence bullets. Use the below format:\n\nHi [client],\n\nGreat to discuss the below today! [summarise the meeting in 3-5 bullet points]\n\nI've noted the following actions for you:\n\n[include any action items for the client, and only include this section if there are action items for the client]\n\nThanks, [Adviser]",
+          "contentToInclude": [],
+          "subsections": [],
+          "type": "template"
+        }
+      ]
+    }
+  },
+  {
+    "id": "fe1d3575-c5b8-4f5e-8e71-036605d9d8c6",
+    "name": "Advice Presentation (Descriptive)",
+    "category": "Wealth",
+    "icon": "\ud83d\udcd1",
+    "status": "collected",
+    "sectionCount": 11,
+    "data": {
+      "templateId": "fe1d3575-c5b8-4f5e-8e71-036605d9d8c6",
+      "companyId": "fed309ba-c3b2-4640-bda1-bed55caefc62",
+      "templateName": "Advice Presentation (Descriptive)",
+      "globalInstructions": [
+        "Write in narrative, descriptive style rather than bullet points for main content sections",
+        "Focus on conversation flow and client reactions",
+        "Use past tense to describe what was presented and discussed",
+        "Include direct quotes from clients where meaningful",
+        "Capture client personality, concerns, and engagement levels",
+        "Maintain professional tone while being engaging and descriptive",
+        "Document factual information rather than adviser opinions",
+        "Document only topics actually discussed in the meeting",
+        "For each main content section, write flowing paragraphs that tell the story of what was covered, how the client responded, and any questions or concerns raised",
+        "Use British English spelling and terminology throughout",
+        "Reference UK financial products, regulations, and market conditions"
+      ],
+      "sections": [
+        {
+          "id": "meeting_details",
+          "title": "Meeting details",
+          "guidance": "Record all participants and their roles using bullet points. Include date, time, format (in-person/video call), and location. Note if any expected attendees were missing. Example: \"John Smith (Client), Sarah Jones (Adviser), Meeting held via video conference at London office\""
+        },
+        {
+          "id": "scope_confirmation",
+          "title": "Scope confirmation",
+          "guidance": "Document explicit confirmation of advice scope in narrative form. Describe the client's understanding of exclusions and limitations and note any scope expansion requests. Write about how the scope was presented and the client's comfort level with what would be covered. Include confirmation of FCA regulation compliance and the adviser's status as an authorised person."
+        },
+        {
+          "id": "information_basis",
+          "title": "Information basis",
+          "guidance": "Document any circumstance changes since fact find (only if raised) in narrative form. Outline key information considered and record impact of any missing information. Note key assumptions confirmed with client. Write about the foundation of information used for the advice and how any gaps were addressed. Reference any updated P60s, payslips, or pension statements received since the initial fact find."
+        },
+        {
+          "id": "goals_and_circumstance_review",
+          "title": "Goals and circumstance review",
+          "guidance": "Write a comprehensive narrative covering the goals review process.",
+          "subsections": [
+            {
+              "title": "Confirmed goals",
+              "guidance": "Note down any goals and objectives covered in narrative form. Record client confirmation of documented goals and note any goal priority changes. Document any new goals or objectives raised. Write about how each goal was discussed and the client's commitment to achieving them. Include discussion of retirement planning, children's education funding, emergency fund requirements, and wealth preservation goals."
+            },
+            {
+              "title": "Current situation",
+              "guidance": "Document client confirmation of current financial position (income, assets, expenses, debts) in narrative form. Note any recent changes to circumstances and record any clarifications needed. Describe how the current situation was reviewed and validated. Include confirmation of employment benefits, pension contributions, ISA allowances, and investment holdings."
+            }
+          ]
+        },
+        {
+          "id": "strategy_presentation",
+          "title": "Strategy presentation",
+          "guidance": "Write a comprehensive narrative about how the overall strategy was presented to the client.",
+          "subsections": [
+            {
+              "title": "Strategy overview",
+              "guidance": "Note down key recommendations in narrative form. Record client's initial reaction to recommendations and document specific questions raised about strategies. Note areas requiring deeper explanation. Describe the flow of the presentation and how the client engaged with the material. Include discussion of tax-efficient structuring, pension optimisation, and platform recommendations."
+            },
+            {
+              "title": "Investment strategy",
+              "guidance": "Note down asset allocation, product selection, and platform choices in narrative form. Document client understanding of asset allocation and record specific product queries or concerns. Note client comfort with investment approach. Write about how the investment strategy was explained and the client's response to the recommendations. Include discussion of UK versus overseas exposure, unit trust selections, investment trusts, and ISA considerations."
+            },
+            {
+              "title": "Risk management",
+              "guidance": "Document client response to insurance recommendations (only note if discussed) in narrative form. Record estate planning discussion points (only note if discussed) and note risk mitigation preferences. Write about how risk management strategies were presented and the client's understanding of their importance. Include discussion of life assurance, critical illness cover, income protection, private medical insurance, and inheritance tax planning."
+            },
+            {
+              "title": "Structural recommendations",
+              "guidance": "Document client comprehension of tax-efficient structure recommendations in narrative form. Record questions about structures and note any implementation concerns. Write about how structural strategies were explained and the client's comfort level with these recommendations. Include discussion of pension schemes, ISAs, trusts, salary sacrifice arrangements, and general investment accounts."
+            },
+            {
+              "title": "Summary of recommendations",
+              "type": "table",
+              "guidance": "Create a table summarising key recommendations with three columns: Recommendation, Rationale, and Client Response. Include the client's specific reactions, questions, or concerns for each major recommendation presented. Cover pension consolidation, ISA maximisation, investment platform transfers, overseas investment allocation, and protection gap analysis."
+            }
+          ]
+        },
+        {
+          "id": "implementation_detail",
+          "title": "Implementation detail",
+          "guidance": "Write a comprehensive narrative about how implementation was discussed.",
+          "subsections": [
+            {
+              "title": "Financial impact",
+              "guidance": "Document any discussion on projections and note client's understanding in narrative form. Record specific concerns about financial impacts and note cash flow and tax questions. Write about how the financial implications were presented and the client's reaction to projected outcomes. Include discussion of tax implications, allowance limits, and projected growth scenarios."
+            },
+            {
+              "title": "Product details",
+              "guidance": "Record specific product questions and responses in narrative form. Document client understanding of key features and benefits and note down the risks and constraints that were outlined. Note any alternative product requests. Write about how products were explained and the client's comfort with the recommendations. Include discussion of unit trust charges, platform fees, with-profits policy benefits, and pension tax advantages."
+            },
+            {
+              "title": "Implementation sequence",
+              "guidance": "Document client comfort with timeline in narrative form. Record any timing constraints raised and note resource availability issues. Write about the proposed implementation sequence and any concerns the client expressed about timing or logistics. Include discussion of transfer timelines, regulatory approval processes, and tax year-end considerations."
+            },
+            {
+              "title": "Questions and clarifications",
+              "guidance": "Record specific questions asked by the client in narrative form, and summarise responses as sub-bullets. Focus on significant clarifications and complex concepts that required additional explanation. Include questions about tax implications of different structures, regulatory changes, and understanding of investment risks."
+            }
+          ]
+        },
+        {
+          "id": "fees_and_costs",
+          "title": "Fees and costs",
+          "guidance": "Write a comprehensive narrative about how all costs were presented and discussed.",
+          "subsections": [
+            {
+              "title": "Advice costs",
+              "guidance": "Break down any initial, implementation and ongoing service fees in narrative form. Document detailed fee discussions and record specific client questions about costs. Note any fee negotiation or concerns. Write about how fees were presented and the client's understanding of the value proposition. Include discussion of initial advice fees, ongoing portfolio management fees, and annual review costs."
+            },
+            {
+              "title": "Product costs",
+              "guidance": "Record client understanding of initial and ongoing product costs in narrative form. Document fee comparison discussions. Write about how product costs were explained and any concerns raised about ongoing expenses. Include discussion of unit trust annual management charges, platform administration fees, with-profits policy charges, and pension scheme fees."
+            }
+          ]
+        },
+        {
+          "id": "next_steps",
+          "title": "Next steps",
+          "guidance": "Write a comprehensive narrative about what happens next and the agreements made.",
+          "subsections": [
+            {
+              "title": "Client decision",
+              "guidance": "Document client's initial decision indication in narrative form. Record any decision barriers and note additional information requests. Write about the client's readiness to proceed and any hesitations expressed. Include discussion of cooling-off periods, FCA disclosure requirements, and time needed for decision-making."
+            },
+            {
+              "title": "Implementation plan",
+              "guidance": "Note down any actions for adviser or support team in narrative form. Document client commitments and timing and note any implementation concerns. Write about the agreed implementation process and responsibilities. Include completion of client money procedures, application forms, and regulatory documentation where required."
+            },
+            {
+              "title": "Future reviews",
+              "guidance": "Document agreed review frequency and scope in narrative form. Record communication preferences and note service expectations. Write about how the ongoing relationship and review process was discussed. Include discussion of annual review meetings, quarterly performance reports, and ad-hoc consultation availability."
+            }
+          ]
+        },
+        {
+          "id": "financial_planning_data",
+          "title": "Financial planning data",
+          "type": "table",
+          "guidance": "Create a comprehensive table capturing all key financial information discussed during the presentation. Use three columns with headers \"Financial Data\", \"Category\", and \"Value/Details\". Include items such as: Client income sources with specific amounts and employers, Property values and mortgage details with current balances, Pension fund balances with scheme names and contribution levels, ISA holdings with types and approximate values, Investment holdings with platforms and approximate values, Cash savings with amounts and account locations, Debt positions with outstanding amounts and terms, Employee benefits and employer pension contributions. Only include information that was actually discussed or confirmed during the presentation meeting."
+        },
+        {
+          "id": "suitability_impacting_data",
+          "title": "Suitability impacting data",
+          "type": "table",
+          "guidance": "Create a suitability assessment table with three columns: the first column listing factors, the second column providing details as of the presentation date, and a third column with relevant comments. Include factors: Demographics, Occupation, Net Worth, Liquid Net Worth, Annual Income, Liquidity Needs, Investment Objective, Risk Tolerance, Time Horizon, Implementation Capacity, Changes in Financial Situation."
+        },
+        {
+          "id": "internal_notes",
+          "title": "Internal notes",
+          "guidance": "Write narrative sections as needed for observations and insights.",
+          "subsections": [
+            {
+              "title": "Client engagement",
+              "guidance": "Record observations of client engagement level in narrative form. Note any resistance or enthusiasm and document decision-making dynamics. Include observations about the client's financial sophistication, understanding of concepts presented, and comfort level with recommended strategies."
+            },
+            {
+              "title": "Additional considerations",
+              "guidance": "Document any other relevant observations or considerations that may impact the advice relationship in narrative form. Include notes about client expectations, communication preferences, and any special circumstances that may affect ongoing service delivery. Document any vulnerable client indicators observed under FCA guidelines or confirm \"No vulnerable client indicators identified.\""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "f184d0d8-aeab-4ac2-8e68-f71aedf221f8",
+    "name": "Initial Strategy",
+    "category": "Wealth",
+    "icon": "\u26a1",
+    "status": "collected",
+    "sectionCount": 3,
+    "data": {
+      "templateId": "f184d0d8-aeab-4ac2-8e68-f71aedf221f8",
+      "companyId": "fed309ba-c3b2-4640-bda1-bed55caefc62",
+      "templateName": "Initial Strategy",
+      "globalInstructions": [
+        "Ensure the writing style is concise, avoids unnecessary jargon, and focuses on clear, action-oriented language",
+        "Where appropriate, summarise key points or actions using bullet points for clarity and quick reference",
+        "Use British English spelling and terminology throughout",
+        "Document factual information rather than adviser opinions",
+        "Document only bullet points for topics actually discussed in the meeting",
+        "For each bullet point, summarise the topic of the bullet in bold in 4-6 words and then write the complete intended bullet point",
+        "Document any vulnerable client indicators observed under FCA guidelines or confirm \"No vulnerable client indicators identified\""
+      ],
+      "sections": [
+        {
+          "id": "meeting_details",
+          "title": "Meeting details",
+          "guidance": "Record all participants and their roles. E.g. Ben (Adviser), Sam (Client). Note if any expected attendees are missing.",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Meeting purpose and context",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Purpose of strategy discussion meeting",
+              "guidance": "Key outcomes from initial fact-find meeting\n\nClient's expectations for this discussion",
+              "contentToInclude": []
+            },
+            {
+              "title": "Any changes since initial meeting",
+              "guidance": "Questions arising from initial consultation\n\nDocument the specific purpose of this strategy meeting and reference key points from the initial fact-find that inform today's discussion. Note any changes in circumstances or new questions that have emerged.\n\nRisk strategy confirmation and refinement\n\nRisk profile discussion: Document client's response to their risk assessment results and any concerns expressed\n\nTime horizon alignment: Record specific timeframes for different goals and how these affect risk capacity\n\nScenario testing: Note hypothetical situations discussed to validate client's understanding of potential volatility\n\nStrategy confirmation: Record the agreed risk approach for different portfolio elements and client's explicit comfort confirmation\n\nInvestment philosophy and approach discussion",
+              "contentToInclude": [
+                "Risk questionnaire results and scores discussed",
+                "Client's reaction to risk profile outcomes",
+                "Specific investment time horizons for different goals",
+                "Risk capacity assessment based on financial position",
+                "Alignment between risk tolerance, capacity, and required returns",
+                "Scenarios discussed to test risk understanding",
+                "Any constraints or preferences affecting risk approach",
+                "Final agreed risk strategy for portfolio segments",
+                "Client confirmation of comfort with risk approach",
+                "Firm's investment philosophy and methodology explained",
+                "Asset allocation framework and diversification principles",
+                "Investment selection and research process",
+                "Portfolio construction and rebalancing approach",
+                "Recommended investment platforms and structures",
+                "Tax wrapper recommendations (ISAs, pensions, GIAs)"
+              ]
+            },
+            {
+              "title": "ESG or ethical investment preferences",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Ongoing monitoring and review processes",
+              "guidance": "Client questions about investment approach\n\nTax efficiency considerations in investment selection\n\nInvestment philosophy: Document how the firm's approach was explained and client's understanding\n\nPlatform recommendations: Record suggested investment structures and rationale for recommendations\n\nClient preferences: Note any ethical considerations, exclusions, or specific requirements\n\nOngoing management: Record how portfolios will be monitored, reviewed, and adjusted over time",
+              "contentToInclude": []
+            },
+            {
+              "title": "Strategy alternatives and trade-offs",
+              "guidance": "",
+              "contentToInclude": [
+                "Different strategic approaches considered"
+              ]
+            },
+            {
+              "title": "Trade-offs between competing objectives",
+              "guidance": "Impact of different risk levels on potential outcomes\n\nAlternative investment structures evaluated\n\nScenarios showing different strategy outcomes\n\nClient preferences between alternative approaches\n\nRationale for recommended strategy selection\n\nDocument different strategic options presented to the client and the trade-offs discussed. Record client's preferences when choosing between alternatives and rationale for final strategy selection.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Service proposition and fee agreement",
+              "guidance": "",
+              "contentToInclude": [
+                "Service levels available and recommendations"
+              ]
+            },
+            {
+              "title": "Ongoing advice and support included",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Review meeting frequency and format",
+              "guidance": "Initial advice fee structure and payment terms",
+              "contentToInclude": []
+            },
+            {
+              "title": "Ongoing service fees and charging basis",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Value proposition and services included",
+              "guidance": "Client questions about fees and services",
+              "contentToInclude": []
+            },
+            {
+              "title": "Agreed service level and fee structure",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Payment arrangements and timing",
+              "guidance": "Service levels: Document different service options explained and rationale for recommendations\n\nFee discussion: Record fee structure, payment terms, and client's response to fee discussion\n\nService agreement: Note the agreed service level and explicit fee acceptance",
+              "contentToInclude": []
+            },
+            {
+              "title": "Implementation planning and next steps",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Scope of advice to be provided",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Information still required from client",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Timeline for advice preparation",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Implementation sequence and priorities",
+              "guidance": "Third-party involvement (platforms, providers)",
+              "contentToInclude": []
+            },
+            {
+              "title": "Review and adjustment process",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Next meeting arrangements",
+              "guidance": "Document the agreed scope of work, timeline for delivery, and specific next steps for both adviser and client. Note any third-party arrangements required for implementation.\n\nClient suitability data\n\nCreate a two-column summary table titled 'Client Suitability Data' with column headers 'As of [DATE]' and 'Comment'. Include demographics, occupation, net worth, liquid net worth, annual income, liquidity needs, investment objective, risk tolerance, time horizon, and changes in financial situation that were actually discussed during the meeting. Format as a table with the first column containing the category name and the second column containing the relevant client details. Keep entries concise and factual, focusing on data points that will influence strategy recommendations.",
+              "contentToInclude": []
+            }
+          ]
+        },
+        {
+          "id": "next_steps",
+          "title": "Next steps",
+          "guidance": "Client actions: List specific information, decisions, or tasks required from client with deadlines.\n\nAdviser actions: Note advice preparation tasks, research required, and follow-up arrangements with timeframes.\n\nVulnerability assessment and client insights\n\nVulnerability assessment: MUST always record any observations that may indicate client vulnerability (significant life events, health issues, low emotional resilience) or explicitly confirm none identified\n\nClient insights: Note decision-making style, sophistication level, and any factors that could affect advice implementation",
+          "contentToInclude": [
+            "Vulnerable client indicators observed or confirmed none identified",
+            "Decision-making style and financial sophistication level",
+            "Communication preferences and family dynamics",
+            "Any concerns about implementation capability",
+            "Potential complexities requiring specialist input"
+          ],
+          "subsections": [
+            {
+              "title": "Compliance confirmation",
+              "guidance": "Create a table with columns: Question, Result (\u2713/\u2717/?), Evidence\n\nDid the adviser confirm regulatory authorisation status?\n\nDid the adviser explain the investment philosophy and approach?\n\nDid the adviser discuss risk strategy and confirm client understanding?\n\nDid the adviser explain service proposition and fee structure?\n\nDid the adviser obtain clear agreement on services and fees?\n\nWere next steps and timelines clearly communicated?",
+              "contentToInclude": [],
+              "type": "table"
+            }
+          ]
+        },
+        {
+          "id": "email_draft",
+          "title": "Email draft",
+          "guidance": "Create a follow-up email using this format:\n\nHi [client],\n\nThanks for our strategy discussion today!\n\nKey points we covered: [Include 3-4 key strategy points discussed]\n\nWhat happens next: [Include adviser next steps and timeline] [Include any client actions required]\n\nI'll be in touch by [date] with your recommendations.\n\nThanks, [Adviser]",
+          "contentToInclude": [],
+          "subsections": [],
+          "type": "template"
+        }
+      ]
+    }
+  },
+  {
+    "id": "e5e63b32-5b4c-4944-a76d-34889a3734a3",
+    "name": "Ad Hoc Meeting",
+    "category": "Other",
+    "icon": "\ud83d\udcac",
+    "status": "collected",
+    "sectionCount": 3,
+    "data": {
+      "templateId": "e5e63b32-5b4c-4944-a76d-34889a3734a3",
+      "companyId": "fed309ba-c3b2-4640-bda1-bed55caefc62",
+      "templateName": "Ad Hoc Meeting",
+      "globalInstructions": [
+        "Document only bullet points for topics actually discussed in the meeting",
+        "Be specific about products, policies and arrangements",
+        "Explicitly note when clients don't have specific products",
+        "Document factual information rather than adviser opinions",
+        "Ensure the writing style is concise, avoids unnecessary jargon, and focuses on clear, action-oriented language",
+        "Where appropriate, summarise key points or actions using bullet points for clarity and quick reference",
+        "Use spelling that is appropriate for the jurisdiction",
+        "For each bullet point, summarise the topic of the bullet in bold in 4-6 words and then write the complete intended bullet point",
+        "Include additional sections based on meeting discussion topics using your judgment, but only if meaningfully discussed"
+      ],
+      "sections": [
+        {
+          "id": "meeting_details",
+          "title": "Meeting details",
+          "guidance": "Record all attendees and their roles. Note if key decision-makers are present. Example: \"Tom Jones (Client), Sarah Jones (Spouse), Ben Smith (Adviser)\".",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Context",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Reason for meeting or client request",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Urgency level and rationale",
+              "guidance": "Client expectations for the meeting",
+              "contentToInclude": []
+            },
+            {
+              "title": "Desired outcomes from discussion",
+              "guidance": "Previous actions or advice related to topic\n\nExternal factors or events influencing situation\n\nDocument specific reason client requested meeting and urgency level. Record what client hopes to achieve and desired outcomes. Note relevant history, previous advice, and external factors affecting the situation.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Current impact",
+              "guidance": "",
+              "contentToInclude": [
+                "How discussed items affect current strategy"
+              ]
+            },
+            {
+              "title": "Required strategy adjustments",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Timeline impacts on existing plans",
+              "guidance": "Risk considerations arising from discussion",
+              "contentToInclude": []
+            },
+            {
+              "title": "Immediate financial implications",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Long-term effects on financial plan",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Impact on cash flow, costs, or resources",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Opportunity costs of proposed changes",
+              "guidance": "Document how discussion topics affect current plans and required adjustments. Record immediate and long-term financial effects including cash flow and opportunity costs. Note any new risk considerations arising from the discussion.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Required actions",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Specific urgent tasks and task owners",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Information or documentation needed",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Key actions for client to complete",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Key actions for adviser to undertake",
+              "guidance": "Dependencies or constraints affecting implementation",
+              "contentToInclude": []
+            },
+            {
+              "title": "Communication and follow-up plans",
+              "guidance": "Document urgent actions with clear ownership and timeframes. Record specific documentation or information required. Note communication schedule and dependencies affecting progress.",
+              "contentToInclude": []
+            }
+          ]
+        },
+        {
+          "id": "client_background",
+          "title": "Client background",
+          "guidance": "Only include this section if client background information was discussed. Provide a brief summary of the client's current situation, family circumstances, and relevant personal or professional context that influenced the meeting discussion.",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Goals and objectives",
+              "guidance": "Only include this section if goals and objectives were discussed. Document the client's key financial goals, priorities, and objectives mentioned during the meeting. Include timeframes and specific targets where discussed.",
+              "contentToInclude": []
+            }
+          ]
+        },
+        {
+          "id": "risk_profile",
+          "title": "Risk profile",
+          "guidance": "Only include this section if risk-related topics were discussed. Summarise the client's risk tolerance, capacity, and any risk-related discussions that occurred during the meeting.",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Summary of advice",
+              "guidance": "Only include this section if advice or recommendations were provided. Provide a summary of the key advice, recommendations, or strategies discussed during the meeting.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Financial position summary",
+              "guidance": "Only include this section if meaningful financial data was discussed. Make a table of key financial data with columns: Data (e.g. Client 1 salary), Category (e.g. income), Value (e.g. \u00a380,000). Include only if at least three rows can be meaningfully populated.\n\nClient suitability data\n\nOnly include this section if detailed suitability information was discussed. Create a two-column summary table titled \"Fiduciary/Suitability Impacting Data\" with column headers \"As of [DATE]\" and \"Comment\". Include demographics, occupation, net worth, liquid net worth, annual income, liquidity needs, meeting objective, risk tolerance, time horizon, and changes in financial situation. Include only if at least three meaningful rows of suitability data can be populated from the meeting discussion.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Additional considerations",
+              "guidance": "",
+              "contentToInclude": [
+                "New understanding of client needs or preferences",
+                "Changes in client sentiment or engagement"
+              ]
+            },
+            {
+              "title": "Family or business dynamics observed",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Concerns or areas needing attention",
+              "guidance": "Potential issues requiring additional oversight",
+              "contentToInclude": []
+            },
+            {
+              "title": "Compliance concerns identified",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Future advice opportunities identified",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Cross-referral possibilities",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Potential value-add services",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Vulnerability indicators assessment",
+              "guidance": "Record new understanding of client preferences, sentiment changes, or family dynamics. Document concerns, potential issues, or areas requiring additional oversight. Note future advice possibilities, referral opportunities, or value-add services. MUST always record any observations that may deem the client as vulnerable (this could be a significant life event, health issues, low emotional resilience and capability). If there are none, always confirm this explicitly.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Follow-up email",
+              "guidance": "Draft a follow-up email to the client using the structure below:\n\nHi [client name(s)],\n\nThanks for your time today.\n\nKey discussion points [Summarise 2-3 main topics discussed] [Include any decisions made or agreements reached]\n\nNext steps [Include action items for client] [Include action items for adviser] [Include any follow-up timing or deadlines]\n\nPlease let me know if you have any questions or if I've missed anything from our discussion.\n\nThanks, [Adviser name]",
+              "contentToInclude": [],
+              "type": "template"
+            },
+            {
+              "title": "fff",
+              "guidance": "",
+              "contentToInclude": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ca2167c5-7512-4916-bd5a-a8a763850a95",
+    "name": "Initial Consultation",
+    "category": "Wealth",
+    "icon": "\u26a1",
+    "status": "collected",
+    "sectionCount": 7,
+    "data": {
+      "templateId": "ca2167c5-7512-4916-bd5a-a8a763850a95",
+      "companyId": "fed309ba-c3b2-4640-bda1-bed55caefc62",
+      "templateName": "Initial Consultation",
+      "globalInstructions": [
+        "Ensure the writing style is concise, avoids unnecessary jargon, and focuses on clear, action-oriented language",
+        "Where appropriate, summarise key points or actions using bullet points for clarity and quick reference",
+        "Use spelling that is appropriate for the jurisdiction. This is very important to ensure",
+        "Use the correct terminology based on the jurisdiction",
+        "Document factual information rather than adviser opinions, or additional reflections/additions that were not discussed",
+        "Document only bullet points for topics actually discussed in the meeting",
+        "For each bullet point, summarise the topic of the bullet in bold in 4-6 words and then write the complete intended bullet point e.g.: \"Reasons for seeking advice: Sarah turned 35 and had a realisation about retirement and whether she's on track. She knows she should be doing more with her finances but has been putting it off.\"",
+        "Where possible, utilise client's own words"
+      ],
+      "sections": [
+        {
+          "id": "meeting_details",
+          "title": "Meeting details",
+          "guidance": "",
+          "contentToInclude": [
+            "All participants and their roles"
+          ],
+          "subsections": [
+            {
+              "title": "Any expected attendees who were missing",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Meeting format (in-person, video, phone)",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Meeting duration and location",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "FCA authorisation confirmation",
+              "guidance": "Record all participants with their roles clearly identified (e.g., \"Ben (Adviser), Sam (Client)\"). Note if any expected attendees were absent and the reason if discussed. Confirm adviser stated their FCA authorisation status.",
+              "contentToInclude": []
+            }
+          ]
+        },
+        {
+          "id": "client_background",
+          "title": "Client background",
+          "guidance": "",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Motivation",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Reasons for seeking advice",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Key concerns or triggers",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Previous advice experience",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Expectations from relationship",
+              "guidance": "Document specific catalysts for seeking advice now. Note any urgency in timing. Capture previous experience with financial advice including what worked/didn't work. Record specific expectations for the advice relationship.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Personal situation",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Family composition",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Ages and life stage",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Health considerations",
+              "guidance": "Location/living situation - reference residency if possible",
+              "contentToInclude": []
+            },
+            {
+              "title": "Anticipated life changes",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Family commitments",
+              "guidance": "Detail current family structure, including ages and key relationships. Note any health issues affecting financial planning. Document upcoming life changes. Record living situation and any planned changes.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Values & attitudes",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Money beliefs/experiences",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Investment preferences",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Ethical considerations",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Family wealth values",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Legacy intentions",
+              "guidance": "Document client's money story - past experiences, beliefs, and behaviours. Note family dynamics around money. Record any ethical investing preferences with specific exclusions.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Financial position",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Income and expenditure",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Employment/business status",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Career outlook",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Income details",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Professional goals",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Work-life preferences",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Timeline for retirement",
+              "guidance": "Any additional income sources (rent, investment income etc)\n\nCash flow patterns - including details of expenditure (as detailed as possible)\n\nCapture detailed employment/business situation including stability and satisfaction. Note career plans and expected changes. Document income details including salary, business income, and other sources. Record professional development goals. Record specific income amounts and sources, record each income item as a sub bullet.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Financial position table",
+              "guidance": "Create a table of key financial data with columns: Data (e.g. Client 1 salary), Category (e.g. income), Value (e.g. \u00a380,000). Provide a combined total at the bottom.",
+              "contentToInclude": [],
+              "type": "table"
+            },
+            {
+              "title": "Current snapshot",
+              "guidance": "",
+              "contentToInclude": [
+                "Asset overview - including property ownership, investment structures, pension arrangements"
+              ]
+            },
+            {
+              "title": "Debt position",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Pension position",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Investment holdings",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Business interests and structures",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Insurance coverage",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Estate planning status and tax position",
+              "guidance": "Document major assets with approximate values. Note types and levels of debt. Capture investment positions including pension balances. Detail business interests if relevant. Note insurance coverage and gaps. Document all current financial structures. Note relationships with other professionals and whether they're working well. Record current estate planning status and last review date. Note any tax strategies in place.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Financial position table",
+              "guidance": "Create a table of key financial data with columns: Data (e.g. Client 1 asset), Category (e.g. house), Value (e.g. \u00a380,000). Provide a total net worth at the bottom.",
+              "contentToInclude": [],
+              "type": "table"
+            },
+            {
+              "title": "Goals and priorities",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Goal discovery",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Short-term needs (0-3 years)",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Medium-term goals (3-10 years)",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Long-term aspirations (10+ years)",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Retirement vision",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Estate/legacy intentions",
+              "guidance": "Record specific goals with amounts and timeframes. For each goal, note importance level and flexibility. Document detailed retirement vision including timing, lifestyle, and income needs. Note any legacy intentions with specific details.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Key concerns",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Investment worries",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Family considerations",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Business issues",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Tax matters",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Estate planning needs",
+              "guidance": "Document specific worries about markets, family, or business. Note any immediate issues needing resolution. Record concerns about existing strategies or structures.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Priorities & trade-offs",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Critical outcomes",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Time sensitivity",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Resource allocation",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Risk/return balance",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Lifestyle preferences",
+              "guidance": "Capture which outcomes matter most and why. Note competing priorities and preferred trade-offs.",
+              "contentToInclude": []
+            }
+          ]
+        },
+        {
+          "id": "risk_profile",
+          "title": "Risk profile",
+          "guidance": "",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "General risk discussion",
+              "guidance": "Document the approach to risk assessment discussed and any specific methodology referenced by the adviser.",
+              "contentToInclude": [
+                "Any discussion relating to how the adviser views risk",
+                "Any discussion relating to the firm's risk rating strategy and the process to identify the risk rating",
+                "Any questions posed by the adviser or client"
+              ]
+            },
+            {
+              "title": "Investment experience",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Previous investment types held",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Understanding of different assets",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Trading frequency and style",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Previous market cycle experience",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Self-directed investment history",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Any references to adviser relationships",
+              "guidance": "Document types of investments previously held and current holdings. Note level of understanding of different asset classes. Record any self-directed investment experience including trading patterns. Capture experience through previous market cycles.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Risk tolerance",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Emotional response to volatility",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Investment preference testing",
+              "guidance": "Risk questionnaire results or any discussion of providing risk questionnaire",
+              "contentToInclude": []
+            },
+            {
+              "title": "Portfolio preference indicators",
+              "guidance": "Record emotional attitudes to market volatility. Document any risk questionnaire responses (if covered). Note specific examples or quotes demonstrating risk tolerance. Capture portfolio preferences and comfort with different asset classes.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Investment time horizon",
+              "guidance": "Use client words where possible - note specific examples or quotes demonstrating the time horizon. Consider the goals and objectives discussed earlier.",
+              "contentToInclude": [
+                "Investment time horizon - relating to the client objectives where possible",
+                "This may be different for different assets"
+              ]
+            },
+            {
+              "title": "Risk capacity",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Income stability assessment",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Emergency funds position",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Income vs expenses analysis",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Future capital needs",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Debt service obligations",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Investment timeframes",
+              "guidance": "Assess income stability and emergency reserves. Document upcoming capital needs. Note debt obligations and servicing requirements. Record investment time horizons for different goals.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Overall risk position",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Risk required for goals",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Risk capacity constraints",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Risk tolerance alignment",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Preliminary risk profile",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Investment implications",
+              "guidance": "Analyse alignment between required returns, risk capacity, and risk tolerance. Document any misalignment between risk profile elements. Note implications for investment strategy.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Summary and next steps",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Initial observations",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Key challenges identified",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Potential opportunities",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Preliminary strategies",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Areas for deeper analysis",
+              "guidance": "Record key challenges identified during meeting. Note potential strategies aligned with client goals. Document areas needing deeper investigation.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Service discussion",
+              "guidance": "",
+              "contentToInclude": [
+                "Highlight any comments made by the adviser relating to the firm and how they operate"
+              ]
+            },
+            {
+              "title": "Recommended service level",
+              "guidance": "Fee structure - relating to both any initial costs and ongoing costs",
+              "contentToInclude": []
+            },
+            {
+              "title": "Value proposition",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Scope of advice",
+              "guidance": "Note which service level appears appropriate and why. Record client's response to fee discussion and also the service discussion. Document scope of advice needed and any limitations.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Documents required",
+              "guidance": "Create specific list of documents needed based on discussed strategies and client situation as bullet points. Only create this section if there are specific documents that were required.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Action items (list)",
+              "guidance": "List clear next steps with owners and timeframes as bullet points. Don't include information from \"Documents required\"",
+              "contentToInclude": []
+            },
+            {
+              "title": "Action items (table)",
+              "guidance": "Create a table of actions with columns for: Owner, Due Date (if discussed), Action, Dependency. If no due date was discussed, leave that cell blank.",
+              "contentToInclude": [],
+              "type": "table"
+            },
+            {
+              "title": "Action items (timeline)",
+              "guidance": "Create a visual timeline of next steps and dates discussed",
+              "contentToInclude": []
+            }
+          ]
+        },
+        {
+          "id": "internal_notes",
+          "title": "Internal notes",
+          "guidance": "",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Data impacting client suitability",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Demographics",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Occupation",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Net worth",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Liquid net worth",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Annual income",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Liquidity needs",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Investment objective",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Risk tolerance",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Time horizon",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Changes in financial situation",
+              "guidance": "Create a two-column summary table titled \"Fiduciary/Suitability Impacting Data\" with column headers \"As of [DATE]\" and \"Comment\". Include only the content items above that were actually discussed during the meeting. Format as a table with the first column containing the category name and the second column containing the relevant client details. Keep entries concise and factual, focusing on data points that will influence recommendation suitability and fiduciary considerations.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Existing arrangements",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Investment structures",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Pension arrangements",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Property ownership",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Business structures",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Professional relationships",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Estate planning status",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Tax position",
+              "guidance": "Document all current financial structures. Note relationships with other professionals and whether they're working well. Record current estate planning status and last review date. Note any tax strategies in place.\n\nKey insights and vulnerability assessment",
+              "contentToInclude": []
+            },
+            {
+              "title": "Decision-making style observations",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Financial sophistication level",
+              "guidance": "Preferred communication style and frequency",
+              "contentToInclude": []
+            },
+            {
+              "title": "Family dynamics that might impact advice",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Vulnerability indicators assessment",
+              "guidance": "Record observations about decision-making style (sole/joint), financial sophistication level, preferred communication style and frequency, family dynamics that might impact advice. Use bullet points. MUST always record any observations that may deem the client as vulnerable (this could be a significant life event, health issues, low emotional resilience and capability). If there are none, always confirm this explicitly. Please ensure you do this every time.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Points to watch",
+              "guidance": "",
+              "contentToInclude": [
+                "Red flags or concerns about ability to implement advice",
+                "Potential complexities requiring specialist input"
+              ]
+            },
+            {
+              "title": "Any credibility concerns",
+              "guidance": "Note any red flags or concerns about ability to implement advice. Record potential complexities requiring specialist input. Document any credibility concerns. Use bullet points.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Opportunities",
+              "guidance": "",
+              "contentToInclude": []
+            },
+            {
+              "title": "Potential strategies to investigate",
+              "guidance": "Future advice opportunities or solutions to explore",
+              "contentToInclude": []
+            },
+            {
+              "title": "Potential professional referral needs",
+              "guidance": "Note potential strategies to investigate. Record future advice opportunities or solutions to explore. Document potential professional referral needs. Use bullet points.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Additional notes",
+              "guidance": "Record any other insights relevant for future meetings or strategy development. Use bullet points.",
+              "contentToInclude": [
+                "Any other insights relevant for future meetings or strategy development"
+              ]
+            },
+            {
+              "title": "Not covered",
+              "guidance": "",
+              "contentToInclude": [
+                "Record here any sections of the above that were not covered in the meeting"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "compliance",
+          "title": "Compliance",
+          "guidance": "",
+          "contentToInclude": [],
+          "subsections": [],
+          "questions": [
+            "Did the adviser confirm that they are authorised and regulated by the FCA?",
+            "Did the adviser seek a comprehensive overview of the client's financial situation?",
+            "Did the adviser ask about the client's goals and objectives?",
+            "Did the adviser discuss scope of service?",
+            "Did the adviser raise their fee disclosures?",
+            "Were next steps and timelines clearly communicated?",
+            "Was data protection consent obtained?",
+            "Were vulnerable client safeguards considered where applicable?"
+          ]
+        },
+        {
+          "id": "email_draft",
+          "title": "Email draft",
+          "guidance": "Create a follow-up email using this exact format with single line gaps between paragraphs:\n\nHi [client],\n\nGreat to discuss the below today!\n\n[Summarise the meeting in 3-5 bullet points with max one sentence each]\n\nI've noted the following actions for you: [Only include this section if there are client action items]\n\nThanks, [Adviser]",
+          "contentToInclude": [],
+          "subsections": [],
+          "type": "template"
+        },
+        {
+          "id": "paraplanning_request",
+          "title": "Paraplanning request",
+          "guidance": "Create a paraplanning request formatted as an email with bullet points for key details. Use new paragraphs where necessary. Maximum 250 words. Use this format:",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Hi,",
+              "guidance": "I discussed the below with [client] today. Could you please help me: [summarise paraplanning related actions or next steps for my firm]\n\nThanks, [Adviser]",
+              "contentToInclude": []
+            }
+          ],
+          "type": "template"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ab99994d-2359-42db-93b3-1c1163d00243",
+    "name": "Fact Find",
+    "category": "Wealth",
+    "icon": "\ud83d\udccb",
+    "status": "collected",
+    "sectionCount": 0,
+    "data": {
+      "templateId": "ab99994d-2359-42db-93b3-1c1163d00243",
+      "companyId": "fed309ba-c3b2-4640-bda1-bed55caefc62",
+      "templateName": "Fact Find",
+      "globalInstructions": [
+        "This template creates a comprehensive fact-find report documenting client information to understand their circumstances, objectives, and preferences",
+        "Complete all sections based on client information available, documenting relevant details about the client's situation",
+        "Take your time to review all available client information thoroughly and document systematically",
+        "Always follow the structure of the report set out below, do not add additional or remove sections unless specifically prompted to do so",
+        "Ensure the writing style is concise, avoids unnecessary jargon, and focuses on clear, factual documentation",
+        "Where appropriate, summarise key points using bullet points for clarity and quick reference",
+        "Use spelling that is appropriate for the jurisdiction. This is very important to ensure",
+        "Use UK financial terminology throughout (ISA not IRA, LPA not POA, etc.)",
+        "All monetary amounts in GBP with appropriate formatting",
+        "Document only bullet points for topics where information is available",
+        "For each bullet point, summarise the topic of the bullet in bold in 4-6 words and then write the complete intended bullet point",
+        "CRITICAL: Focus exclusively on client circumstances and statements - never reference what the adviser said, noted, explained, or mentioned",
+        "Write all bullet points as factual statements about the client's situation, concerns, preferences, or circumstances",
+        "Examples of correct formatting:",
+        "Tax position: [CLIENT 1] and [CLIENT 2] are higher rate taxpayers at 40%",
+        "Protection concerns: [CLIENT 1] is concerned that if he couldn't work, the family would struggle financially",
+        "Investment approach: [CLIENT 1] and [CLIENT 2] currently keep all surplus funds in savings accounts",
+        "Never write bullet points referencing adviser input such as:",
+        "Tax implications: [ADVISER] noted that at their income levels...",
+        "Protection needs: [ADVISER] mentioned life insurance...",
+        "Investment options: The adviser explained...",
+        "Focus on factual information gathering - document client information as factual statements about the client's circumstances and situation",
+        "Document client circumstances, objectives, risk tolerance, and preferences as factual statements about the client",
+        "Section inclusion logic: Each major section includes a relevance check. Only complete sections that contain available client information",
+        "Client Details and Personal Circumstances",
+        "Content to include:",
+        "Client Information Table: Names, dates of birth, contact details, and addresses",
+        "Family Structure Table: Marriage status, dependants with ages, and relationship details",
+        "Personal Circumstances: Health considerations, tax residence, nationality, and recent changes",
+        "Employment Status: Current occupation details and any planned changes",
+        "Guidance:",
+        "Create a client details table with columns [Name - 25%] [Client 1 - 37.5%] [Client 2 - 37.5%] including full names, dates of birth, contact numbers, email addresses, and residential address",
+        "Document marriage status, civil partnership details, and all dependants with names and dates of birth in table format where possible",
+        "Record any health information that impacts financial planning",
+        "Document tax residence status and any foreign tax obligations",
+        "Record current job titles, employers, length of service, and any planned career changes",
+        "Financial Position Summary",
+        "Content to include:",
+        "Income Details: Employment income, benefits, and other income sources",
+        "Expenditure Information: Living costs, debt servicing, and discretionary spending",
+        "Asset Holdings: Property, investments, pensions, and cash holdings",
+        "Liability Information: All debts, mortgages, and ongoing financial commitments",
+        "Net Worth Information: Balance sheet details",
+        "Guidance:",
+        "MANDATORY INCOME TABLE: Create a table with columns [Income Type - 30%] [Client 1 - 35%] [Client 2 - 35%] showing income per annum. Rows should include: Base salary, Bonuses/commission, Benefits in kind, Other employment income, Investment income, Rental income, Other income sources",
+        "Document all non-salary benefits including company car, private medical insurance, life insurance through employer, pension contributions, share schemes or options, other benefits with values",
+        "MANDATORY DEBT TABLE: Create debt table with columns: Debt Type, Outstanding Balance, Monthly Payment, Interest Rate, Remaining Term, Lender. Include all debts with exact figures. If no debts exist, show table with \u00a30 entries",
+        "Document surplus/deficit position or record income and expenditure figures",
+        "MANDATORY NET WORTH TABLE: Create balance sheet table with all assets (all investment wrappers, pensions, cars, property, business shares, etc.) and liabilities. Calculate total net worth using figures provided",
+        "Record all property holdings with current values, mortgage details, rental income, and valuation basis",
+        "Document cash amounts and purpose for these funds",
+        "Pension Information",
+        "Content to include:",
+        "Current Pension Holdings: All workplace and personal pensions with values",
+        "Retirement Objectives: Target retirement age and income requirements",
+        "Contribution Details: Current contribution levels and any planned changes",
+        "State Pension Information: National Insurance record and projected entitlements",
+        "Guidance:",
+        "Create table with columns: Scheme Name, Scheme Type (DB/DC), Current Value/Accrued Benefit, Employer, Annual Contribution (employee), Annual Contribution (employer), Normal Retirement Age",
+        "For DB schemes, document accrued pension amounts, normal retirement age, early retirement options, death benefits, and CETV if known",
+        "Record National Insurance qualifying years if known, any gaps, and projected State Pension entitlement if available",
+        "Document target retirement age, desired retirement income, retirement lifestyle expectations, and specific retirement goals",
+        "Record current pension contributions and any planned changes",
+        "Document any pension consolidation needs, employer contribution optimization requirements, or salary sacrifice opportunities available to the client",
+        "Investment Experience and Holdings",
+        "Content to include:",
+        "Current Investment Portfolio: ISAs, general investment accounts, and other holdings",
+        "Investment Experience: Previous investment history and knowledge levels",
+        "Investment Preferences: Ethical considerations and product preferences",
+        "Liquidity Requirements: Access needs and emergency fund provisions",
+        "Guidance:",
+        "Create table with columns: Investment Type, Provider, Current Value, Annual Contribution, Investment Objective. Include all investments",
+        "Document current year ISA contributions, remaining ISA allowances if known, and historical ISA holdings",
+        "Record previous investment experience, understanding of risk and volatility, any significant gains/losses, and comfort levels with different investments",
+        "Record any ESG or ethical investment preferences, specific exclusions, or requirements for sustainable investing",
+        "Document emergency fund requirements, any planned major expenditure, and desired access to investments",
+        "Protection and Insurance Information",
+        "Content to include:",
+        "Life Insurance Holdings: All life policies with cover amounts and structures",
+        "Income Protection: Existing coverage and workplace benefits",
+        "Critical Illness Cover: Current arrangements and benefit levels",
+        "General Insurance: Buildings, contents, and other personal insurances",
+        "Guidance:",
+        "Create table with columns: Policy Type, Sum Assured, Provider, Premium, Policy Term, Trust Arrangements, Beneficiaries",
+        "Document any individual income protection, employer sick pay arrangements, permanent health insurance through work, and understanding of state benefits",
+        "Record current protection levels and any coverage gaps or concerns",
+        "Document whether any policies are written in trust, beneficiary arrangements, and trust deed status",
+        "Tax Position Information",
+        "Content to include:",
+        "Current Tax Status: Income tax position and recent tax returns",
+        "Capital Gains Information: Annual exemption usage and carried losses",
+        "Inheritance Tax Information: Estate values and any existing arrangements",
+        "Tax Planning Details: Current allowance usage and existing measures",
+        "Guidance:",
+        "Document current tax bands, any existing tax planning such as pension contributions for tax relief, salary sacrifice arrangements, dividend planning strategies",
+        "Record any significant capital gains or losses, unused annual exemptions, and assets with substantial unrealised gains",
+        "Record potential IHT exposure and any existing estate planning arrangements",
+        "Record current usage of ISA allowances, pension allowances, and other tax-efficient opportunities",
+        "Estate Planning Information",
+        "Content to include:",
+        "Will and Estate Details: Current arrangements",
+        "Powers of Attorney: LPA arrangements",
+        "Inheritance Tax Information: Estate values and calculations",
+        "Trust Details: Existing structures",
+        "Guidance:",
+        "Document current will arrangements including date of last will, executor appointments, main beneficiaries, specific bequests, and whether will reflects current circumstances",
+        "Record if Lasting Powers of Attorney are in place for both property/financial affairs and health/welfare decisions, who is appointed as attorney, and registration status",
+        "Record estate values using provided asset values. If any inheritance tax calculations or professional advice on IHT has been obtained, record details",
+        "Document any trust arrangements, purposes, and beneficiaries",
+        "Goals and Objectives",
+        "Short-term Goals (0-2 years)",
+        "Record each goal including specific amounts, target timeframes, and importance ranking. Document priority levels for different goals.",
+        "Medium-term Objectives (2-5 years)",
+        "Record any home purchase plans, moving considerations, or buy-to-let aspirations with estimated costs and timelines. Document any family planning or major life changes.",
+        "Long-term Aspirations (5+ years)",
+        "Record desired retirement lifestyle, activities, travel plans, and estimated income requirements. Document any intentions for wealth transfer, charitable giving, and family financial support.",
+        "Attitude to Risk",
+        "Risk Tolerance Assessment",
+        "Content to include:",
+        "Risk questionnaire results and scoring",
+        "Client's own words regarding market volatility comfort",
+        "Past investment experience and reactions to losses",
+        "Comfort levels with different asset classes",
+        "Any specific risk concerns or preferences expressed",
+        "Guidance:",
+        "Document the formal risk assessment score/category if completed",
+        "Record direct quotes about risk comfort: \"Client stated: 'I'm comfortable with some ups and downs but don't want to lose my shirt'\"",
+        "Note any previous investment losses and client reactions",
+        "Record asset class preferences (equities, bonds, property, alternatives)",
+        "Risk Capacity Analysis",
+        "Content to include:",
+        "Financial ability to sustain investment losses",
+        "Impact assessment of maximum potential loss scenarios",
+        "Essential vs discretionary goals affected by poor performance",
+        "Other income sources available during poor performance periods",
+        "Guidance:",
+        "Assess objectively based on financial circumstances, not emotional comfort",
+        "Calculate potential impact: \"Could sustain 20% portfolio loss without affecting essential goals\"",
+        "Consider recovery time: \"15 years to retirement allows time to recover from short-term losses\"",
+        "Distinguish essential needs (mortgage payments) from discretionary goals (luxury holidays)",
+        "Investment Time Horizon",
+        "Content to include:",
+        "Time available for different financial goals",
+        "Requirements for capital access during investment periods",
+        "Essential vs discretionary goal priorities and timeframes",
+        "Other income sources available to support goals",
+        "Guidance:",
+        "Document specific timeframes for each major goal",
+        "Record any requirements for early access to investments",
+        "Note which goals are flexible on timing vs fixed deadlines",
+        "Assess how time horizon affects ability to take investment risk",
+        "Risk Tolerance vs Capacity Alignment",
+        "Content to include:",
+        "Comparison of emotional risk tolerance against financial capacity",
+        "Any misalignment identified between tolerance and capacity",
+        "How time horizon influences overall risk strategy",
+        "Guidance:",
+        "Identify discrepancies: \"High risk capacity but low risk tolerance\" or \"Wants growth but limited capacity for loss\"",
+        "Note which factor should drive investment decisions",
+        "Record any education needed about risk-return relationships",
+        "Overall Risk Profile Summary",
+        "Content to include:",
+        "Recommended risk category for investment strategy",
+        "Key factors influencing risk profile determination",
+        "Any specific risk considerations for implementation",
+        "Guidance:",
+        "Conclude with clear risk category: \"Conservative,\" \"Balanced,\" \"Growth\"",
+        "Summarize key determining factors",
+        "Note any special considerations for portfolio construction"
+      ],
+      "sections": []
+    }
+  },
+  {
+    "id": "8f2e7a4c-3db2-4343-b00c-3b59ff9a9122",
+    "name": "General Summary",
+    "category": "Other",
+    "icon": "\ud83d\udcac",
+    "status": "collected",
+    "sectionCount": 0,
+    "data": {
+      "templateId": "8f2e7a4c-3db2-4343-b00c-3b59ff9a9122",
+      "companyId": "fed309ba-c3b2-4640-bda1-bed55caefc62",
+      "templateName": "General Summary",
+      "globalInstructions": [
+        "Summarise this meeting using the sections provided in this template, but also include other material sections using your judgment based on discussion topics, as this is a general summary template",
+        "Keep the summary succinct and focused on key discussion points",
+        "Use H2 headings for main sections, H3 headings for subsections",
+        "Use bullet points and sub-bullets to organise information clearly",
+        "Bold the key topics discussed in the meeting for emphasis",
+        "Document factual information rather than adviser opinions",
+        "Focus on decisions made, actions required, and important outcomes",
+        "Use spelling that is appropriate for the jurisdiction",
+        "Include client background, goals, risk profile, and summary of advice in descriptive narrative format",
+        "Only include financial tables if at least three meaningful rows of data can be populated",
+        "Interweave meeting discussion points with the pre-formed sections (client background, goals and objectives, risk profile, summary of advice) to create a comprehensive summary",
+        "MUST always record any observations that may deem the client as vulnerable (this could be a significant life event, health issues, low emotional resilience and capability). If there are none, always confirm this explicitly",
+        "Client background",
+        "Only include this section if client background information was discussed. Provide a brief descriptive summary of the client's current situation, family circumstances, and relevant personal or professional context that influenced the meeting discussion.",
+        "Goals and objectives",
+        "Only include this section if goals and objectives were discussed. Describe the client's key financial goals, priorities, and objectives discussed during the meeting. Include timeframes and specific targets where mentioned.",
+        "Risk profile",
+        "Only include this section if risk-related topics were discussed. Summarise the client's risk tolerance, capacity, and any risk-related discussions that occurred during the meeting. Include attitude toward different types of financial risk.",
+        "Summary of advice",
+        "Only include this section if advice or recommendations were provided. Provide a descriptive narrative of the key advice, recommendations, or strategies discussed during the meeting. Focus on the substance of recommendations rather than detailed implementation steps.",
+        "Financial position summary",
+        "Only include this section if meaningful financial data was discussed. Make a table of key financial data with columns: Data (e.g. Client 1 salary), Category (e.g. income), Value (e.g. \u00a380,000). Include only if at least three rows can be meaningfully populated.",
+        "Client suitability data",
+        "Only include this section if detailed suitability information was discussed. Create a two-column summary table titled \"Fiduciary/Suitability Impacting Data\" with column headers \"As of [DATE]\" and \"Comment\". Include demographics, occupation, net worth, liquid net worth, annual income, liquidity needs, investment objective, risk tolerance, time horizon, and changes in financial situation. Include only if at least three meaningful rows of suitability data can be populated from the meeting discussion.",
+        "Follow-up email",
+        "Draft a follow-up email to the client using the structure below:",
+        "Hi [client name(s)],",
+        "Thanks for your time today.",
+        "Key discussion points [Summarise 2-3 main topics discussed] [Include any decisions made or agreements reached]",
+        "Next steps [Include action items for client] [Include action items for adviser] [Include any follow-up timing or deadlines]",
+        "Please let me know if you have any questions or if I've missed anything from our discussion.",
+        "Thanks, [Adviser name]"
+      ],
+      "sections": []
+    }
+  },
+  {
+    "id": "55b4cacf-0c28-4173-8c98-01d8a66ca24a",
+    "name": "Statement of Advice",
+    "category": "Wealth",
+    "icon": "\ud83d\udcc4",
+    "status": "collected",
+    "sectionCount": 0,
+    "data": {
+      "templateId": "55b4cacf-0c28-4173-8c98-01d8a66ca24a",
+      "companyId": "fed309ba-c3b2-4640-bda1-bed55caefc62",
+      "templateName": "Statement of Advice",
+      "globalInstructions": [
+        "Ensure the writing style is concise, avoids unnecessary jargon, and focuses on clear, action-oriented language",
+        "Where appropriate, summarise key points or actions using bullet points for clarity and quick reference",
+        "Use British English spelling conventions to ensure consistency and professionalism. This is very important to ensure",
+        "Document factual information rather than adviser opinions, or additional reflections / additions that were not discussed",
+        "Document only bullet points for topics actually discussed in the meeting",
+        "For each bullet point, summarise the topic of the bullet in bold in 4-6 words and then write the actual bullet point e.g.: \"Reasons for seeking advice:\"",
+        "Statement of Advice sections",
+        "Client situation",
+        "Write a summary of the client's family, professional and money situation. Emulate these examples: [paste examples of your client situation section here]",
+        "Client goals",
+        "Write a summary of the client's goals and objectives. Emulate these examples: [paste examples of your client goals section here]",
+        "Product recommendations",
+        "Summarise any product recommendations I have made. Emulate these examples: [paste examples of your product recommendations section here]",
+        "Provider selection",
+        "Summarise any provider recommendations I have made, and outline benefits and risks. Emulate these examples: [paste examples of your recommendations sections here]",
+        "My commission",
+        "Outline my commission statement. Select the appropriate statement depending on which provider I have recommended. Emulate these examples: [paste examples of your commission section here]"
+      ],
+      "sections": []
+    }
+  },
+  {
+    "id": "1f32bfdd-1539-4dfe-a4ab-4938af97fe5b",
+    "name": "Review (Descriptive)",
+    "category": "Wealth",
+    "icon": "\ud83d\udccb",
+    "status": "collected",
+    "sectionCount": 14,
+    "data": {
+      "templateId": "1f32bfdd-1539-4dfe-a4ab-4938af97fe5b",
+      "companyId": "fed309ba-c3b2-4640-bda1-bed55caefc62",
+      "templateName": "Review (Descriptive)",
+      "globalInstructions": [
+        "Write in narrative, descriptive style rather than bullet points for main content sections",
+        "Focus on conversation flow and client updates",
+        "Use past tense to describe what was discussed and reviewed",
+        "Include direct quotes from clients where meaningful",
+        "Capture client personality, engagement levels, and satisfaction",
+        "Maintain professional tone while being engaging and descriptive",
+        "Document factual information rather than adviser opinions",
+        "Document only topics actually discussed in the meeting",
+        "For each main content section, write flowing paragraphs that tell the story of what was covered, how the client responded, and any changes since the last review",
+        "Use British English spelling and terminology throughout",
+        "Document only information that was actually discussed during the review meeting"
+      ],
+      "sections": [
+        {
+          "id": "meeting_details",
+          "title": "Meeting details",
+          "guidance": "Record all participants and their roles using bullet points. Include date, time, format (in-person/video call), and location. Note if key decision-makers are present and if any expected attendees were missing. Example: \"John Smith (Client), Sarah Smith (Client), Michael Johnson (Financial Adviser), Meeting held in-person at office\"",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "id": "client_background",
+          "title": "Client background",
+          "guidance": "Write a comprehensive narrative covering all changes since the last review.",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Personal changes",
+              "guidance": "Document key changes since last review in narrative form. Note any health issues affecting financial planning and record anticipated future changes. Record employment or business changes in detail and document income variations and their impact. Note career plans and expected changes. Write about how these changes affect the client's overall financial planning needs.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Family updates",
+              "guidance": "Detail current family structure, including ages and key relationships in narrative form. Note any health issues affecting financial planning and document upcoming life changes. Record living situation and any planned changes. Write about how family dynamics and changes impact financial goals and strategies.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Significant life events",
+              "guidance": "Document major events since the last review in narrative form. Include celebrations, milestones, challenges, or significant personal developments. Write about how these events have influenced the client's perspective on their financial planning.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Health considerations",
+              "guidance": "Record any health updates that may affect financial planning in narrative form. Note impacts on insurance needs, income capacity, or lifestyle requirements. Write about how health considerations influence ongoing strategy.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Location/living situation",
+              "guidance": "Document any changes to living arrangements in narrative form. Include relocations, property changes, or planned moves. Write about how location changes affect financial planning and strategy implementation.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Anticipated changes",
+              "guidance": "Record expected future changes discussed during the review in narrative form. Include anticipated life events, career changes, or family developments. Write about how these expected changes will influence planning recommendations.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Changes to employment",
+              "guidance": "Document detailed employment/business situation including stability and satisfaction in narrative form. Note career plans and expected changes and document income details including salary, business income, and other sources. Record professional development goals. Write about how employment changes affect financial capacity and planning strategies.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Financial changes",
+              "guidance": "Compose a detailed narrative describing material changes to the client's financial position since the last review.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Household income/expenses",
+              "guidance": "Document material changes to income, expenses, assets, or debts in narrative form. Be specific and quantify the values of any changes. Note any unexpected financial events or windfalls and record major purchases or sales. Write about how these changes impact cash flow and financial capacity.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Asset changes",
+              "guidance": "Note down specific asset changes with values in narrative form. Document property acquisitions or sales, investment additions or disposals, and any significant asset revaluations. Write about how asset changes affect overall wealth position and strategy alignment.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Debt position",
+              "guidance": "Record changes to debt levels, new borrowings, or debt reduction achievements in narrative form. Document refinancing activities or changes to loan terms. Write about how debt changes affect serviceability and overall financial position.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Potential windfalls / inheritances",
+              "guidance": "Document any expected inheritances, windfalls, or other potential future financial receipts in narrative form. Include timing expectations and potential amounts. Write about how these anticipated receipts influence current strategy and planning.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Major purchases / sales",
+              "guidance": "Record significant transactions completed or planned in narrative form. Include property purchases/sales, business acquisitions, or major asset transactions. Write about the financial impact and strategic implications of these transactions.",
+              "contentToInclude": []
+            }
+          ]
+        },
+        {
+          "id": "goals_review",
+          "title": "Goals review",
+          "guidance": "Write a comprehensive narrative about how goals were reviewed and any changes identified.",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Existing goals",
+              "guidance": "Note any changes to goals (either change in existing or new goals - short/medium/long term) in narrative form. Changes could include change to priority or timeline. Check current allocation and strategy reflects alignment to goals. Write about how each goal was discussed and any adjustments to priority or timeframe.",
+              "contentToInclude": []
+            }
+          ]
+        },
+        {
+          "id": "current_position",
+          "title": "Current position",
+          "guidance": "Analyse progress toward existing goals in narrative form. Document where the client stands relative to their objectives and note any strategy adjustments needed. Write about the client's satisfaction with progress and any concerns about achieving their goals.",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Financial position table",
+              "guidance": "Create a table of key financial data with columns: Financial Data (e.g. Client 1 salary, Mortgage etc.), Category (e.g. income), Value (e.g. \u00a380,000). Include all major financial elements discussed during the review with current values and any changes since the last review.",
+              "contentToInclude": [],
+              "type": "table"
+            },
+            {
+              "title": "Portfolio snapshot",
+              "guidance": "Note down portfolio performance in narrative form. Note income generated and portfolio costs and be specific and quantify the values of any income or losses against each asset type. Document current versus target asset allocation with specific percentages. Write about how the portfolio performed relative to expectations and the client's satisfaction with results.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Pension position",
+              "guidance": "Record balance, contribution levels and patterns in narrative form. Document investment strategy effectiveness and note insurance adequacy within pension products, and beneficiary status. Write about how retirement planning strategy is performing and any recommended adjustments discussed.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Wealth position",
+              "guidance": "Document overall net worth progression in narrative form. Analyse debt levels and serviceability and record cash flow patterns. Record tax position including any tax planning opportunities and estate planning position. Write about the overall trajectory of wealth building and progress toward long-term objectives.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Insurance review",
+              "guidance": "Document coverage adequacy for current situation in narrative form. Record any claims experience and note policy updates. Note premium changes and their impact and record any recommended adjustments. Write about how insurance needs may have changed and the client's satisfaction with current coverage including life assurance, critical illness cover, income protection, and private medical insurance.",
+              "contentToInclude": []
+            }
+          ]
+        },
+        {
+          "id": "risk_profile",
+          "title": "Risk profile",
+          "guidance": "",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Current state",
+              "guidance": "Record any changes to risk tolerance or capacity in narrative form. Document clients comfort with current market conditions and direct quote the clients responses when talking about their risk tolerances. Note any misalignment between risk profile elements. Write about how the client's risk appetite may have evolved.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Strategy alignment",
+              "guidance": "Analyse portfolio alignment with risk profile in narrative form. Document any efficiency or diversification concerns and record liquidity adequacy for goals. Record any notes on income sustainability. Write about how well the current strategy matches the client's risk profile and objectives.",
+              "contentToInclude": []
+            }
+          ]
+        },
+        {
+          "id": "summary_of_recommendations",
+          "title": "Summary of recommendations",
+          "guidance": "Create a table summarising key recommendations with two main columns: Recommendation and Rationale. Include any new recommendations arising from the review and explain why each is being suggested based on changes or opportunities identified.",
+          "contentToInclude": [],
+          "subsections": [],
+          "type": "table"
+        },
+        {
+          "id": "service_review",
+          "title": "Service review",
+          "guidance": "Write about the service review discussion as a natural paragraph rather than bullet points.",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Fee review",
+              "guidance": "Document current fees, structure and any changes in narrative form. Record specific client responses as quotes and note any fee questions or concerns. Only record fee consent if it was covered. Write about the client's understanding of and satisfaction with the fee structure.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Service satisfaction",
+              "guidance": "Record client feedback on service delivery as direct quotes in narrative form. Document any service gaps or improvement needs and note communication effectiveness. Write this section as a brief natural language mini paragraph instead of bullet points, capturing the client's overall satisfaction with service quality.",
+              "contentToInclude": []
+            }
+          ]
+        },
+        {
+          "id": "next_steps",
+          "title": "Next steps",
+          "guidance": "Write a comprehensive narrative about what actions were agreed upon and the implementation process.",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Action items (list)",
+              "guidance": "List clear next steps with owners and timeframes as bullet points. Don't include information from \"Documents required\". Focus on specific commitments made by both adviser and client.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Action items (table)",
+              "guidance": "In addition to the above list of actions, create a table of actions, with columns for: owner, due date (if discussed), action, dependency. Include all agreed actions with clear accountability and timing.",
+              "contentToInclude": [],
+              "type": "table"
+            },
+            {
+              "title": "Review schedule",
+              "guidance": "Document next review timing and focus in narrative form. Record any interim check-in requirements and note any required preparation discussed. Write about the agreed ongoing review process and communication preferences.",
+              "contentToInclude": []
+            }
+          ]
+        },
+        {
+          "id": "financial_planning_data",
+          "title": "Financial planning data",
+          "guidance": "Create a comprehensive table capturing updated financial information discussed during the review. Use three columns with headers \"Financial Data\", \"Category\", and \"Current Value/Status\". Include:\n\nUpdated income sources with specific amounts and any changes\n\nCurrent asset values and any additions or disposals since last review\n\nDebt balances and terms, including any refinancing or new borrowings\n\nInvestment holdings and performance with current values\n\nPension balances and contribution levels with any strategy changes\n\nCash positions and other relevant financial data discussed\n\nOnly include information that was actually discussed or updated during the review meeting.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "id": "fiduciary_suitability_impacting_data",
+          "title": "Fiduciary/Suitability impacting data",
+          "guidance": "Create a suitability assessment table with three columns: the first column listing factors, the second column providing details as of the review date, and a third column with relevant comments. Document what was confirmed or updated during the review for:\n\nDemographics (any changes to family status, location, life stage)\n\nOccupation (employment changes or developments affecting planning)\n\nNet Worth (updated estimates and composition reflecting recent changes)\n\nLiquid Net Worth (current available funds and accessibility)\n\nAnnual Income (confirmed current income levels and sources)\n\nLiquidity Needs (any changes to short-term requirements or timing)\n\nInvestment Objective (confirmation or updates to goals and priorities)\n\nRisk Tolerance (current assessment and any changes since last review)\n\nTime Horizon (updated timeframes for goals and any adjustments)\n\nChanges in Financial Situation (recent developments affecting planning and strategy)",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "id": "internal_notes",
+          "title": "Internal notes",
+          "guidance": "Write narrative sections as needed for key observations.",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Key insights",
+              "guidance": "Record observations about decision-making style (sole/joint), financial sophistication level, preferred communication style and frequency, family dynamics that might impact advice in narrative form. Note changes in client engagement or sophistication and family dynamics affecting advice.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Points to watch",
+              "guidance": "Note any red flags or concerns about ability to implement advice in narrative form. Record potential complexities requiring specialist input and document any credibility concerns. Document areas requiring closer monitoring and note potential future challenges.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Opportunities",
+              "guidance": "Record potential strategies to investigate in narrative form. Record future advice opportunities or solutions to explore and document potential professional referral needs. Note cross-referral opportunities and document potential strategy extensions.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Additional notes",
+              "guidance": "Record any other insights relevant for future meetings or strategy development in narrative form. Document any other insights relevant for ongoing advice relationship including any vulnerable client indicators observed under FCA guidelines or confirm \"No vulnerable client indicators identified.\" Do not include if there are none.",
+              "contentToInclude": []
+            },
+            {
+              "title": "Not covered",
+              "guidance": "Record here any sections of the above that we didn't cover during the meeting.",
+              "contentToInclude": []
+            }
+          ]
+        },
+        {
+          "id": "compliance",
+          "title": "Compliance",
+          "guidance": "",
+          "contentToInclude": [],
+          "subsections": [],
+          "questions": [
+            "Did the adviser clearly explain the purpose and scope of the review meeting?",
+            "Were any limitations on the advice scope clearly explained upfront?",
+            "Did the adviser raise their disclosures including FCA authorisation details and compliance?",
+            "Did the adviser ask about any changes in the client's personal circumstances?",
+            "Did the adviser ask about any changes in the client's goals and objectives?",
+            "Did the client understand key risks and implications?",
+            "Were next steps and timelines clearly communicated?"
+          ]
+        },
+        {
+          "id": "email_draft",
+          "title": "Email draft",
+          "guidance": "Create a follow up email to the client, focusing on the key points discussed and using the below format. Max one sentence bullets. Use the below format:\n\nHi [client],\n\nGreat to discuss the below today!\n\n[summarise the meeting in 3-5 bullet points]\n\nI've noted the following actions for you:\n\n[include any action items for the client, and only include this section if there are action items for the client]\n\nThanks,",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "[Adviser]",
+              "guidance": "",
+              "contentToInclude": []
+            }
+          ],
+          "type": "template"
+        },
+        {
+          "id": "paraplanning_request",
+          "title": "Paraplanning request",
+          "guidance": "Make a paraplanning request to my planner based on the conversation. Format as an email with bullet points for key details. Use new paragraphs where necessary. Max 250 words. Use the format:",
+          "contentToInclude": [],
+          "subsections": [
+            {
+              "title": "Hi,",
+              "guidance": "I discussed the below with [client] today. Could you please help me:\n\n[summarise paraplanning related actions or next steps for my firm]\n\nThanks,",
+              "contentToInclude": []
+            },
+            {
+              "title": "[Adviser]",
+              "guidance": "",
+              "contentToInclude": []
+            }
+          ],
+          "type": "template"
+        }
+      ]
+    }
+  }
+]

@@ -5,16 +5,17 @@ const path = require('path');
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log('Seeding Superbia Templates...');
+  console.log('Seeding Superbia / FA Meeting Templates...');
 
-  const bundlePath = path.join(__dirname, '../../all_marloo_templates_bundle.json');
+  let bundlePath = path.join(__dirname, 'templates_bundle.json');
+  if (!fs.existsSync(bundlePath)) {
+    bundlePath = path.join(__dirname, '../../all_marloo_templates_bundle.json');
+  }
+
   let rawBundle = fs.readFileSync(bundlePath, 'utf8').replace(/^\uFEFF/, '');
-
-  // Replace any reference to Marloo with Superbia
   rawBundle = rawBundle.replace(/Marloo/g, 'Superbia').replace(/marloo/g, 'superbia');
   const bundle = JSON.parse(rawBundle);
 
-  // Clear existing templates
   await prisma.template.deleteMany();
 
   for (const item of bundle) {
@@ -36,7 +37,7 @@ async function main() {
     console.log('Seeded: ' + item.name + ' (' + item.category + ')');
   }
 
-  console.log('Seeding complete! All 11 Superbia templates ready.');
+  console.log('Seeding complete! All 11 templates ready.');
 }
 
 main()
