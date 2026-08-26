@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./superbia.db"
+}
+
+model Template {
+  id                 String   @id @default(uuid())
+  name               String
+  category           String   @default("Wealth")
+  scope              String   @default("Company")
+  icon               String   @default("📋")
+  globalInstructions String
+  sections           String
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}

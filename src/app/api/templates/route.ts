@@ -1,0 +1,85 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { prisma } from '@/lib/prisma';
+import { Prisma } from '@prisma/client';
+
+export async function GET(req: NextRequest) {
+  try {
+    const { searchParams } = new URL(req.url);
+    const search = searchParams.get('search') || '';
+    const category = searchParams.get('category') || '';
+    const scope = searchParams.get('scope') || '';
+
+    const where: Prisma.TemplateWhereInput = {};
+    if (search) {
+      where.OR = [
+        { name: { contains: search } },
+        { category: { contains: search } },
+      ];
+    }
+    if (category && category !== 'All') {
+      where.category = category;
+    }
+    if (scope) {
+      where.scope = scope;
+    }
+
+    const templates = await prisma.template.findMany({
+      where,
+      orderBy: { updatedAt: 'desc' },
+    });
+
+    const parsed = templates.map((t) => {
+      let globalInstructions = [];
+      let sections = [];
+      try {
+        globalInstructions = JSON.parse(t.globalInstructions);
+      } catch {
+        globalInstructions = [];
+      }
+      try {
+        sections = JSON.parse(t.sections);
+      } catch {
+        sections = [];
+      }
+
+      return {
+        ...t,
+        globalInstructions,
+        sections,
+        sectionCount: sections.length,
+      };
+    });
+
+    return NextResponse.json({ success: true, data: parsed });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Unknown error';
+    return NextResponse.json({ success: false, error: message }, { status: 500 });
+  }
+}
+
+export async function POST(req: NextRequest) {
+  try {
+    const body = await req.json();
+    const { name, category = 'Wealth', scope = 'Company', icon = '📋', globalInstructions = [], sections = [] } = body;
+
+    if (!name) {
+      return NextResponse.json({ success: false, error: 'Name is required' }, { status: 400 });
+    }
+
+    const newTemplate = await prisma.template.create({
+      data: {
+        name,
+        category,
+        scope,
+        icon,
+        globalInstructions: JSON.stringify(globalInstructions),
+        sections: JSON.stringify(sections),
+      },
+    });
+
+    return NextResponse.json({ success: true, data: newTemplate });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Unknown error';
+    return NextResponse.json({ success: false, error: message }, { status: 500 });
+  }
+}
