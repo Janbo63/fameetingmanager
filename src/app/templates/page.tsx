@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, Suspense } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { 
   Plus, 
   Search, 
@@ -24,9 +24,11 @@ interface TemplateItem {
   updatedAt: string;
 }
 
-export default function TemplateCatalogPage() {
+function TemplateCatalogContent() {
   const router = useRouter();
-  const [templateType, setTemplateType] = useState<'Meeting' | 'Document'>('Meeting');
+  const searchParams = useSearchParams();
+  const templateType = (searchParams?.get('type') === 'Document' ? 'Document' : 'Meeting') as 'Meeting' | 'Document';
+  
   const [templates, setTemplates] = useState<TemplateItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -36,14 +38,6 @@ export default function TemplateCatalogPage() {
 
   useEffect(() => {
     setMounted(true);
-    // Check URL search params for type
-    if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window.location.search);
-      const urlType = params.get('type');
-      if (urlType === 'Document' || urlType === 'Meeting') {
-        setTemplateType(urlType);
-      }
-    }
   }, []);
 
   const fetchTemplates = useCallback(async () => {
@@ -147,38 +141,6 @@ export default function TemplateCatalogPage() {
 
   return (
     <div className="p-8 max-w-6xl w-full mx-auto space-y-6">
-      {/* Top Template Type Switcher */}
-      <div className="flex items-center gap-2 p-1.5 bg-slate-900/80 border border-slate-800 rounded-xl w-fit">
-        <button
-          onClick={() => {
-            setTemplateType('Meeting');
-            router.push('/templates?type=Meeting');
-          }}
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition ${
-            templateType === 'Meeting'
-              ? 'bg-sky-600 text-white shadow-md shadow-sky-600/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
-          }`}
-        >
-          <span>🎙️</span>
-          <span>Meeting Templates</span>
-        </button>
-        <button
-          onClick={() => {
-            setTemplateType('Document');
-            router.push('/templates?type=Document');
-          }}
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition ${
-            templateType === 'Document'
-              ? 'bg-sky-600 text-white shadow-md shadow-sky-600/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
-          }`}
-        >
-          <span>📄</span>
-          <span>Document Templates</span>
-        </button>
-      </div>
-
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
@@ -356,5 +318,13 @@ export default function TemplateCatalogPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function TemplateCatalogPage() {
+  return (
+    <Suspense fallback={<div className="p-8 text-slate-400">Loading templates...</div>}>
+      <TemplateCatalogContent />
+    </Suspense>
   );
 }

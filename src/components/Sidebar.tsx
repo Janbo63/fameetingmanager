@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { useSession, signOut } from 'next-auth/react';
 import { 
   FileText, 
@@ -17,8 +17,10 @@ import {
 } from 'lucide-react';
 import { useTemplateNav } from '@/context/TemplateNavContext';
 
-export default function Sidebar() {
+function SidebarContent() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const currentType = searchParams?.get('type') || 'Meeting';
   const { data: session } = useSession();
   const { 
     activeTemplate, 
@@ -34,8 +36,18 @@ export default function Sidebar() {
   const isInsideTemplate = pathname.startsWith('/templates/') && pathname !== '/templates/new' && activeTemplate;
 
   const navItems = [
-    { label: 'Meeting Templates', href: '/templates?type=Meeting', icon: Layers, active: pathname === '/templates' },
-    { label: 'Document Templates', href: '/templates?type=Document', icon: FileText, active: false },
+    { 
+      label: 'Meeting Templates', 
+      href: '/templates?type=Meeting', 
+      icon: Layers, 
+      active: pathname === '/templates' && currentType !== 'Document' 
+    },
+    { 
+      label: 'Document Templates', 
+      href: '/templates?type=Document', 
+      icon: FileText, 
+      active: pathname === '/templates' && currentType === 'Document' 
+    },
     { label: 'Tasks', href: '#', icon: CheckSquare, disabled: true },
     { label: 'Meetings', href: '#', icon: Calendar, disabled: true },
   ];
@@ -268,9 +280,17 @@ export default function Sidebar() {
             <Sparkles className="w-3 h-3 text-sky-400" />
             FutureSolutions AI
           </span>
-          <span className="font-mono">11 Active</span>
+          <span className="font-mono">FA Meeting Manager</span>
         </div>
       </div>
     </aside>
+  );
+}
+
+export default function Sidebar() {
+  return (
+    <Suspense fallback={<aside className="w-72 bg-slate-950 border-r border-slate-800 h-screen shrink-0" />}>
+      <SidebarContent />
+    </Suspense>
   );
 }
