@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { 
@@ -15,6 +15,7 @@ import {
   Sparkles,
   Layers
 } from 'lucide-react';
+import { useTemplateNav } from '@/context/TemplateNavContext';
 
 interface Subsection {
   title: string;
@@ -52,6 +53,8 @@ export default function TemplateEditorPage() {
   const [saving, setSaving] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
 
+  const { setActiveTemplate, setOnAddSection } = useTemplateNav();
+
   useEffect(() => {
     async function loadTemplate() {
       try {
@@ -68,7 +71,30 @@ export default function TemplateEditorPage() {
       }
     }
     loadTemplate();
-  }, [id]);
+
+    return () => {
+      setActiveTemplate(null);
+      setOnAddSection(undefined);
+    };
+  }, [id, setActiveTemplate, setOnAddSection]);
+
+  // Sync with Sidebar Template Navigation
+  useEffect(() => {
+    if (template) {
+      setActiveTemplate({
+        id: template.id,
+        name: template.name,
+        category: template.category,
+        icon: template.icon,
+        globalInstructions: template.globalInstructions,
+        sections: template.sections.map((s) => ({
+          title: s.title,
+          type: s.type,
+          subsections: s.subsections?.map((sub) => ({ title: sub.title })),
+        })),
+      });
+    }
+  }, [template, setActiveTemplate]);
 
   const handleSave = async () => {
     if (!template) return;
@@ -98,7 +124,7 @@ export default function TemplateEditorPage() {
     const blob = new Blob([JSON.stringify(template, null, 2)], { type: 'application/json' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = `superbia_template_${template.name.replace(/[^a-zA-Z0-9_-]/g, '_')}.json`;
+    a.download = `fameetingmanager_template_${template.name.replace(/[^a-zA-Z0-9_-]/g, '_')}.json`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -127,7 +153,7 @@ export default function TemplateEditorPage() {
   };
 
   // Section Handlers
-  const handleAddSection = () => {
+  const handleAddSection = useCallback(() => {
     if (!template) return;
     const newSec: Section = {
       title: 'New Section',
@@ -136,8 +162,12 @@ export default function TemplateEditorPage() {
       contentToInclude: [],
       subsections: [],
     };
-    setTemplate({ ...template, sections: [...template.sections, newSec] });
-  };
+    setTemplate((prev) => (prev ? { ...prev, sections: [...prev.sections, newSec] } : null));
+  }, [template]);
+
+  useEffect(() => {
+    setOnAddSection(() => handleAddSection);
+  }, [handleAddSection, setOnAddSection]);
 
   const handleUpdateSection = <K extends keyof Section>(sIndex: number, field: K, val: Section[K]) => {
     if (!template) return;
@@ -339,10 +369,13 @@ export default function TemplateEditorPage() {
       </header>
 
       {/* Main Scrollable Canvas */}
-      <div className="flex-1 overflow-y-auto p-8 max-w-5xl w-full mx-auto space-y-6">
+      <div className="flex-1 overflow-y-auto p-8 max-w-5xl w-full mx-auto space-y-6 scroll-smooth">
         
         {/* Global Instructions Card */}
-        <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800 shadow-sm space-y-4">
+        <div 
+          id="global-instructions"
+          className="p-6 rounded-2xl bg-slate-950 border border-slate-800 shadow-sm space-y-4 scroll-mt-6"
+        >
           <div className="flex items-center justify-between">
             <h3 className="text-base font-bold text-sky-400 flex items-center gap-2">
               <Sparkles className="w-4 h-4" />
@@ -401,12 +434,13 @@ export default function TemplateEditorPage() {
           {template.sections.map((section, sIndex) => (
             <div
               key={sIndex}
-              className="p-6 rounded-2xl bg-slate-950 border border-slate-800/90 shadow-md space-y-4 relative"
+              id={`section-${sIndex}`}
+              className="p-6 rounded-2xl bg-slate-950 border border-slate-800/90 shadow-md space-y-4 relative scroll-mt-6 hover:border-slate-700 transition-colors"
             >
               {/* Section Header Bar */}
               <div className="flex items-center justify-between gap-3 border-b border-slate-800/60 pb-3">
                 <div className="flex items-center gap-2 flex-1">
-                  <span className="text-xs font-bold bg-slate-800 text-slate-300 px-2 py-1 rounded">
+                  <span className="text-xs font-bold bg-slate-800 text-slate-300 px-2 py-1 rounded font-mono">
                     § {sIndex + 1}
                   </span>
                   <input
@@ -521,11 +555,12 @@ export default function TemplateEditorPage() {
                   {section.subsections?.map((sub, subIdx) => (
                     <div
                       key={subIdx}
-                      className="p-4 rounded-xl bg-slate-900/70 border border-slate-800/80 space-y-3"
+                      id={`subsection-${sIndex}-${subIdx}`}
+                      className="p-4 rounded-xl bg-slate-900/70 border border-slate-800/80 space-y-3 scroll-mt-6 hover:border-slate-700 transition-colors"
                     >
                       <div className="flex items-center justify-between gap-2">
                         <div className="flex items-center gap-2 flex-1">
-                          <span className="text-[10px] font-bold bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded">
+                          <span className="text-[10px] font-bold bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">
                             {sIndex + 1}.{subIdx + 1}
                           </span>
                           <input
