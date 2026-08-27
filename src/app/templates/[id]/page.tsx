@@ -13,7 +13,11 @@ import {
   Download, 
   CheckCircle2,
   Sparkles,
-  Layers
+  Layers,
+  Eye,
+  Edit3,
+  Copy,
+  Check
 } from 'lucide-react';
 import { useTemplateNav } from '@/context/TemplateNavContext';
 
@@ -52,6 +56,15 @@ export default function TemplateEditorPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
+  
+  // View Modes: 'read' (Read Prompt View) vs 'edit' (Full Edit View)
+  const [isEditMode, setIsEditMode] = useState(false);
+  // Track specific sections being edited if in read mode
+  const [editingSectionIdx, setEditingSectionIdx] = useState<number | null>(null);
+  const [editingGlobalRules, setEditingGlobalRules] = useState(false);
+  
+  // Copied feedback for prompt text
+  const [copiedPromptId, setCopiedPromptId] = useState<string | null>(null);
 
   const { setActiveTemplate, setOnAddSection } = useTemplateNav();
 
@@ -108,6 +121,8 @@ export default function TemplateEditorPage() {
       const json = await res.json();
       if (json.success) {
         setSavedSuccess(true);
+        setEditingSectionIdx(null);
+        setEditingGlobalRules(false);
         setTimeout(() => setSavedSuccess(false), 2500);
       } else {
         alert('Failed to save: ' + json.error);
@@ -117,6 +132,12 @@ export default function TemplateEditorPage() {
     } finally {
       setSaving(false);
     }
+  };
+
+  const handleCopyPrompt = (text: string, copyId: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedPromptId(copyId);
+    setTimeout(() => setCopiedPromptId(null), 2000);
   };
 
   const handleExportJson = () => {
@@ -303,7 +324,7 @@ export default function TemplateEditorPage() {
   return (
     <div className="flex-1 flex flex-col h-full overflow-hidden">
       {/* Editor Top Sticky Header */}
-      <header className="px-8 py-4 bg-slate-950 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shrink-0">
+      <header className="px-8 py-4 bg-slate-950 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shrink-0 shadow-md">
         <div className="flex items-center gap-4 flex-1">
           <Link
             href="/templates"
@@ -313,28 +334,72 @@ export default function TemplateEditorPage() {
             <ArrowLeft className="w-4 h-4" />
           </Link>
           <div className="flex-1 max-w-xl">
-            <input
-              type="text"
-              value={template.name}
-              onChange={(e) => setTemplate({ ...template, name: e.target.value })}
-              className="w-full text-xl font-extrabold text-white bg-transparent border border-transparent hover:border-slate-800 focus:border-sky-500 focus:bg-slate-900 px-2 py-1 rounded-lg outline-none transition"
-              placeholder="Untitled Template"
-            />
+            {isEditMode ? (
+              <input
+                type="text"
+                value={template.name}
+                onChange={(e) => setTemplate({ ...template, name: e.target.value })}
+                className="w-full text-xl font-extrabold text-white bg-transparent border border-slate-700 hover:border-slate-600 focus:border-sky-500 focus:bg-slate-900 px-2 py-1 rounded-lg outline-none transition"
+                placeholder="Untitled Template"
+              />
+            ) : (
+              <div className="flex items-center gap-2">
+                <span className="text-xl">{template.icon || '📋'}</span>
+                <h1 className="text-xl font-extrabold text-white tracking-tight">
+                  {template.name}
+                </h1>
+                <span className="text-xs font-semibold text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded-full border border-sky-500/20 ml-2">
+                  {template.category}
+                </span>
+              </div>
+            )}
           </div>
         </div>
 
-        {/* Action Controls */}
+        {/* Action Controls & Mode Switcher */}
         <div className="flex items-center gap-3">
-          <select
-            value={template.category}
-            onChange={(e) => setTemplate({ ...template, category: e.target.value })}
-            className="bg-slate-900 border border-slate-800 text-slate-200 text-xs font-semibold rounded-lg px-3 py-2 outline-none focus:border-sky-500"
-          >
-            <option value="Wealth">Wealth</option>
-            <option value="Other">Other</option>
-            <option value="Mortgages">Mortgages</option>
-            <option value="Protection">Protection</option>
-          </select>
+          {/* Read View / Edit Mode Switcher */}
+          <div className="flex items-center bg-slate-900 border border-slate-800 rounded-xl p-1 shadow-inner">
+            <button
+              onClick={() => {
+                setIsEditMode(false);
+                setEditingSectionIdx(null);
+                setEditingGlobalRules(false);
+              }}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition ${
+                !isEditMode && editingSectionIdx === null
+                  ? 'bg-sky-500 text-white shadow-sm'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <Eye className="w-3.5 h-3.5" />
+              Read Prompts
+            </button>
+            <button
+              onClick={() => setIsEditMode(true)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition ${
+                isEditMode
+                  ? 'bg-sky-500 text-white shadow-sm'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <Edit3 className="w-3.5 h-3.5" />
+              Edit Mode
+            </button>
+          </div>
+
+          {isEditMode && (
+            <select
+              value={template.category}
+              onChange={(e) => setTemplate({ ...template, category: e.target.value })}
+              className="bg-slate-900 border border-slate-800 text-slate-200 text-xs font-semibold rounded-lg px-3 py-2 outline-none focus:border-sky-500"
+            >
+              <option value="Wealth">Wealth</option>
+              <option value="Other">Other</option>
+              <option value="Mortgages">Mortgages</option>
+              <option value="Protection">Protection</option>
+            </select>
+          )}
 
           <button
             onClick={handleExportJson}
@@ -344,74 +409,109 @@ export default function TemplateEditorPage() {
             JSON
           </button>
 
-          <button
-            onClick={handleSave}
-            disabled={saving}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold shadow-lg transition ${
-              savedSuccess
-                ? 'bg-emerald-600 text-white'
-                : 'bg-sky-600 hover:bg-sky-500 text-white shadow-sky-600/20'
-            }`}
-          >
-            {savedSuccess ? (
-              <>
-                <CheckCircle2 className="w-4 h-4" />
-                Saved!
-              </>
-            ) : (
-              <>
-                <Save className="w-4 h-4" />
-                {saving ? 'Saving...' : 'Save Template'}
-              </>
-            )}
-          </button>
+          {(isEditMode || editingSectionIdx !== null || editingGlobalRules) && (
+            <button
+              onClick={handleSave}
+              disabled={saving}
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold shadow-lg transition ${
+                savedSuccess
+                  ? 'bg-emerald-600 text-white'
+                  : 'bg-sky-600 hover:bg-sky-500 text-white shadow-sky-600/20'
+              }`}
+            >
+              {savedSuccess ? (
+                <>
+                  <CheckCircle2 className="w-4 h-4" />
+                  Saved!
+                </>
+              ) : (
+                <>
+                  <Save className="w-4 h-4" />
+                  {saving ? 'Saving...' : 'Save Changes'}
+                </>
+              )}
+            </button>
+          )}
         </div>
       </header>
 
       {/* Main Scrollable Canvas */}
-      <div className="flex-1 overflow-y-auto p-8 max-w-5xl w-full mx-auto space-y-6 scroll-smooth">
+      <div className="flex-1 overflow-y-auto p-8 max-w-5xl w-full mx-auto space-y-8 scroll-smooth">
         
         {/* Global Instructions Card */}
         <div 
           id="global-instructions"
-          className="p-6 rounded-2xl bg-slate-950 border border-slate-800 shadow-sm space-y-4 scroll-mt-6"
+          className="p-6 rounded-2xl bg-slate-950 border border-slate-800 shadow-sm space-y-4 scroll-mt-6 hover:border-slate-700 transition"
         >
           <div className="flex items-center justify-between">
             <h3 className="text-base font-bold text-sky-400 flex items-center gap-2">
               <Sparkles className="w-4 h-4" />
-              Global Instructions & AI Rules
+              Global Instructions & AI Standing Rules
             </h3>
-            <button
-              onClick={handleAddGlobalInstruction}
-              className="flex items-center gap-1 text-xs font-semibold text-sky-400 hover:text-sky-300 bg-sky-500/10 hover:bg-sky-500/20 px-2.5 py-1 rounded-md border border-sky-500/20 transition"
-            >
-              <Plus className="w-3.5 h-3.5" />
-              Add Rule
-            </button>
+            
+            <div className="flex items-center gap-2">
+              {!isEditMode && (
+                <button
+                  onClick={() => setEditingGlobalRules(!editingGlobalRules)}
+                  className="flex items-center gap-1 text-xs font-semibold text-slate-400 hover:text-sky-400 bg-slate-900 hover:bg-slate-850 px-2.5 py-1 rounded-lg border border-slate-800 transition"
+                >
+                  <Edit3 className="w-3.5 h-3.5" />
+                  {editingGlobalRules ? 'Done Editing' : 'Edit Rules'}
+                </button>
+              )}
+              {(isEditMode || editingGlobalRules) && (
+                <button
+                  onClick={handleAddGlobalInstruction}
+                  className="flex items-center gap-1 text-xs font-semibold text-sky-400 hover:text-sky-300 bg-sky-500/10 hover:bg-sky-500/20 px-2.5 py-1 rounded-md border border-sky-500/20 transition"
+                >
+                  <Plus className="w-3.5 h-3.5" />
+                  Add Rule
+                </button>
+              )}
+            </div>
           </div>
-          <p className="text-xs text-slate-400">
+
+          <p className="text-xs text-slate-400 leading-relaxed">
             These standing instructions govern tone, jurisdiction spelling, bold prefixes, and formatting across the entire output.
           </p>
 
-          <div className="space-y-2">
-            {template.globalInstructions.map((rule, idx) => (
-              <div key={idx} className="flex items-center gap-2 group">
-                <span className="text-xs font-bold text-slate-400 w-5">{idx + 1}.</span>
-                <input
-                  type="text"
-                  value={rule}
-                  onChange={(e) => handleUpdateGlobalInstruction(idx, e.target.value)}
-                  className="flex-1 bg-slate-900 border border-slate-800/80 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-sky-500 transition"
-                />
-                <button
-                  onClick={() => handleDeleteGlobalInstruction(idx)}
-                  className="p-2 text-slate-400 hover:text-red-400 opacity-0 group-hover:opacity-100 transition"
+          {/* Read View for Global Instructions */}
+          {!isEditMode && !editingGlobalRules ? (
+            <div className="space-y-2 pt-1">
+              {template.globalInstructions.map((rule, idx) => (
+                <div 
+                  key={idx} 
+                  className="flex items-start gap-3 p-3 rounded-xl bg-slate-900/60 border border-slate-800/80 text-sm text-slate-200 leading-relaxed font-sans"
                 >
-                  <Trash2 className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            ))}
-          </div>
+                  <span className="w-5 h-5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 flex items-center justify-center text-[11px] font-bold shrink-0 mt-0.5 font-mono">
+                    {idx + 1}
+                  </span>
+                  <div className="flex-1">{rule}</div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            /* Edit View for Global Instructions */
+            <div className="space-y-2 pt-1">
+              {template.globalInstructions.map((rule, idx) => (
+                <div key={idx} className="flex items-center gap-2 group">
+                  <span className="text-xs font-bold text-slate-400 w-5">{idx + 1}.</span>
+                  <input
+                    type="text"
+                    value={rule}
+                    onChange={(e) => handleUpdateGlobalInstruction(idx, e.target.value)}
+                    className="flex-1 bg-slate-900 border border-slate-800/80 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-sky-500 transition"
+                  />
+                  <button
+                    onClick={() => handleDeleteGlobalInstruction(idx)}
+                    className="p-2 text-slate-400 hover:text-red-400 opacity-0 group-hover:opacity-100 transition"
+                  >
+                    <Trash2 className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Section List Header */}
@@ -430,224 +530,357 @@ export default function TemplateEditorPage() {
         </div>
 
         {/* Sections Map */}
-        <div className="space-y-6">
-          {template.sections.map((section, sIndex) => (
-            <div
-              key={sIndex}
-              id={`section-${sIndex}`}
-              className="p-6 rounded-2xl bg-slate-950 border border-slate-800/90 shadow-md space-y-4 relative scroll-mt-6 hover:border-slate-700 transition-colors"
-            >
-              {/* Section Header Bar */}
-              <div className="flex items-center justify-between gap-3 border-b border-slate-800/60 pb-3">
-                <div className="flex items-center gap-2 flex-1">
-                  <span className="text-xs font-bold bg-slate-800 text-slate-300 px-2 py-1 rounded font-mono">
-                    § {sIndex + 1}
-                  </span>
-                  <input
-                    type="text"
-                    value={section.title}
-                    onChange={(e) => handleUpdateSection(sIndex, 'title', e.target.value)}
-                    className="text-base font-bold text-white bg-transparent border-b border-transparent hover:border-slate-700 focus:border-sky-400 px-1 py-0.5 outline-none flex-1"
-                  />
-                </div>
+        <div className="space-y-8">
+          {template.sections.map((section, sIndex) => {
+            const isEditingThisSection = isEditMode || editingSectionIdx === sIndex;
+            const promptCopyId = `prompt-${sIndex}`;
 
-                {/* Section Controls */}
-                <div className="flex items-center gap-1.5">
-                  <select
-                    value={section.type || 'standard'}
-                    onChange={(e) => handleUpdateSection(sIndex, 'type', e.target.value)}
-                    className="bg-slate-900 border border-slate-800 text-slate-300 text-xs rounded px-2 py-1 outline-none"
-                  >
-                    <option value="standard">Standard</option>
-                    <option value="table">Table Format</option>
-                    <option value="template">Email/Doc Template</option>
-                    <option value="checklist">Compliance Checklist</option>
-                  </select>
-
-                  <button
-                    onClick={() => handleMoveSection(sIndex, 'up')}
-                    disabled={sIndex === 0}
-                    className="p-1 text-slate-400 hover:text-white disabled:opacity-30"
-                  >
-                    <ChevronUp className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={() => handleMoveSection(sIndex, 'down')}
-                    disabled={sIndex === template.sections.length - 1}
-                    className="p-1 text-slate-400 hover:text-white disabled:opacity-30"
-                  >
-                    <ChevronDown className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={() => handleDeleteSection(sIndex)}
-                    className="p-1 text-slate-400 hover:text-red-400 transition"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-
-              {/* Section AI Guidance Box (Blue Box) */}
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-bold uppercase tracking-wider text-sky-400 flex items-center gap-1">
-                  AI Guidance / Directives
-                </label>
-                <textarea
-                  value={section.guidance || ''}
-                  onChange={(e) => handleUpdateSection(sIndex, 'guidance', e.target.value)}
-                  rows={3}
-                  placeholder="Instructions telling the AI what to extract and how to format this section..."
-                  className="w-full bg-slate-900/90 border border-sky-500/30 rounded-xl p-3 text-sm text-sky-100 placeholder-slate-400 focus:outline-none focus:border-sky-400 leading-relaxed font-sans transition"
-                />
-              </div>
-
-              {/* Content To Include (Bullets) */}
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                    Content to Include (Prompts / Bullets)
-                  </span>
-                  <button
-                    onClick={() => handleAddBullet(sIndex)}
-                    className="text-xs text-sky-400 hover:text-sky-300 font-semibold flex items-center gap-1"
-                  >
-                    <Plus className="w-3 h-3" /> Add item
-                  </button>
-                </div>
-
-                <div className="grid grid-cols-1 gap-1.5">
-                  {section.contentToInclude?.map((bullet, bIdx) => (
-                    <div key={bIdx} className="flex items-center gap-2 group">
-                      <span className="text-sky-400 text-sm">•</span>
+            return (
+              <div
+                key={sIndex}
+                id={`section-${sIndex}`}
+                className={`p-6 rounded-2xl bg-slate-950 border transition-all duration-200 space-y-5 relative scroll-mt-6 ${
+                  isEditingThisSection 
+                    ? 'border-sky-500/50 shadow-xl shadow-sky-950/20 ring-1 ring-sky-500/20' 
+                    : 'border-slate-800 hover:border-slate-700 shadow-md'
+                }`}
+              >
+                {/* Section Header Bar */}
+                <div className="flex items-center justify-between gap-3 border-b border-slate-800/80 pb-4">
+                  <div className="flex items-center gap-2.5 flex-1">
+                    <span className="text-xs font-bold bg-slate-800 text-sky-400 px-2.5 py-1 rounded-md font-mono border border-slate-700">
+                      § {sIndex + 1}
+                    </span>
+                    {isEditingThisSection ? (
                       <input
                         type="text"
-                        value={bullet}
-                        onChange={(e) => handleUpdateBullet(sIndex, bIdx, e.target.value)}
-                        className="flex-1 bg-slate-900/60 border border-slate-800/60 rounded-lg px-2.5 py-1 text-xs text-slate-200 focus:outline-none focus:border-sky-500"
+                        value={section.title}
+                        onChange={(e) => handleUpdateSection(sIndex, 'title', e.target.value)}
+                        className="text-lg font-bold text-white bg-slate-900 border border-slate-700 focus:border-sky-400 px-2.5 py-1 rounded-lg outline-none flex-1"
                       />
+                    ) : (
+                      <h3 className="text-lg font-bold text-white tracking-tight">
+                        {section.title || 'Untitled Section'}
+                      </h3>
+                    )}
+                  </div>
+
+                  {/* Section Controls & Edit Toggle */}
+                  <div className="flex items-center gap-2">
+                    {/* Section Type Badge */}
+                    {section.type && (
+                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-900 text-slate-300 border border-slate-800">
+                        {section.type}
+                      </span>
+                    )}
+
+                    {/* Quick Inline Edit Toggle */}
+                    {!isEditMode && (
                       <button
-                        onClick={() => handleDeleteBullet(sIndex, bIdx)}
-                        className="p-1 text-slate-400 hover:text-red-400 opacity-0 group-hover:opacity-100 transition"
+                        onClick={() => setEditingSectionIdx(isEditingThisSection ? null : sIndex)}
+                        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border transition ${
+                          isEditingThisSection
+                            ? 'bg-sky-500 text-white border-sky-400'
+                            : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border-slate-800 hover:text-white'
+                        }`}
                       >
-                        <Trash2 className="w-3 h-3" />
+                        <Edit3 className="w-3.5 h-3.5" />
+                        {isEditingThisSection ? 'Done' : 'Edit Section'}
                       </button>
+                    )}
+
+                    {isEditingThisSection && (
+                      <>
+                        <select
+                          value={section.type || 'standard'}
+                          onChange={(e) => handleUpdateSection(sIndex, 'type', e.target.value)}
+                          className="bg-slate-900 border border-slate-800 text-slate-300 text-xs rounded px-2 py-1 outline-none"
+                        >
+                          <option value="standard">Standard</option>
+                          <option value="table">Table Format</option>
+                          <option value="template">Email/Doc Template</option>
+                          <option value="checklist">Compliance Checklist</option>
+                        </select>
+
+                        <button
+                          onClick={() => handleMoveSection(sIndex, 'up')}
+                          disabled={sIndex === 0}
+                          className="p-1.5 text-slate-400 hover:text-white disabled:opacity-30 rounded hover:bg-slate-900"
+                        >
+                          <ChevronUp className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={() => handleMoveSection(sIndex, 'down')}
+                          disabled={sIndex === template.sections.length - 1}
+                          className="p-1.5 text-slate-400 hover:text-white disabled:opacity-30 rounded hover:bg-slate-900"
+                        >
+                          <ChevronDown className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={() => handleDeleteSection(sIndex)}
+                          className="p-1.5 text-slate-400 hover:text-red-400 transition rounded hover:bg-slate-900"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </>
+                    )}
+                  </div>
+                </div>
+
+                {/* Section AI Guidance Box (Read vs Edit) */}
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <label className="text-[11px] font-extrabold uppercase tracking-wider text-sky-400 flex items-center gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5" />
+                      AI Guidance & Extraction Directives
+                    </label>
+
+                    {/* Copy prompt button */}
+                    {section.guidance && (
+                      <button
+                        onClick={() => handleCopyPrompt(section.guidance || '', promptCopyId)}
+                        className="flex items-center gap-1 text-[11px] font-medium text-slate-400 hover:text-sky-300 transition px-2 py-0.5 rounded hover:bg-slate-900"
+                      >
+                        {copiedPromptId === promptCopyId ? (
+                          <>
+                            <Check className="w-3 h-3 text-emerald-400" />
+                            <span className="text-emerald-400 font-semibold">Copied!</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="w-3 h-3" />
+                            <span>Copy Prompt</span>
+                          </>
+                        )}
+                      </button>
+                    )}
+                  </div>
+
+                  {isEditingThisSection ? (
+                    <textarea
+                      value={section.guidance || ''}
+                      onChange={(e) => handleUpdateSection(sIndex, 'guidance', e.target.value)}
+                      rows={4}
+                      placeholder="Instructions telling the AI what to extract and how to format this section..."
+                      className="w-full bg-slate-900 border border-sky-500/40 rounded-xl p-3.5 text-sm text-sky-100 placeholder-slate-400 focus:outline-none focus:border-sky-400 leading-relaxed font-sans transition"
+                    />
+                  ) : (
+                    <div className="p-4 rounded-xl bg-slate-900/80 border border-sky-500/20 text-sm text-sky-100 leading-relaxed font-sans whitespace-pre-line shadow-inner">
+                      {section.guidance || (
+                        <span className="text-slate-400 italic">No specific AI guidance entered for this section.</span>
+                      )}
                     </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Subsections Area */}
-              <div className="pt-2 space-y-3">
-                <div className="flex items-center justify-between border-t border-slate-800/40 pt-3">
-                  <span className="text-xs font-bold text-slate-300 uppercase tracking-wide">
-                    Subsections ({section.subsections?.length || 0})
-                  </span>
-                  <button
-                    onClick={() => handleAddSubsection(sIndex)}
-                    className="flex items-center gap-1 px-2.5 py-1 rounded bg-slate-900 hover:bg-slate-800 text-sky-400 text-xs font-semibold border border-slate-800 transition"
-                  >
-                    <Plus className="w-3 h-3" /> Add Subsection
-                  </button>
+                  )}
                 </div>
 
-                {/* Subsections Map */}
-                <div className="space-y-3 pl-4 border-l-2 border-slate-800">
-                  {section.subsections?.map((sub, subIdx) => (
-                    <div
-                      key={subIdx}
-                      id={`subsection-${sIndex}-${subIdx}`}
-                      className="p-4 rounded-xl bg-slate-900/70 border border-slate-800/80 space-y-3 scroll-mt-6 hover:border-slate-700 transition-colors"
-                    >
-                      <div className="flex items-center justify-between gap-2">
-                        <div className="flex items-center gap-2 flex-1">
-                          <span className="text-[10px] font-bold bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">
-                            {sIndex + 1}.{subIdx + 1}
-                          </span>
+                {/* Content To Include (Bullets / Prompts) */}
+                <div className="space-y-2.5">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                      Content to Include ({section.contentToInclude?.length || 0} items)
+                    </span>
+                    {isEditingThisSection && (
+                      <button
+                        onClick={() => handleAddBullet(sIndex)}
+                        className="text-xs text-sky-400 hover:text-sky-300 font-semibold flex items-center gap-1"
+                      >
+                        <Plus className="w-3 h-3" /> Add item
+                      </button>
+                    )}
+                  </div>
+
+                  {isEditingThisSection ? (
+                    /* Edit mode for bullets */
+                    <div className="grid grid-cols-1 gap-1.5">
+                      {section.contentToInclude?.map((bullet, bIdx) => (
+                        <div key={bIdx} className="flex items-center gap-2 group">
+                          <span className="text-sky-400 text-sm">•</span>
                           <input
                             type="text"
-                            value={sub.title}
-                            onChange={(e) => handleUpdateSubsection(sIndex, subIdx, 'title', e.target.value)}
-                            className="font-semibold text-sm text-sky-300 bg-transparent border-b border-transparent hover:border-slate-700 focus:border-sky-400 px-1 py-0.5 outline-none flex-1"
+                            value={bullet}
+                            onChange={(e) => handleUpdateBullet(sIndex, bIdx, e.target.value)}
+                            className="flex-1 bg-slate-900/80 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-sky-500"
                           />
-                        </div>
-
-                        <div className="flex items-center gap-1">
                           <button
-                            onClick={() => handleMoveSubsection(sIndex, subIdx, 'up')}
-                            disabled={subIdx === 0}
-                            className="p-1 text-slate-400 hover:text-white disabled:opacity-30"
-                          >
-                            <ChevronUp className="w-3.5 h-3.5" />
-                          </button>
-                          <button
-                            onClick={() => handleMoveSubsection(sIndex, subIdx, 'down')}
-                            disabled={subIdx === (section.subsections?.length || 0) - 1}
-                            className="p-1 text-slate-400 hover:text-white disabled:opacity-30"
-                          >
-                            <ChevronDown className="w-3.5 h-3.5" />
-                          </button>
-                          <button
-                            onClick={() => handleDeleteSubsection(sIndex, subIdx)}
-                            className="p-1 text-slate-400 hover:text-red-400 transition"
+                            onClick={() => handleDeleteBullet(sIndex, bIdx)}
+                            className="p-1 text-slate-400 hover:text-red-400 opacity-0 group-hover:opacity-100 transition"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
                           </button>
                         </div>
-                      </div>
-
-                      {/* Subsection Guidance */}
-                      <textarea
-                        value={sub.guidance || ''}
-                        onChange={(e) => handleUpdateSubsection(sIndex, subIdx, 'guidance', e.target.value)}
-                        rows={2}
-                        placeholder="Subsection guidance and directives..."
-                        className="w-full bg-slate-950 border border-slate-800/80 rounded-lg p-2.5 text-xs text-slate-200 placeholder-slate-400 focus:outline-none focus:border-sky-400 leading-relaxed font-sans"
-                      />
-
-                      {/* Subsection Content to Include (Bullets) */}
-                      <div className="space-y-1">
-                        <div className="flex items-center justify-between">
-                          <span className="text-[10px] font-semibold uppercase text-slate-400">
-                            Sub-items
-                          </span>
-                          <button
-                            onClick={() => handleAddBullet(sIndex, subIdx)}
-                            className="text-[11px] text-sky-400 hover:text-sky-300 font-medium flex items-center gap-0.5"
-                          >
-                            <Plus className="w-2.5 h-2.5" /> add
-                          </button>
-                        </div>
-                        {sub.contentToInclude?.map((bItem, bIdx) => (
-                          <div key={bIdx} className="flex items-center gap-1.5 group">
-                            <span className="text-slate-400 text-xs">•</span>
-                            <input
-                              type="text"
-                              value={bItem}
-                              onChange={(e) => handleUpdateBullet(sIndex, bIdx, e.target.value, subIdx)}
-                              className="flex-1 bg-slate-950/60 border border-slate-800/50 rounded px-2 py-0.5 text-xs text-slate-300 focus:outline-none focus:border-sky-500"
-                            />
-                            <button
-                              onClick={() => handleDeleteBullet(sIndex, bIdx, subIdx)}
-                              className="p-1 text-slate-400 hover:text-red-400 opacity-0 group-hover:opacity-100 transition"
-                            >
-                              <Trash2 className="w-2.5 h-2.5" />
-                            </button>
-                          </div>
-                        ))}
-                      </div>
+                      ))}
                     </div>
-                  ))}
+                  ) : (
+                    /* Read mode for bullets */
+                    <div className="space-y-1.5">
+                      {section.contentToInclude && section.contentToInclude.length > 0 ? (
+                        section.contentToInclude.map((bullet, bIdx) => (
+                          <div 
+                            key={bIdx} 
+                            className="flex items-start gap-2.5 text-xs text-slate-300 bg-slate-900/40 px-3 py-2 rounded-lg border border-slate-800/60"
+                          >
+                            <span className="text-sky-400 font-bold">•</span>
+                            <span className="leading-relaxed">{bullet}</span>
+                          </div>
+                        ))
+                      ) : (
+                        <p className="text-xs text-slate-400 italic">No content bullet requirements listed.</p>
+                      )}
+                    </div>
+                  )}
                 </div>
+
+                {/* Subsections Area */}
+                {((section.subsections && section.subsections.length > 0) || isEditingThisSection) && (
+                  <div className="pt-3 space-y-4">
+                    <div className="flex items-center justify-between border-t border-slate-800/80 pt-4">
+                      <span className="text-xs font-bold text-slate-300 uppercase tracking-wide">
+                        Subsections ({section.subsections?.length || 0})
+                      </span>
+                      {isEditingThisSection && (
+                        <button
+                          onClick={() => handleAddSubsection(sIndex)}
+                          className="flex items-center gap-1 px-2.5 py-1 rounded bg-slate-900 hover:bg-slate-800 text-sky-400 text-xs font-semibold border border-slate-800 transition"
+                        >
+                          <Plus className="w-3.5 h-3.5" /> Add Subsection
+                        </button>
+                      )}
+                    </div>
+
+                    {/* Subsections Map */}
+                    <div className="space-y-4 pl-4 border-l-2 border-slate-800">
+                      {section.subsections?.map((sub, subIdx) => {
+                        return (
+                          <div
+                            key={subIdx}
+                            id={`subsection-${sIndex}-${subIdx}`}
+                            className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-3 scroll-mt-6 hover:border-slate-700 transition"
+                          >
+                            <div className="flex items-center justify-between gap-2">
+                              <div className="flex items-center gap-2 flex-1">
+                                <span className="text-[10px] font-bold bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">
+                                  {sIndex + 1}.{subIdx + 1}
+                                </span>
+                                {isEditingThisSection ? (
+                                  <input
+                                    type="text"
+                                    value={sub.title}
+                                    onChange={(e) => handleUpdateSubsection(sIndex, subIdx, 'title', e.target.value)}
+                                    className="font-semibold text-sm text-sky-300 bg-slate-950 border border-slate-800 focus:border-sky-400 px-2 py-0.5 rounded outline-none flex-1"
+                                  />
+                                ) : (
+                                  <h4 className="font-semibold text-sm text-sky-200">
+                                    {sub.title || 'Untitled Subsection'}
+                                  </h4>
+                                )}
+                              </div>
+
+                              {isEditingThisSection && (
+                                <div className="flex items-center gap-1">
+                                  <button
+                                    onClick={() => handleMoveSubsection(sIndex, subIdx, 'up')}
+                                    disabled={subIdx === 0}
+                                    className="p-1 text-slate-400 hover:text-white disabled:opacity-30"
+                                  >
+                                    <ChevronUp className="w-3.5 h-3.5" />
+                                  </button>
+                                  <button
+                                    onClick={() => handleMoveSubsection(sIndex, subIdx, 'down')}
+                                    disabled={subIdx === (section.subsections?.length || 0) - 1}
+                                    className="p-1 text-slate-400 hover:text-white disabled:opacity-30"
+                                  >
+                                    <ChevronDown className="w-3.5 h-3.5" />
+                                  </button>
+                                  <button
+                                    onClick={() => handleDeleteSubsection(sIndex, subIdx)}
+                                    className="p-1 text-slate-400 hover:text-red-400 transition"
+                                  >
+                                    <Trash2 className="w-3.5 h-3.5" />
+                                  </button>
+                                </div>
+                              )}
+                            </div>
+
+                            {/* Subsection Guidance */}
+                            {isEditingThisSection ? (
+                              <textarea
+                                value={sub.guidance || ''}
+                                onChange={(e) => handleUpdateSubsection(sIndex, subIdx, 'guidance', e.target.value)}
+                                rows={2}
+                                placeholder="Subsection guidance and directives..."
+                                className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-slate-200 placeholder-slate-400 focus:outline-none focus:border-sky-400 leading-relaxed font-sans"
+                              />
+                            ) : (
+                              sub.guidance && (
+                                <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 text-xs text-slate-300 leading-relaxed">
+                                  {sub.guidance}
+                                </div>
+                              )
+                            )}
+
+                            {/* Subsection Content to Include (Bullets) */}
+                            {((sub.contentToInclude && sub.contentToInclude.length > 0) || isEditingThisSection) && (
+                              <div className="space-y-1">
+                                <div className="flex items-center justify-between">
+                                  <span className="text-[10px] font-semibold uppercase text-slate-400">
+                                    Sub-items
+                                  </span>
+                                  {isEditingThisSection && (
+                                    <button
+                                      onClick={() => handleAddBullet(sIndex, subIdx)}
+                                      className="text-[11px] text-sky-400 hover:text-sky-300 font-medium flex items-center gap-0.5"
+                                    >
+                                      <Plus className="w-2.5 h-2.5" /> add
+                                    </button>
+                                  )}
+                                </div>
+
+                                {isEditingThisSection ? (
+                                  sub.contentToInclude?.map((bItem, bIdx) => (
+                                    <div key={bIdx} className="flex items-center gap-1.5 group">
+                                      <span className="text-slate-400 text-xs">•</span>
+                                      <input
+                                        type="text"
+                                        value={bItem}
+                                        onChange={(e) => handleUpdateBullet(sIndex, bIdx, e.target.value, subIdx)}
+                                        className="flex-1 bg-slate-950/60 border border-slate-800/50 rounded px-2 py-0.5 text-xs text-slate-300 focus:outline-none focus:border-sky-500"
+                                      />
+                                      <button
+                                        onClick={() => handleDeleteBullet(sIndex, bIdx, subIdx)}
+                                        className="p-1 text-slate-400 hover:text-red-400 opacity-0 group-hover:opacity-100 transition"
+                                      >
+                                        <Trash2 className="w-2.5 h-2.5" />
+                                      </button>
+                                    </div>
+                                  ))
+                                ) : (
+                                  <div className="space-y-1">
+                                    {sub.contentToInclude?.map((bItem, bIdx) => (
+                                      <div key={bIdx} className="flex items-start gap-2 text-xs text-slate-400">
+                                        <span className="text-sky-400">•</span>
+                                        <span>{bItem}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Bottom Add Section Action */}
         <div className="pt-4 pb-12 text-center">
           <button
             onClick={handleAddSection}
-            className="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 text-sm font-bold inline-flex items-center gap-2 transition hover:border-slate-700"
+            className="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 text-sm font-bold inline-flex items-center gap-2 transition hover:border-slate-700 shadow-sm"
           >
             <Plus className="w-4 h-4 text-sky-400" />
             Add New Section
