@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FA Meeting Manager — FutureSolutions AI
 
-## Getting Started
+Enterprise Wealth Management & Financial Advisory Meeting Template Studio.
 
-First, run the development server:
+---
+
+## 🌐 Production Infrastructure (Hostinger VPS)
+
+| Property | Value |
+| :--- | :--- |
+| **Live URL** | [https://fameetingmanager.futuresolutionsai.com](https://fameetingmanager.futuresolutionsai.com) |
+| **Server** | **Hostinger VPS (`46.202.129.30`)** |
+| **Directory** | `/var/www/fameetingmanager` |
+| **Port** | **`3700`** |
+| **Process Manager** | **PM2** (`fameetingmanager`) |
+| **Reverse Proxy** | **Caddy** (Auto-SSL) |
+| **Database** | SQLite + Prisma ORM (`prisma/superbia.db`) |
+| **Authentication** | NextAuth v5 Google OAuth (`janskifura@gmail.com`, `lee13parkinson@gmail.com`) |
+| **Telemetry** | Centralized logging to Stef CEO Dashboard |
+
+---
+
+## 🚀 Key Features
+
+* **Template Catalog (`/templates`):** Pre-loaded with all 11 Wealth & Advisory templates (*Review, Advice Presentation, Onboarding, Fact Find, Initial Strategy, etc.*).
+* **Two-Layer Interactive Section Editor (`/templates/[id]`):**
+  * Dynamic sidebar outline with smooth scroll-to-section navigation.
+  * Global Instructions & AI Rules manager.
+  * Section & Subsection tree management (§ 1, 1.1, 1.2...).
+  * Directives / AI Guidance boxes, Content to Include bullet prompts, Table schemas, and Compliance checklists.
+* **1-Click Actions:** Duplicate, Delete, and JSON Export/Import.
+
+---
+
+## 🛠️ Local Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# 1. Install dependencies
+npm install
+
+# 2. Database migration & seeding
+npx prisma db push
+node prisma/seed.js
+
+# 3. Start dev server on port 3005
+npm run dev -- -p 3005
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Production Deployment (Hostinger VPS)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+cd /var/www/fameetingmanager
+git pull origin main
+npm install
+npx prisma db push --accept-data-loss
+node prisma/seed.js
+npm run build
+pm2 restart fameetingmanager
+pm2 save
+```
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Caddy Reverse Proxy Block
+```caddyfile
+fameetingmanager.futuresolutionsai.com {
+    reverse_proxy localhost:3700
+    encode gzip zstd
+    log {
+        output file /var/log/caddy/fameetingmanager.log
+    }
+}
+```
