@@ -31,6 +31,7 @@ async function main() {
   await prisma.template.deleteMany();
 
   // Seed Meeting Templates
+  let meetingOrder = 0;
   for (const item of meetingBundle) {
     if (item.name === 'Review (Descriptive)' || item.name === 'Advice Presentation (Descriptive)') {
       continue;
@@ -78,6 +79,7 @@ async function main() {
         category: item.category || 'Wealth',
         scope: 'Company',
         icon: item.icon || '🎙️',
+        order: meetingOrder++,
         globalInstructions: JSON.stringify(globalInstructions),
         sections: JSON.stringify(sections),
         variants: JSON.stringify(variantsObj),
@@ -88,6 +90,7 @@ async function main() {
   }
 
   // Seed Document Templates
+  let docOrder = 0;
   for (const item of docBundle) {
     const data = item.data;
     const globalInstructions = data.globalInstructions || [];
@@ -111,6 +114,7 @@ async function main() {
         category: item.category || 'Wealth',
         scope: 'Company',
         icon: item.icon || '📄',
+        order: docOrder++,
         globalInstructions: JSON.stringify(globalInstructions),
         sections: JSON.stringify(sections),
         variants: JSON.stringify(variantsObj),

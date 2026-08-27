@@ -30,7 +30,10 @@ export async function GET(req: NextRequest) {
 
     const templates = await prisma.template.findMany({
       where,
-      orderBy: { updatedAt: 'desc' },
+      orderBy: [
+        { order: 'asc' },
+        { updatedAt: 'desc' },
+      ],
     });
 
     const parsed = templates.map((t) => {

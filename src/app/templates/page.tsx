@@ -10,7 +10,8 @@ import {
   Download, 
   Trash2, 
   Copy, 
-  ChevronRight
+  ChevronRight,
+  GripVertical
 } from 'lucide-react';
 
 interface TemplateItem {
@@ -19,6 +20,7 @@ interface TemplateItem {
   category: string;
   scope: string;
   icon: string;
+  order?: number;
   sectionCount: number;
   tiers?: string[];
   updatedAt: string;
@@ -35,6 +37,8 @@ function TemplateCatalogContent() {
   const [activeTab, setActiveTab] = useState('Company');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [mounted, setMounted] = useState(false);
+  const [draggedId, setDraggedId] = useState<string | null>(null);
+  const [dragOverId, setDragOverId] = useState<string | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -58,6 +62,38 @@ function TemplateCatalogContent() {
   useEffect(() => {
     fetchTemplates();
   }, [fetchTemplates]);
+
+  const handleDrop = async (targetId: string) => {
+    if (!draggedId || draggedId === targetId) return;
+
+    const sourceIdx = templates.findIndex((t) => t.id === draggedId);
+    const targetIdx = templates.findIndex((t) => t.id === targetId);
+    if (sourceIdx === -1 || targetIdx === -1) return;
+
+    // Reorder locally
+    const updated = [...templates];
+    const [moved] = updated.splice(sourceIdx, 1);
+    updated.splice(targetIdx, 0, moved);
+
+    setTemplates(updated);
+    setDraggedId(null);
+    setDragOverId(null);
+
+    // Save to database
+    try {
+      const items = updated.map((tmpl, index) => ({
+        id: tmpl.id,
+        order: index,
+      }));
+      await fetch('/api/templates/reorder', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items }),
+      });
+    } catch (err) {
+      console.error('Failed to persist template order:', err);
+    }
+  };
 
   const filteredTemplates = templates.filter((tmpl) => {
     const matchesSearch = tmpl.name.toLowerCase().includes(search.toLowerCase()) || 
@@ -245,76 +281,118 @@ function TemplateCatalogContent() {
         </div>
       ) : (
         <div className="space-y-3">
-          {filteredTemplates.map((tmpl) => (
-            <div
-              key={tmpl.id}
-              onClick={() => router.push(`/templates/${tmpl.id}`)}
-              className="group flex items-center justify-between p-4 px-5 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-slate-700 hover:bg-slate-900/80 cursor-pointer transition-all duration-150 shadow-sm"
-            >
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">
-                  {tmpl.icon || '📋'}
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <h3 className="font-semibold text-white text-base group-hover:text-sky-300 transition-colors">
-                      {tmpl.name}
-                    </h3>
-                    {tmpl.tiers && tmpl.tiers.length > 0 && (
-                      <div className="flex items-center gap-1">
-                        {tmpl.tiers.map((t) => (
-                          <span
-                            key={t}
-                            className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.2 rounded bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 font-mono"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                  <div className="flex items-center gap-2 mt-1 text-xs text-slate-400">
-                    <span
-                      className={`px-2 py-0.5 rounded font-medium ${
-                        tmpl.category === 'Wealth'
-                          ? 'bg-sky-500/10 text-sky-400 border border-sky-500/20'
-                          : 'bg-slate-800 text-slate-300'
-                      }`}
-                    >
-                      {tmpl.category}
-                    </span>
-                    <span>•</span>
-                    <span>{tmpl.sectionCount || 0} Sections</span>
-                    {mounted && (
-                      <>
-                        <span>•</span>
-                        <span>Updated {formatDate(tmpl.updatedAt)}</span>
-                      </>
-                    )}
-                  </div>
-                </div>
-              </div>
+          {filteredTemplates.map((tmpl) => {
+            const isBeingDragged = draggedId === tmpl.id;
+            const isDragTarget = dragOverId === tmpl.id;
 
-              {/* Action Buttons */}
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={(e) => handleDuplicate(e, tmpl)}
-                  title="Duplicate Template"
-                  className="p-2 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800 opacity-0 group-hover:opacity-100 transition"
-                >
-                  <Copy className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={(e) => handleDelete(e, tmpl.id, tmpl.name)}
-                  title="Delete Template"
-                  className="p-2 rounded-lg text-slate-400 hover:text-red-400 hover:bg-red-500/10 opacity-0 group-hover:opacity-100 transition"
-                >
-                  <Trash2 className="w-4 h-4" />
-                </button>
-                <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-sky-400 group-hover:translate-x-0.5 transition-all" />
+            return (
+              <div
+                key={tmpl.id}
+                draggable={!search && selectedCategory === 'All'}
+                onDragStart={(e) => {
+                  setDraggedId(tmpl.id);
+                  e.dataTransfer.effectAllowed = 'move';
+                }}
+                onDragOver={(e) => {
+                  e.preventDefault();
+                  if (dragOverId !== tmpl.id) setDragOverId(tmpl.id);
+                }}
+                onDragLeave={() => {
+                  if (dragOverId === tmpl.id) setDragOverId(null);
+                }}
+                onDrop={(e) => {
+                  e.preventDefault();
+                  handleDrop(tmpl.id);
+                }}
+                onDragEnd={() => {
+                  setDraggedId(null);
+                  setDragOverId(null);
+                }}
+                onClick={() => router.push(`/templates/${tmpl.id}`)}
+                className={`group flex items-center justify-between p-4 px-5 rounded-xl border cursor-pointer transition-all duration-150 shadow-sm ${
+                  isBeingDragged
+                    ? 'opacity-40 border-dashed border-sky-400 bg-sky-500/5'
+                    : isDragTarget
+                    ? 'border-sky-400 bg-sky-500/10 shadow-lg shadow-sky-500/10 scale-[1.008]'
+                    : 'bg-slate-950/60 border-slate-800/80 hover:border-slate-700 hover:bg-slate-900/80'
+                }`}
+              >
+                <div className="flex items-center gap-3 sm:gap-4">
+                  {/* Drag Handle Indicator */}
+                  {!search && selectedCategory === 'All' && (
+                    <div
+                      title="Drag to reorder"
+                      onClick={(e) => e.stopPropagation()}
+                      className="cursor-grab active:cursor-grabbing text-slate-600 group-hover:text-slate-400 hover:text-sky-400 p-1 -ml-2 rounded transition"
+                    >
+                      <GripVertical className="w-4 h-4" />
+                    </div>
+                  )}
+
+                  <div className="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">
+                    {tmpl.icon || '📋'}
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <h3 className="font-semibold text-white text-base group-hover:text-sky-300 transition-colors">
+                        {tmpl.name}
+                      </h3>
+                      {tmpl.tiers && tmpl.tiers.length > 0 && (
+                        <div className="flex items-center gap-1">
+                          {tmpl.tiers.map((t) => (
+                            <span
+                              key={t}
+                              className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.2 rounded bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 font-mono"
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-2 mt-1 text-xs text-slate-400">
+                      <span
+                        className={`px-2 py-0.5 rounded font-medium ${
+                          tmpl.category === 'Wealth'
+                            ? 'bg-sky-500/10 text-sky-400 border border-sky-500/20'
+                            : 'bg-slate-800 text-slate-300'
+                        }`}
+                      >
+                        {tmpl.category}
+                      </span>
+                      <span>•</span>
+                      <span>{tmpl.sectionCount || 0} Sections</span>
+                      {mounted && (
+                        <>
+                          <span>•</span>
+                          <span>Updated {formatDate(tmpl.updatedAt)}</span>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={(e) => handleDuplicate(e, tmpl)}
+                    title="Duplicate Template"
+                    className="p-2 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800 opacity-0 group-hover:opacity-100 transition"
+                  >
+                    <Copy className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={(e) => handleDelete(e, tmpl.id, tmpl.name)}
+                    title="Delete Template"
+                    className="p-2 rounded-lg text-slate-400 hover:text-red-400 hover:bg-red-500/10 opacity-0 group-hover:opacity-100 transition"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
+                  <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-sky-400 group-hover:translate-x-0.5 transition-all" />
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
     </div>
