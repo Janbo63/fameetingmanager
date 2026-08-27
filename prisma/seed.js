@@ -5,7 +5,7 @@ const path = require('path');
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log('Seeding Superbia / FA Meeting Templates with Tier Variants...');
+  console.log('Seeding FA Meeting Templates with Tier Variants...');
 
   let bundlePath = path.join(__dirname, 'templates_bundle.json');
   if (!fs.existsSync(bundlePath)) {
@@ -16,9 +16,18 @@ async function main() {
   rawBundle = rawBundle.replace(/Marloo/g, 'Superbia').replace(/marloo/g, 'superbia');
   const bundle = JSON.parse(rawBundle);
 
+  // Find Review (Descriptive) if exists
+  const reviewDescriptive = bundle.find(b => b.name === 'Review (Descriptive)');
+  const adviceDescriptive = bundle.find(b => b.name === 'Advice Presentation (Descriptive)');
+
   await prisma.template.deleteMany();
 
   for (const item of bundle) {
+    // Skip standalone (Descriptive) templates as they are merged into Complex tiers
+    if (item.name === 'Review (Descriptive)') {
+      continue;
+    }
+
     const data = item.data;
     const globalInstructions = data.globalInstructions || [];
     const sections = data.sections || [];
@@ -33,6 +42,18 @@ async function main() {
       },
     };
 
+    // If Review, attach Review (Descriptive) as the Complex tier
+    if (item.name === 'Review' && reviewDescriptive) {
+      variantsObj.complex = {
+        current: {
+          globalInstructions: reviewDescriptive.data.globalInstructions || globalInstructions,
+          sections: reviewDescriptive.data.sections || [],
+          updatedAt: new Date().toISOString(),
+        },
+      };
+      console.log('  -> Merged "Review (Descriptive)" into "Review [Complex Tier]"');
+    }
+
     await prisma.template.create({
       data: {
         id: item.id,
@@ -45,10 +66,12 @@ async function main() {
         variants: JSON.stringify(variantsObj),
       },
     });
-    console.log('Seeded: ' + item.name + ' [Standard Tier]');
+
+    const activeTiers = Object.keys(variantsObj).join(', ');
+    console.log('Seeded: ' + item.name + ' [' + activeTiers + ']');
   }
 
-  console.log('Seeding complete! All 11 templates initialized with Standard tier.');
+  console.log('Seeding complete! Review has both Standard and Complex tiers.');
 }
 
 main()
