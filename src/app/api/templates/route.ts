@@ -29,8 +29,9 @@ export async function GET(req: NextRequest) {
     });
 
     const parsed = templates.map((t) => {
-      let globalInstructions = [];
-      let sections = [];
+      let globalInstructions: string[] = [];
+      let sections: Record<string, unknown>[] = [];
+      let variants: Record<string, unknown> = {};
       try {
         globalInstructions = JSON.parse(t.globalInstructions);
       } catch {
@@ -41,11 +42,20 @@ export async function GET(req: NextRequest) {
       } catch {
         sections = [];
       }
+      try {
+        if (t.variants) variants = JSON.parse(t.variants);
+      } catch {
+        variants = {};
+      }
+
+      const tiers = Object.keys(variants).length > 0 ? Object.keys(variants) : ['standard'];
 
       return {
         ...t,
         globalInstructions,
         sections,
+        tiers,
+        variants,
         sectionCount: sections.length,
       };
     });

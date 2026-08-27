@@ -17,9 +17,15 @@ import {
   Eye,
   Edit3,
   Copy,
-  Check
+  Check,
+  RotateCcw,
+  History,
+  GitFork,
+  FileSpreadsheet
 } from 'lucide-react';
 import { useTemplateNav } from '@/context/TemplateNavContext';
+
+export type TierType = 'simple' | 'standard' | 'complex';
 
 interface Subsection {
   title: string;
@@ -38,6 +44,25 @@ interface Section {
   subsections?: Subsection[];
 }
 
+interface TierVariantData {
+  current: {
+    globalInstructions: string[];
+    sections: Section[];
+    updatedAt: string;
+  };
+  previous?: {
+    globalInstructions: string[];
+    sections: Section[];
+    savedAt: string;
+  };
+}
+
+interface VariantsMap {
+  simple?: TierVariantData;
+  standard?: TierVariantData;
+  complex?: TierVariantData;
+}
+
 interface TemplateData {
   id: string;
   name: string;
@@ -46,6 +71,7 @@ interface TemplateData {
   icon: string;
   globalInstructions: string[];
   sections: Section[];
+  variants: VariantsMap;
 }
 
 export default function TemplateEditorPage() {
@@ -53,16 +79,23 @@ export default function TemplateEditorPage() {
   const id = params.id as string;
 
   const [template, setTemplate] = useState<TemplateData | null>(null);
+  const [activeTier, setActiveTier] = useState<TierType>('standard');
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
+  const [revertSuccess, setRevertSuccess] = useState(false);
   
   // View Modes: 'read' (Read Prompt View) vs 'edit' (Full Edit View)
   const [isEditMode, setIsEditMode] = useState(false);
-  // Track specific sections being edited if in read mode
   const [editingSectionIdx, setEditingSectionIdx] = useState<number | null>(null);
   const [editingGlobalRules, setEditingGlobalRules] = useState(false);
   
+  // Create Variant Modal state
+  const [createVariantModal, setCreateVariantModal] = useState<{
+    targetTier: TierType;
+    isOpen: boolean;
+  }>({ targetTier: 'simple', isOpen: false });
+
   // Copied feedback for prompt text
   const [copiedPromptId, setCopiedPromptId] = useState<string | null>(null);
 
@@ -76,6 +109,13 @@ export default function TemplateEditorPage() {
         const json = await res.json();
         if (json.success) {
           setTemplate(json.data);
+          if (json.data.variants?.standard) {
+            setActiveTier('standard');
+          } else if (json.data.variants?.simple) {
+            setActiveTier('simple');
+          } else if (json.data.variants?.complex) {
+            setActiveTier('complex');
+          }
         }
       } catch (err) {
         console.error('Failed to load template:', err);
@@ -91,35 +131,119 @@ export default function TemplateEditorPage() {
     };
   }, [id, setActiveTemplate, setOnAddSection]);
 
+  const currentTierData = template?.variants?.[activeTier]?.current;
+  const previousTierData = template?.variants?.[activeTier]?.previous;
+
+  const globalInstructions = currentTierData?.globalInstructions || [];
+  const sections = currentTierData?.sections || [];
+
   // Sync with Sidebar Template Navigation
   useEffect(() => {
-    if (template) {
+    if (template && currentTierData) {
       setActiveTemplate({
         id: template.id,
         name: template.name,
         category: template.category,
         icon: template.icon,
-        globalInstructions: template.globalInstructions,
-        sections: template.sections.map((s) => ({
+        tier: activeTier,
+        globalInstructions: currentTierData.globalInstructions || [],
+        sections: (currentTierData.sections || []).map((s) => ({
           title: s.title,
           type: s.type,
           subsections: s.subsections?.map((sub) => ({ title: sub.title })),
         })),
       });
     }
-  }, [template, setActiveTemplate]);
+  }, [template, activeTier, currentTierData, setActiveTemplate]);
 
-  const handleSave = async () => {
+  // Switch Tier
+  const handleSelectTier = (tier: TierType) => {
     if (!template) return;
+    if (template.variants?.[tier]) {
+      setActiveTier(tier);
+      setEditingSectionIdx(null);
+      setEditingGlobalRules(false);
+    } else {
+      setCreateVariantModal({ targetTier: tier, isOpen: true });
+    }
+  };
+
+  // Create Tier Variant (Fork from Standard or Start Blank)
+  const handleConfirmCreateVariant = async (source: 'fork_standard' | 'blank') => {
+    if (!template) return;
+    const targetTier = createVariantModal.targetTier;
+
+    let baseInstructions: string[] = [];
+    let baseSections: Section[] = [];
+
+    if (source === 'fork_standard') {
+      const standardCurrent = template.variants?.standard?.current;
+      if (standardCurrent) {
+        baseInstructions = JSON.parse(JSON.stringify(standardCurrent.globalInstructions || []));
+        baseSections = JSON.parse(JSON.stringify(standardCurrent.sections || []));
+      }
+    } else {
+      baseInstructions = ['Concise bullet format', 'Jurisdiction-specific compliance'];
+      baseSections = [
+        {
+          title: 'Meeting Overview & Key Objectives',
+          type: 'standard',
+          guidance: 'Summarize core meeting context and objectives...',
+          contentToInclude: ['Attendees and date', 'Primary discussion themes'],
+          subsections: [],
+        },
+      ];
+    }
+
     try {
       setSaving(true);
       const res = await fetch(`/api/templates/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(template),
+        body: JSON.stringify({
+          tier: targetTier,
+          action: 'create_variant',
+          globalInstructions: baseInstructions,
+          sections: baseSections,
+        }),
       });
       const json = await res.json();
       if (json.success) {
+        setTemplate(json.data);
+        setActiveTier(targetTier);
+        setCreateVariantModal({ targetTier: 'simple', isOpen: false });
+        setSavedSuccess(true);
+        setTimeout(() => setSavedSuccess(false), 2000);
+      } else {
+        alert('Failed to create variant: ' + json.error);
+      }
+    } catch {
+      alert('Error creating variant');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  // Save current tier changes
+  const handleSave = async () => {
+    if (!template || !currentTierData) return;
+    try {
+      setSaving(true);
+      const res = await fetch(`/api/templates/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: template.name,
+          category: template.category,
+          tier: activeTier,
+          action: 'save',
+          globalInstructions: currentTierData.globalInstructions,
+          sections: currentTierData.sections,
+        }),
+      });
+      const json = await res.json();
+      if (json.success) {
+        setTemplate(json.data);
         setSavedSuccess(true);
         setEditingSectionIdx(null);
         setEditingGlobalRules(false);
@@ -129,6 +253,43 @@ export default function TemplateEditorPage() {
       }
     } catch {
       alert('Failed to save template');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  // Revert / Rollback to previous version
+  const handleRevertToPrevious = async () => {
+    if (!template || !previousTierData) return;
+    const confirmRevert = window.confirm(
+      `Are you sure you want to revert to the previous version saved on ${new Date(
+        previousTierData.savedAt
+      ).toLocaleString()}? Current unsaved modifications will be replaced.`
+    );
+    if (!confirmRevert) return;
+
+    try {
+      setSaving(true);
+      const res = await fetch(`/api/templates/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          tier: activeTier,
+          action: 'revert',
+        }),
+      });
+      const json = await res.json();
+      if (json.success) {
+        setTemplate(json.data);
+        setRevertSuccess(true);
+        setEditingSectionIdx(null);
+        setEditingGlobalRules(false);
+        setTimeout(() => setRevertSuccess(false), 3000);
+      } else {
+        alert('Failed to revert: ' + json.error);
+      }
+    } catch {
+      alert('Failed to revert version');
     } finally {
       setSaving(false);
     }
@@ -145,37 +306,59 @@ export default function TemplateEditorPage() {
     const blob = new Blob([JSON.stringify(template, null, 2)], { type: 'application/json' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = `fameetingmanager_template_${template.name.replace(/[^a-zA-Z0-9_-]/g, '_')}.json`;
+    a.download = `fameetingmanager_${template.name.replace(/[^a-zA-Z0-9_-]/g, '_')}_${activeTier}.json`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
   };
 
-  // Global Instructions handlers
-  const handleAddGlobalInstruction = () => {
-    if (!template) return;
-    setTemplate({
-      ...template,
-      globalInstructions: [...template.globalInstructions, 'New instruction...'],
+  // Update helper for active tier state
+  const updateActiveTierData = (
+    updater: (prev: TierVariantData['current']) => TierVariantData['current']
+  ) => {
+    setTemplate((prev) => {
+      if (!prev || !prev.variants?.[activeTier]) return prev;
+      const currentObj = prev.variants[activeTier]!.current;
+      const updatedCurrent = updater(currentObj);
+
+      return {
+        ...prev,
+        variants: {
+          ...prev.variants,
+          [activeTier]: {
+            ...prev.variants[activeTier],
+            current: updatedCurrent,
+          },
+        },
+      };
     });
   };
 
+  // Global Instructions handlers
+  const handleAddGlobalInstruction = () => {
+    updateActiveTierData((curr) => ({
+      ...curr,
+      globalInstructions: [...(curr.globalInstructions || []), 'New instruction...'],
+    }));
+  };
+
   const handleUpdateGlobalInstruction = (index: number, val: string) => {
-    if (!template) return;
-    const updated = [...template.globalInstructions];
-    updated[index] = val;
-    setTemplate({ ...template, globalInstructions: updated });
+    updateActiveTierData((curr) => {
+      const updated = [...(curr.globalInstructions || [])];
+      updated[index] = val;
+      return { ...curr, globalInstructions: updated };
+    });
   };
 
   const handleDeleteGlobalInstruction = (index: number) => {
-    if (!template) return;
-    const updated = template.globalInstructions.filter((_, i) => i !== index);
-    setTemplate({ ...template, globalInstructions: updated });
+    updateActiveTierData((curr) => ({
+      ...curr,
+      globalInstructions: (curr.globalInstructions || []).filter((_, i) => i !== index),
+    }));
   };
 
   // Section Handlers
   const handleAddSection = useCallback(() => {
-    if (!template) return;
     const newSec: Section = {
       title: 'New Section',
       type: 'standard',
@@ -183,123 +366,145 @@ export default function TemplateEditorPage() {
       contentToInclude: [],
       subsections: [],
     };
-    setTemplate((prev) => (prev ? { ...prev, sections: [...prev.sections, newSec] } : null));
-  }, [template]);
+
+    updateActiveTierData((curr) => {
+      const newSecs = [...(curr.sections || []), newSec];
+      setEditingSectionIdx(newSecs.length - 1);
+      return { ...curr, sections: newSecs };
+    });
+  }, [activeTier]);
 
   useEffect(() => {
     setOnAddSection(() => handleAddSection);
   }, [handleAddSection, setOnAddSection]);
 
   const handleUpdateSection = <K extends keyof Section>(sIndex: number, field: K, val: Section[K]) => {
-    if (!template) return;
-    const updated = [...template.sections];
-    updated[sIndex] = { ...updated[sIndex], [field]: val };
-    setTemplate({ ...template, sections: updated });
+    updateActiveTierData((curr) => {
+      const updated = [...(curr.sections || [])];
+      updated[sIndex] = { ...updated[sIndex], [field]: val };
+      return { ...curr, sections: updated };
+    });
   };
 
   const handleDeleteSection = (sIndex: number) => {
-    if (!template) return;
     if (!confirm('Are you sure you want to delete this section?')) return;
-    const updated = template.sections.filter((_, i) => i !== sIndex);
-    setTemplate({ ...template, sections: updated });
+    updateActiveTierData((curr) => ({
+      ...curr,
+      sections: (curr.sections || []).filter((_, i) => i !== sIndex),
+    }));
+    if (editingSectionIdx === sIndex) setEditingSectionIdx(null);
   };
 
   const handleMoveSection = (sIndex: number, direction: 'up' | 'down') => {
-    if (!template) return;
-    const target = direction === 'up' ? sIndex - 1 : sIndex + 1;
-    if (target < 0 || target >= template.sections.length) return;
-    const updated = [...template.sections];
-    const temp = updated[sIndex];
-    updated[sIndex] = updated[target];
-    updated[target] = temp;
-    setTemplate({ ...template, sections: updated });
+    updateActiveTierData((curr) => {
+      const target = direction === 'up' ? sIndex - 1 : sIndex + 1;
+      const secs = [...(curr.sections || [])];
+      if (target < 0 || target >= secs.length) return curr;
+      const temp = secs[sIndex];
+      secs[sIndex] = secs[target];
+      secs[target] = temp;
+      if (editingSectionIdx === sIndex) setEditingSectionIdx(target);
+      return { ...curr, sections: secs };
+    });
   };
 
   // Subsection Handlers
   const handleAddSubsection = (sIndex: number) => {
-    if (!template) return;
-    const updated = [...template.sections];
-    const sec = updated[sIndex];
-    const newSub: Subsection = {
-      title: 'New Subsection',
-      guidance: 'Enter subsection guidance...',
-      contentToInclude: [],
-    };
-    sec.subsections = [...(sec.subsections || []), newSub];
-    setTemplate({ ...template, sections: updated });
+    updateActiveTierData((curr) => {
+      const secs = [...(curr.sections || [])];
+      const sec = secs[sIndex];
+      const newSub: Subsection = {
+        title: 'New Subsection',
+        guidance: 'Enter subsection guidance...',
+        contentToInclude: [],
+      };
+      sec.subsections = [...(sec.subsections || []), newSub];
+      return { ...curr, sections: secs };
+    });
   };
 
-  const handleUpdateSubsection = <K extends keyof Subsection>(sIndex: number, subIndex: number, field: K, val: Subsection[K]) => {
-    if (!template) return;
-    const updated = [...template.sections];
-    const subs = [...(updated[sIndex].subsections || [])];
-    subs[subIndex] = { ...subs[subIndex], [field]: val };
-    updated[sIndex].subsections = subs;
-    setTemplate({ ...template, sections: updated });
+  const handleUpdateSubsection = <K extends keyof Subsection>(
+    sIndex: number,
+    subIndex: number,
+    field: K,
+    val: Subsection[K]
+  ) => {
+    updateActiveTierData((curr) => {
+      const secs = [...(curr.sections || [])];
+      const subs = [...(secs[sIndex].subsections || [])];
+      subs[subIndex] = { ...subs[subIndex], [field]: val };
+      secs[sIndex].subsections = subs;
+      return { ...curr, sections: secs };
+    });
   };
 
   const handleDeleteSubsection = (sIndex: number, subIndex: number) => {
-    if (!template) return;
-    const updated = [...template.sections];
-    updated[sIndex].subsections = updated[sIndex].subsections?.filter((_, i) => i !== subIndex);
-    setTemplate({ ...template, sections: updated });
+    updateActiveTierData((curr) => {
+      const secs = [...(curr.sections || [])];
+      secs[sIndex].subsections = secs[sIndex].subsections?.filter((_, i) => i !== subIndex);
+      return { ...curr, sections: secs };
+    });
   };
 
   const handleMoveSubsection = (sIndex: number, subIndex: number, direction: 'up' | 'down') => {
-    if (!template) return;
-    const updated = [...template.sections];
-    const subs = [...(updated[sIndex].subsections || [])];
-    const target = direction === 'up' ? subIndex - 1 : subIndex + 1;
-    if (target < 0 || target >= subs.length) return;
-    const temp = subs[subIndex];
-    subs[subIndex] = subs[target];
-    subs[target] = temp;
-    updated[sIndex].subsections = subs;
-    setTemplate({ ...template, sections: updated });
+    updateActiveTierData((curr) => {
+      const secs = [...(curr.sections || [])];
+      const subs = [...(secs[sIndex].subsections || [])];
+      const target = direction === 'up' ? subIndex - 1 : subIndex + 1;
+      if (target < 0 || target >= subs.length) return curr;
+      const temp = subs[subIndex];
+      subs[subIndex] = subs[target];
+      subs[target] = temp;
+      secs[sIndex].subsections = subs;
+      return { ...curr, sections: secs };
+    });
   };
 
   // Content To Include Handlers (Bullets)
   const handleAddBullet = (sIndex: number, subIndex?: number) => {
-    if (!template) return;
-    const updated = [...template.sections];
-    if (subIndex !== undefined) {
-      const subs = [...(updated[sIndex].subsections || [])];
-      subs[subIndex].contentToInclude = [...(subs[subIndex].contentToInclude || []), 'New item'];
-      updated[sIndex].subsections = subs;
-    } else {
-      updated[sIndex].contentToInclude = [...(updated[sIndex].contentToInclude || []), 'New item'];
-    }
-    setTemplate({ ...template, sections: updated });
+    updateActiveTierData((curr) => {
+      const secs = [...(curr.sections || [])];
+      if (subIndex !== undefined) {
+        const subs = [...(secs[sIndex].subsections || [])];
+        subs[subIndex].contentToInclude = [...(subs[subIndex].contentToInclude || []), 'New item'];
+        secs[sIndex].subsections = subs;
+      } else {
+        secs[sIndex].contentToInclude = [...(secs[sIndex].contentToInclude || []), 'New item'];
+      }
+      return { ...curr, sections: secs };
+    });
   };
 
   const handleUpdateBullet = (sIndex: number, bIndex: number, val: string, subIndex?: number) => {
-    if (!template) return;
-    const updated = [...template.sections];
-    if (subIndex !== undefined) {
-      const subs = [...(updated[sIndex].subsections || [])];
-      const items = [...(subs[subIndex].contentToInclude || [])];
-      items[bIndex] = val;
-      subs[subIndex].contentToInclude = items;
-      updated[sIndex].subsections = subs;
-    } else {
-      const items = [...(updated[sIndex].contentToInclude || [])];
-      items[bIndex] = val;
-      updated[sIndex].contentToInclude = items;
-    }
-    setTemplate({ ...template, sections: updated });
+    updateActiveTierData((curr) => {
+      const secs = [...(curr.sections || [])];
+      if (subIndex !== undefined) {
+        const subs = [...(secs[sIndex].subsections || [])];
+        const items = [...(subs[subIndex].contentToInclude || [])];
+        items[bIndex] = val;
+        subs[subIndex].contentToInclude = items;
+        secs[sIndex].subsections = subs;
+      } else {
+        const items = [...(secs[sIndex].contentToInclude || [])];
+        items[bIndex] = val;
+        secs[sIndex].contentToInclude = items;
+      }
+      return { ...curr, sections: secs };
+    });
   };
 
   const handleDeleteBullet = (sIndex: number, bIndex: number, subIndex?: number) => {
-    if (!template) return;
-    const updated = [...template.sections];
-    if (subIndex !== undefined) {
-      const subs = [...(updated[sIndex].subsections || [])];
-      subs[subIndex].contentToInclude = subs[subIndex].contentToInclude?.filter((_, i) => i !== bIndex);
-      updated[sIndex].subsections = subs;
-    } else {
-      updated[sIndex].contentToInclude = updated[sIndex].contentToInclude?.filter((_, i) => i !== bIndex);
-    }
-    setTemplate({ ...template, sections: updated });
+    updateActiveTierData((curr) => {
+      const secs = [...(curr.sections || [])];
+      if (subIndex !== undefined) {
+        const subs = [...(secs[sIndex].subsections || [])];
+        subs[subIndex].contentToInclude = subs[subIndex].contentToInclude?.filter((_, i) => i !== bIndex);
+        secs[sIndex].subsections = subs;
+      } else {
+        secs[sIndex].contentToInclude = secs[sIndex].contentToInclude?.filter((_, i) => i !== bIndex);
+      }
+      return { ...curr, sections: secs };
+    });
   };
 
   if (loading) {
@@ -321,10 +526,16 @@ export default function TemplateEditorPage() {
     );
   }
 
+  const tierOptions: { key: TierType; label: string; desc: string }[] = [
+    { key: 'simple', label: 'Simple', desc: 'Concise summary format' },
+    { key: 'standard', label: 'Standard', desc: 'Default comprehensive notes' },
+    { key: 'complex', label: 'Complex', desc: 'In-depth multi-disciplinary review' },
+  ];
+
   return (
     <div className="flex-1 flex flex-col h-full overflow-hidden">
       {/* Editor Top Sticky Header */}
-      <header className="px-8 py-4 bg-slate-950 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shrink-0 shadow-md">
+      <header className="px-8 py-3.5 bg-slate-950 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shrink-0 shadow-md">
         <div className="flex items-center gap-4 flex-1">
           <Link
             href="/templates"
@@ -435,6 +646,156 @@ export default function TemplateEditorPage() {
         </div>
       </header>
 
+      {/* Tier Options & Version Control Ribbon */}
+      <div className="bg-slate-950/90 border-b border-slate-800/80 px-8 py-2.5 flex flex-wrap items-center justify-between gap-4">
+        {/* Tier Tabs (Simple | Standard | Complex) */}
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mr-2 flex items-center gap-1">
+            <Layers className="w-3.5 h-3.5 text-sky-400" />
+            Complexity Tier:
+          </span>
+
+          <div className="flex items-center bg-slate-900 border border-slate-800 rounded-xl p-1 gap-1">
+            {tierOptions.map((t) => {
+              const isSelected = activeTier === t.key;
+              const isCreated = !!template.variants?.[t.key];
+
+              return (
+                <button
+                  key={t.key}
+                  onClick={() => handleSelectTier(t.key)}
+                  className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-bold transition ${
+                    isSelected
+                      ? 'bg-gradient-to-r from-sky-500 to-indigo-600 text-white shadow-md shadow-sky-500/20'
+                      : isCreated
+                      ? 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+                      : 'text-slate-400 hover:text-slate-300 hover:bg-slate-800/30'
+                  }`}
+                >
+                  <span>{t.label}</span>
+                  {!isCreated && (
+                    <span className="text-[9px] bg-slate-800 text-slate-400 border border-slate-700 px-1.5 py-0.2 rounded font-normal">
+                      + Create
+                    </span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Version Control & Rollback Actions */}
+        <div className="flex items-center gap-3">
+          {revertSuccess && (
+            <span className="text-xs text-emerald-400 font-semibold flex items-center gap-1 animate-pulse">
+              <Check className="w-3.5 h-3.5" /> Restored previous version!
+            </span>
+          )}
+
+          {previousTierData ? (
+            <div className="flex items-center gap-2.5 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-xl">
+              <div className="flex items-center gap-1.5 text-xs text-slate-400">
+                <History className="w-3.5 h-3.5 text-amber-400" />
+                <span>
+                  Previous snapshot:{' '}
+                  <strong className="text-slate-300 font-mono text-[11px]">
+                    {new Date(previousTierData.savedAt).toLocaleTimeString([], {
+                      hour: '2-digit',
+                      minute: '2-digit',
+                    })}
+                  </strong>
+                </span>
+              </div>
+
+              <button
+                onClick={handleRevertToPrevious}
+                disabled={saving}
+                className="flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 bg-amber-400/10 hover:bg-amber-400/20 px-2.5 py-1 rounded-lg border border-amber-400/30 transition shadow-sm"
+                title="Restore previous version snapshot"
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+                Revert to Previous
+              </button>
+            </div>
+          ) : (
+            <div className="text-[11px] text-slate-400 flex items-center gap-1">
+              <CheckCircle2 className="w-3 h-3 text-slate-400" />
+              <span>Current version active</span>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Create Variant Modal */}
+      {createVariantModal.isOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 animate-in fade-in duration-150">
+          <div className="max-w-md w-full bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl space-y-5">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400">
+                <GitFork className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white">
+                  Create {createVariantModal.targetTier.toUpperCase()} Version
+                </h3>
+                <p className="text-xs text-slate-400">
+                  This variant has not been defined yet for this template.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+              <p className="text-xs text-slate-300 leading-relaxed">
+                How would you like to initialize the <strong>{createVariantModal.targetTier}</strong> option?
+              </p>
+
+              <div className="space-y-2">
+                <button
+                  onClick={() => handleConfirmCreateVariant('fork_standard')}
+                  disabled={saving}
+                  className="w-full flex items-center gap-3 p-3 rounded-xl bg-sky-500/10 hover:bg-sky-500/20 border border-sky-500/30 text-left transition group"
+                >
+                  <Sparkles className="w-5 h-5 text-sky-400 shrink-0" />
+                  <div>
+                    <p className="text-xs font-bold text-white group-hover:text-sky-300">
+                      Copy from Standard (Recommended)
+                    </p>
+                    <p className="text-[11px] text-slate-400">
+                      Copies existing Standard instructions and sections as your starting baseline.
+                    </p>
+                  </div>
+                </button>
+
+                <button
+                  onClick={() => handleConfirmCreateVariant('blank')}
+                  disabled={saving}
+                  className="w-full flex items-center gap-3 p-3 rounded-xl bg-slate-900 hover:bg-slate-850 border border-slate-800 text-left transition group"
+                >
+                  <FileSpreadsheet className="w-5 h-5 text-slate-400 shrink-0" />
+                  <div>
+                    <p className="text-xs font-bold text-slate-300 group-hover:text-white">
+                      Start Blank
+                    </p>
+                    <p className="text-[11px] text-slate-400">
+                      Starts with a fresh, empty outline structure.
+                    </p>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <div className="flex justify-end gap-2">
+              <button
+                onClick={() => setCreateVariantModal({ targetTier: 'simple', isOpen: false })}
+                className="px-4 py-2 text-xs font-semibold text-slate-400 hover:text-slate-200"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Main Scrollable Canvas */}
       <div className="flex-1 overflow-y-auto p-8 max-w-5xl w-full mx-auto space-y-8 scroll-smooth">
         
@@ -446,7 +807,7 @@ export default function TemplateEditorPage() {
           <div className="flex items-center justify-between">
             <h3 className="text-base font-bold text-sky-400 flex items-center gap-2">
               <Sparkles className="w-4 h-4" />
-              Global Instructions & AI Standing Rules
+              Global Instructions & AI Standing Rules ({activeTier.toUpperCase()})
             </h3>
             
             <div className="flex items-center gap-2">
@@ -472,13 +833,13 @@ export default function TemplateEditorPage() {
           </div>
 
           <p className="text-xs text-slate-400 leading-relaxed">
-            These standing instructions govern tone, jurisdiction spelling, bold prefixes, and formatting across the entire output.
+            These standing instructions for the <strong>{activeTier}</strong> tier govern tone, jurisdiction spelling, bold prefixes, and formatting across the output.
           </p>
 
           {/* Read View for Global Instructions */}
           {!isEditMode && !editingGlobalRules ? (
             <div className="space-y-2 pt-1">
-              {template.globalInstructions.map((rule, idx) => (
+              {globalInstructions.map((rule, idx) => (
                 <div 
                   key={idx} 
                   className="flex items-start gap-3 p-3 rounded-xl bg-slate-900/60 border border-slate-800/80 text-sm text-slate-200 leading-relaxed font-sans"
@@ -493,7 +854,7 @@ export default function TemplateEditorPage() {
           ) : (
             /* Edit View for Global Instructions */
             <div className="space-y-2 pt-1">
-              {template.globalInstructions.map((rule, idx) => (
+              {globalInstructions.map((rule, idx) => (
                 <div key={idx} className="flex items-center gap-2 group">
                   <span className="text-xs font-bold text-slate-400 w-5">{idx + 1}.</span>
                   <input
@@ -518,7 +879,7 @@ export default function TemplateEditorPage() {
         <div className="flex items-center justify-between pt-2">
           <h2 className="text-lg font-extrabold text-white flex items-center gap-2">
             <Layers className="w-5 h-5 text-sky-400" />
-            Sections & Subsections ({template.sections.length})
+            Sections & Subsections ({sections.length})
           </h2>
           <button
             onClick={handleAddSection}
@@ -531,7 +892,7 @@ export default function TemplateEditorPage() {
 
         {/* Sections Map */}
         <div className="space-y-8">
-          {template.sections.map((section, sIndex) => {
+          {sections.map((section, sIndex) => {
             const isEditingThisSection = isEditMode || editingSectionIdx === sIndex;
             const promptCopyId = `prompt-${sIndex}`;
 

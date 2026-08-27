@@ -20,6 +20,7 @@ interface TemplateItem {
   scope: string;
   icon: string;
   sectionCount: number;
+  tiers?: string[];
   updatedAt: string;
 }
 
@@ -248,9 +249,23 @@ export default function TemplateCatalogPage() {
                   {tmpl.icon || '📋'}
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white text-base group-hover:text-sky-300 transition-colors">
-                    {tmpl.name}
-                  </h3>
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-semibold text-white text-base group-hover:text-sky-300 transition-colors">
+                      {tmpl.name}
+                    </h3>
+                    {tmpl.tiers && tmpl.tiers.length > 0 && (
+                      <div className="flex items-center gap-1">
+                        {tmpl.tiers.map((t) => (
+                          <span
+                            key={t}
+                            className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.2 rounded bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 font-mono"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                   <div className="flex items-center gap-2 mt-1 text-xs text-slate-400">
                     <span
                       className={`px-2 py-0.5 rounded font-medium ${

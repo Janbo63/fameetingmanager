@@ -17,6 +17,7 @@ export interface TemplateNavData {
   name: string;
   category: string;
   icon: string;
+  tier?: 'simple' | 'standard' | 'complex';
   globalInstructions: string[];
   sections: SectionNav[];
 }

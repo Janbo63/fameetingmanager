@@ -76,9 +76,16 @@ export default function Sidebar() {
                 <h2 className="font-bold text-sm text-white truncate" title={activeTemplate.name}>
                   {activeTemplate.name}
                 </h2>
-                <span className="inline-block text-[10px] font-semibold text-sky-400 bg-sky-500/10 px-1.5 py-0.2 rounded border border-sky-500/20 mt-0.5">
-                  {activeTemplate.category}
-                </span>
+                <div className="flex items-center gap-1.5 mt-0.5">
+                  <span className="inline-block text-[10px] font-semibold text-sky-400 bg-sky-500/10 px-1.5 py-0.2 rounded border border-sky-500/20">
+                    {activeTemplate.category}
+                  </span>
+                  {activeTemplate.tier && (
+                    <span className="inline-block text-[10px] font-bold uppercase text-indigo-300 bg-indigo-500/10 px-1.5 py-0.2 rounded border border-indigo-500/20 font-mono">
+                      {activeTemplate.tier}
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
           </div>

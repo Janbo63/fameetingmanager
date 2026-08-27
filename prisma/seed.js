@@ -5,7 +5,7 @@ const path = require('path');
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log('Seeding Superbia / FA Meeting Templates...');
+  console.log('Seeding Superbia / FA Meeting Templates with Tier Variants...');
 
   let bundlePath = path.join(__dirname, 'templates_bundle.json');
   if (!fs.existsSync(bundlePath)) {
@@ -20,8 +20,18 @@ async function main() {
 
   for (const item of bundle) {
     const data = item.data;
-    const globalInstructions = JSON.stringify(data.globalInstructions || []);
-    const sections = JSON.stringify(data.sections || []);
+    const globalInstructions = data.globalInstructions || [];
+    const sections = data.sections || [];
+
+    const variantsObj = {
+      standard: {
+        current: {
+          globalInstructions: globalInstructions,
+          sections: sections,
+          updatedAt: new Date().toISOString(),
+        },
+      },
+    };
 
     await prisma.template.create({
       data: {
@@ -30,14 +40,15 @@ async function main() {
         category: item.category || 'Wealth',
         scope: 'Company',
         icon: item.icon || '📋',
-        globalInstructions: globalInstructions,
-        sections: sections,
+        globalInstructions: JSON.stringify(globalInstructions),
+        sections: JSON.stringify(sections),
+        variants: JSON.stringify(variantsObj),
       },
     });
-    console.log('Seeded: ' + item.name + ' (' + item.category + ')');
+    console.log('Seeded: ' + item.name + ' [Standard Tier]');
   }
 
-  console.log('Seeding complete! All 11 templates ready.');
+  console.log('Seeding complete! All 11 templates initialized with Standard tier.');
 }
 
 main()
