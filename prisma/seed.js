@@ -26,12 +26,13 @@ async function main() {
   }
 
   const reviewDescriptive = meetingBundle.find(b => b.name === 'Review (Descriptive)');
+  const adviceDescriptive = meetingBundle.find(b => b.name === 'Advice Presentation (Descriptive)');
 
   await prisma.template.deleteMany();
 
   // Seed Meeting Templates
   for (const item of meetingBundle) {
-    if (item.name === 'Review (Descriptive)') {
+    if (item.name === 'Review (Descriptive)' || item.name === 'Advice Presentation (Descriptive)') {
       continue;
     }
 
@@ -54,6 +55,16 @@ async function main() {
         current: {
           globalInstructions: reviewDescriptive.data.globalInstructions || globalInstructions,
           sections: reviewDescriptive.data.sections || [],
+          updatedAt: new Date().toISOString(),
+        },
+      };
+    }
+
+    if (item.name === 'Advice Presentation' && adviceDescriptive) {
+      variantsObj.complex = {
+        current: {
+          globalInstructions: adviceDescriptive.data.globalInstructions || globalInstructions,
+          sections: adviceDescriptive.data.sections || [],
           updatedAt: new Date().toISOString(),
         },
       };
