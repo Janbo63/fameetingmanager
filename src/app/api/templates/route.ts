@@ -9,7 +9,12 @@ export async function GET(req: NextRequest) {
     const category = searchParams.get('category') || '';
     const scope = searchParams.get('scope') || '';
 
+    const type = searchParams.get('type') || '';
+
     const where: Prisma.TemplateWhereInput = {};
+    if (type) {
+      where.type = type;
+    }
     if (search) {
       where.OR = [
         { name: { contains: search } },

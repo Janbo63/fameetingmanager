@@ -1,29 +1,36 @@
 const { PrismaClient } = require('@prisma/client');
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log('Seeding FA Meeting Templates with Tier Variants...');
+  console.log('Seeding FA Meeting & Document Templates with Multi-Tier Variants...');
 
-  let bundlePath = path.join(__dirname, 'templates_bundle.json');
-  if (!fs.existsSync(bundlePath)) {
-    bundlePath = path.join(__dirname, '../../all_marloo_templates_bundle.json');
+  // 1. Meeting Templates Bundle
+  let meetingBundlePath = path.join(__dirname, 'templates_bundle.json');
+  if (!fs.existsSync(meetingBundlePath)) {
+    meetingBundlePath = path.join(__dirname, '../../all_marloo_templates_bundle.json');
   }
 
-  let rawBundle = fs.readFileSync(bundlePath, 'utf8').replace(/^\uFEFF/, '');
-  rawBundle = rawBundle.replace(/Marloo/g, 'Superbia').replace(/marloo/g, 'superbia');
-  const bundle = JSON.parse(rawBundle);
+  let rawMeetingBundle = fs.readFileSync(meetingBundlePath, 'utf8').replace(/^\uFEFF/, '');
+  rawMeetingBundle = rawMeetingBundle.replace(/Marloo/g, 'Superbia').replace(/marloo/g, 'superbia');
+  const meetingBundle = JSON.parse(rawMeetingBundle);
 
-  // Find Review (Descriptive) if exists
-  const reviewDescriptive = bundle.find(b => b.name === 'Review (Descriptive)');
-  const adviceDescriptive = bundle.find(b => b.name === 'Advice Presentation (Descriptive)');
+  // 2. Document Templates Bundle
+  const docBundlePath = path.join(__dirname, 'all_document_templates_bundle.json');
+  let docBundle = [];
+  if (fs.existsSync(docBundlePath)) {
+    docBundle = JSON.parse(fs.readFileSync(docBundlePath, 'utf8'));
+  }
+
+  const reviewDescriptive = meetingBundle.find(b => b.name === 'Review (Descriptive)');
 
   await prisma.template.deleteMany();
 
-  for (const item of bundle) {
-    // Skip standalone (Descriptive) templates as they are merged into Complex tiers
+  // Seed Meeting Templates
+  for (const item of meetingBundle) {
     if (item.name === 'Review (Descriptive)') {
       continue;
     }
@@ -42,7 +49,6 @@ async function main() {
       },
     };
 
-    // If Review, attach Review (Descriptive) as the Complex tier
     if (item.name === 'Review' && reviewDescriptive) {
       variantsObj.complex = {
         current: {
@@ -51,27 +57,59 @@ async function main() {
           updatedAt: new Date().toISOString(),
         },
       };
-      console.log('  -> Merged "Review (Descriptive)" into "Review [Complex Tier]"');
     }
 
     await prisma.template.create({
       data: {
-        id: item.id,
+        id: item.id || crypto.randomUUID(),
         name: item.name,
+        type: 'Meeting',
         category: item.category || 'Wealth',
         scope: 'Company',
-        icon: item.icon || '📋',
+        icon: item.icon || '🎙️',
         globalInstructions: JSON.stringify(globalInstructions),
         sections: JSON.stringify(sections),
         variants: JSON.stringify(variantsObj),
       },
     });
 
-    const activeTiers = Object.keys(variantsObj).join(', ');
-    console.log('Seeded: ' + item.name + ' [' + activeTiers + ']');
+    console.log('Seeded [Meeting]: ' + item.name);
   }
 
-  console.log('Seeding complete! Review has both Standard and Complex tiers.');
+  // Seed Document Templates
+  for (const item of docBundle) {
+    const data = item.data;
+    const globalInstructions = data.globalInstructions || [];
+    const sections = data.sections || [];
+
+    const variantsObj = {
+      standard: {
+        current: {
+          globalInstructions: globalInstructions,
+          sections: sections,
+          updatedAt: new Date().toISOString(),
+        },
+      },
+    };
+
+    await prisma.template.create({
+      data: {
+        id: crypto.randomUUID(),
+        name: item.name,
+        type: 'Document',
+        category: item.category || 'Wealth',
+        scope: 'Company',
+        icon: item.icon || '📄',
+        globalInstructions: JSON.stringify(globalInstructions),
+        sections: JSON.stringify(sections),
+        variants: JSON.stringify(variantsObj),
+      },
+    });
+
+    console.log('Seeded [Document]: ' + item.name);
+  }
+
+  console.log('🎉 Seeding complete! Seeded 10 Meeting Templates and 6 Document Templates.');
 }
 
 main()

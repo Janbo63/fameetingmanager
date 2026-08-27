@@ -1,0 +1,840 @@
+[
+  {
+    "name": "Wealth Product Comparison",
+    "type": "Document",
+    "category": "Wealth",
+    "scope": "Company",
+    "icon": "📊",
+    "data": {
+      "globalInstructions": [
+        "Follow UK wealth management terminology and jurisdiction conventions.",
+        "Format numerical currency in GBP (£) with appropriate precision.",
+        "Ensure all compliance, fee disclosures, and risk warnings are explicitly captured."
+      ],
+      "sections": [
+        {
+          "title": "Cover Page",
+          "type": "standard",
+          "guidance": "Wealth Product Comparison\n\nPrepared for: [CLIENT NAME(S)]\n\nDate of Advice: [DATE]\n\nYour Adviser\n\n[ADVISER NAME]\n\n[ADVISER PHONE] | [ADVISER EMAIL]\n\nFirm\n\n[FIRM NAME]\n\nFCA Firm Reference No. [FRN]\n\nSource all adviser and firm details from the company context file. If no company context file is provided, use [TBC] for every field. Do not invent or approximate FCA Firm Reference Numbers - these are regulatory identifiers.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Important Information [FIXED]",
+          "type": "standard",
+          "guidance": "This document compares your existing financial products with alternative products we have investigated on your behalf. It includes our recommendations and the reasons for those recommendations based on your personal circumstances.\n\nBefore acting on this advice, please read the comparison carefully, including the section on consequences of replacing your existing products. If you have any questions, please contact [ADVISER NAME] on [ADVISER PHONE].\n\nThis advice has been prepared on the basis of the information you have provided to us. If that information is incomplete or has changed, some recommendations may not be appropriate for you. Please let us know of any changes.\n\nIf the fact find or meeting transcript indicates incomplete information, include the incomplete information warning below. In most cases, include it.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Important warning: The advice in this document is, or may be, based on incomplete or inaccurate information about your personal circumstances. Before acting on this advice, you should consider the appropriateness of the advice in light of your own personal circumstances. [FIXED]",
+          "type": "standard",
+          "guidance": "Why We Are Reviewing Your [PRODUCT TYPE]\n\nWrite 2-4 sentences explaining why this product review is being conducted. Source from the meeting transcript. Adapt the heading to the product type being reviewed (e.g., \"Why We Are Reviewing Your Pension\", \"Why We Are Reviewing Your Investments\").\n\nCommon reasons:\n\nLink the reason to the client's specific situation.\n\n[REASON FOR PRODUCT REVIEW - personalised to client circumstances]\n\nYour Current Position\n\nSummarise the client's relevant financial position as it relates to the products being compared. Source from fact find, pension / investment statements, platform reports, or meeting transcript.\n\nInclude:\n\nUse exact figures from source documents. If the account statement says £385,773, write £385,773.\n\n[CLIENT CURRENT POSITION - personalised]",
+          "contentToInclude": [
+            "New client onboarding - assessing existing product suitability",
+            "Annual review - checking product remains appropriate",
+            "Fee reduction opportunity identified",
+            "Change in circumstances - retirement approaching, income needs changing, risk profile shift",
+            "Platform consolidation - reducing complexity and administration",
+            "Performance concerns - existing product consistently underperforming",
+            "Client request",
+            "Current product(s) held: name, provider, balance, account type",
+            "Investment strategy/allocation within current product",
+            "Relevant personal details: age, retirement timeline, risk profile, income needs",
+            "Any protection held alongside the pension (e.g. employer death-in-service life cover)",
+            "Contribution history (if relevant to the comparison)"
+          ],
+          "subsections": []
+        },
+        {
+          "title": "Pension Comparison [CONDITIONAL]",
+          "type": "table",
+          "guidance": "Condition: Include this section if the advice involves comparing or switching pension accumulation products (e.g., workplace pensions, personal pensions, SIPPs, stakeholder pensions, or equivalent).\n\nCreate a comparison table with one column for the current scheme and one column for each alternative. Source from account statements (current), product research reports, and Key Features Documents (alternatives).\n\nFeature\n\nCurrent Scheme\n\n[OPTION 1]\n\n[OPTION 2 if applicable]\n\nProvider Name\n\n[Provider name]\n\n[Provider name]\n\n[Provider name]\n\nProduct Name\n\n[Product/scheme name]\n\n[Product/scheme name]\n\n[Product/scheme name]\n\nScheme Type\n\n[Workplace / Personal / SIPP / Stakeholder / Group Personal Pension]\n\n[Workplace / Personal / SIPP / Stakeholder / Group Personal Pension]\n\n[Workplace / Personal / SIPP / Stakeholder / Group Personal Pension]\n\nCurrent Balance\n\n£[AMOUNT]\n\n-\n\n-\n\nFees\n\nAdministration Fee\n\n£[AMOUNT] p.a.\n\n£[AMOUNT] p.a.\n\n£[AMOUNT] p.a.\n\nFund Charges (OCF)\n\n[X]% p.a. (£[AMOUNT])\n\n[X]% p.a. (£[AMOUNT])\n\n[X]% p.a. (£[AMOUNT])\n\nPlatform Fee\n\n£[AMOUNT] p.a. (if applicable)\n\n£[AMOUNT] p.a. (if applicable)\n\n£[AMOUNT] p.a. (if applicable)\n\nBuy/Sell Spread\n\n[X]% / [X]%\n\n[X]% / [X]%\n\n[X]% / [X]%\n\nTotal Estimated Fees p.a.\n\n£[AMOUNT] ([X]% of balance)\n\n£[AMOUNT] ([X]% of balance)\n\n£[AMOUNT] ([X]% of balance)\n\nInvestment Options\n\nNumber of Investment Options\n\n[Number]\n\n[Number]\n\n[Number]\n\nCurrent/Recommended Allocation\n\n[Allocation - e.g., Balanced / Growth / Custom]\n\n[Allocation]\n\n[Allocation]\n\nAsset Allocation (Growth/Defensive)\n\n[X]% / [X]%\n\n[X]% / [X]%\n\n[X]% / [X]%\n\nPerformance (1yr / 3yr / 5yr / 10yr)\n\n[X]% / [X]% / [X]% / [X]%\n\n[X]% / [X]% / [X]% / [X]%\n\n[X]% / [X]% / [X]% / [X]%\n\nDeath Benefits\n\nLump Sum Death Benefit\n\n[Yes / No - detail]\n\n[Yes / No]\n\n[Yes / No]\n\nDependant's Pension Available\n\n[Yes / No - detail]\n\n[Yes / No]\n\n[Yes / No]\n\nExpression of Wish (Death Benefit Nomination)\n\n[On file / Not on file]\n\n[Required on establishment]\n\n[Required on establishment]\n\nOther Features\n\nDrawdown / Annuity Transfer Option\n\n[Yes / No - detail]\n\n[Yes / No]\n\n[Yes / No]\n\nEmployer Contributions\n\n[Yes - £X p.a. / No]\n\n[Accepted]\n\n[Accepted]\n\nMember Services / Advice Access\n\n[Detail]\n\n[Detail]\n\n[Detail]\n\nDefault / Lifestyle Option\n\n[Yes / No]\n\n[Yes / No]\n\n[Yes / No]\n\nRecommended\n\n[Yes / No]\n\n[Yes / No]\n\n[Yes / No]\n\nFee calculation rule: All percentage-based fees must be converted to pound amounts using the client's current balance. Show both the percentage and the pound amount (e.g., \"0.75% p.a. (£2,893)\"). Pound-amount disclosure is required for all fees.\n\nPerformance disclaimer: Past performance is not a reliable indicator of future performance. Include this note below the table if performance figures are shown. Source performance data from product research reports or the fund's published returns - do not fabricate.\n\nExpression of Wish: This does not carry across automatically when a pension is transferred. If a transfer is recommended, the client must complete a new Expression of Wish nomination on the new scheme - flag this in the switching consequences section.\n\nPast performance is not a reliable indicator of future performance. Performance figures shown are after investment fees and before tax. [FIXED - include when performance data is shown]",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Our Pension Recommendation",
+          "type": "standard",
+          "guidance": "Write a concise paragraph (4-8 sentences) explaining why the recommended scheme is preferable for this client. You must:",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "1. Reference specific features from the comparison - fees, investment options, performance, death benefits, features",
+          "type": "table",
+          "guidance": "Provide required details and disclosures for 1. Reference specific features from the comparison - fees, investment options, performance, death benefits, features.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "2. Quantify the fee difference in pound terms: \"Based on your current balance of £[BALANCE], the recommended scheme will save you approximately £[AMOUNT] per year in fees\"",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for 2. Quantify the fee difference in pound terms: \"Based on your current balance of £[BALANCE], the recommended scheme will save you approximately £[AMOUNT] per year in fees\".",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "3. Link the recommendation to the client's specific circumstances - age, retirement timeline, risk profile, investment preferences",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for 3. Link the recommendation to the client's specific circumstances - age, retirement timeline, risk profile, investment preferences.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "4. Address the suitability of the recommendation: explicitly state how the client will be better off",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for 4. Address the suitability of the recommendation: explicitly state how the client will be better off.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "5. Note that the client's Expression of Wish will need to be resubmitted on the new scheme - see the Implementation Steps",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for 5. Note that the client's Expression of Wish will need to be resubmitted on the new scheme - see the Implementation Steps.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "6. If the recommendation is to retain the current scheme, explain why the alternatives do not offer sufficient improvement to justify switching",
+          "type": "standard",
+          "guidance": "[PENSION RECOMMENDATION - personalised to client]",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Retirement Income / Drawdown Product Comparison [CONDITIONAL]",
+          "type": "table",
+          "guidance": "Condition: Include this section if the advice involves comparing or switching flexi-access drawdown, annuity, or other retirement income products.\n\nAdapt the table structure for income/drawdown-specific features.\n\nFeature\n\nCurrent Product\n\n[OPTION 1]\n\n[OPTION 2 if applicable]\n\nProduct Name\n\n[Product name]\n\n[Product name]\n\n[Product name]\n\nProvider\n\n[Provider name]\n\n[Provider name]\n\n[Provider name]\n\nProduct Type\n\n[Flexi-access drawdown / Capped drawdown (legacy) / Annuity / UFPLS / Other]\n\n[Type]\n\n[Type]\n\nCurrent Balance\n\n£[AMOUNT]\n\n-\n\n-\n\nFees\n\nAdministration Fee\n\n£[AMOUNT] p.a.\n\n£[AMOUNT] p.a.\n\n£[AMOUNT] p.a.\n\nFund Charges (OCF)\n\n[X]% p.a. (£[AMOUNT])\n\n[X]% p.a. (£[AMOUNT])\n\n[X]% p.a. (£[AMOUNT])\n\nPlatform Fee\n\n£[AMOUNT] p.a.\n\n£[AMOUNT] p.a.\n\n£[AMOUNT] p.a.\n\nBuy/Sell Spread\n\n[X]% / [X]%\n\n[X]% / [X]%\n\n[X]% / [X]%\n\nTotal Estimated Fees p.a.\n\n£[AMOUNT] ([X]% of balance)\n\n£[AMOUNT] ([X]% of balance)\n\n£[AMOUNT] ([X]% of balance)\n\nIncome Features\n\nMinimum Withdrawal Requirement\n\n[None under UK flexi-access drawdown rules, unless a capped drawdown legacy arrangement applies]\n\n[Detail]\n\n[Detail]\n\nMaximum Withdrawal\n\n[Uncapped, client-controlled / Capped at GAD rate if legacy capped drawdown]\n\n[Detail]\n\n[Detail]\n\nIncome Payment Frequency\n\n[Monthly / Quarterly / Annually / Ad hoc]\n\n[Options available]\n\n[Options available]\n\nBeneficiary Drawdown Nomination (Expression of Wish)\n\n[On file / Not on file - nominated to whom]\n\n[Required on establishment]\n\n[Required on establishment]\n\nInvestment Options\n\nNumber of Investment Options\n\n[Number]\n\n[Number]\n\n[Number]\n\nCurrent/Recommended Allocation\n\n[Allocation]\n\n[Allocation]\n\n[Allocation]\n\nAsset Allocation (Growth/Defensive)\n\n[X]% / [X]%\n\n[X]% / [X]%\n\n[X]% / [X]%\n\nPerformance (1yr / 3yr / 5yr)\n\n[X]% / [X]% / [X]%\n\n[X]% / [X]% / [X]%\n\n[X]% / [X]% / [X]%\n\nTax and Estate\n\nTax-Free Cash (PCLS) Taken to Date\n\n£[AMOUNT] ([X]% of the crystallised fund)\n\n-\n\n-\n\nRemaining Taxable Drawdown Fund\n\n£[AMOUNT]\n\n-\n\n-\n\nDeath Benefit Nomination (Expression of Wish)\n\n[On file / Not on file]\n\n[Options]\n\n[Options]\n\nOther Features\n\nMeans-Tested State Benefits Impact\n\n[Detail if applicable]\n\n[Detail]\n\n[Detail]\n\nPhased / Staged Drawdown Option\n\n[Yes / No]\n\n[Yes / No]\n\n[Yes / No]\n\nRecommended\n\n[Yes / No]\n\n[Yes / No]\n\n[Yes / No]\n\nTax-free cash rule: Once a pension has been crystallised into drawdown, no further tax-free cash can normally be taken from that crystallised pot. A like-for-like transfer to a new drawdown arrangement does not create a fresh tax-free cash entitlement. Flag this clearly if the client believes further tax-free cash will become available on transfer - it will not, unless uncrystallised funds are involved.\n\nBeneficiary drawdown nomination: If the current arrangement has a beneficiary drawdown (Expression of Wish) nomination in place, this must be re-established on the new arrangement. Flag the risk that the client may forget to re-nominate, and note that Expression of Wish nominations are not legally binding on the scheme administrator or trustee.\n\nPast performance is not a reliable indicator of future performance. Performance figures shown are after investment fees and before tax. [FIXED - include when performance data is shown]",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Our Retirement Income Recommendation",
+          "type": "standard",
+          "guidance": "Write a concise paragraph (4-8 sentences) explaining why the recommended product is preferable. You must:",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "1. Reference specific features - fees, income flexibility, investment options, death benefit nomination",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for 1. Reference specific features - fees, income flexibility, investment options, death benefit nomination.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "2. Quantify the fee difference in pound terms",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for 2. Quantify the fee difference in pound terms.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "3. Link to the client's retirement income needs, drawdown requirements, and longevity risk",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for 3. Link to the client's retirement income needs, drawdown requirements, and longevity risk.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "4. Address tax-free cash and taxable drawdown fund implications if relevant",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for 4. Address tax-free cash and taxable drawdown fund implications if relevant.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "5. Address the suitability of the recommendation",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for 5. Address the suitability of the recommendation.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "6. If the recommendation is to retain the current product, explain why",
+          "type": "standard",
+          "guidance": "[RETIREMENT INCOME RECOMMENDATION - personalised to client]",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Investment Platform Comparison [CONDITIONAL]",
+          "type": "table",
+          "guidance": "Condition: Include this section if the advice involves comparing or switching investment platforms, wraps, or portfolio administration services.\n\nFeature\n\nCurrent Platform\n\n[OPTION 1]\n\n[OPTION 2 if applicable]\n\nPlatform Name\n\n[Platform name]\n\n[Platform name]\n\n[Platform name]\n\nProvider\n\n[Provider name]\n\n[Provider name]\n\n[Provider name]\n\nCurrent Balance\n\n£[AMOUNT]\n\n-\n\n-\n\nFees\n\nAdministration/Platform Fee\n\n£[AMOUNT] p.a. ([X]%)\n\n£[AMOUNT] p.a. ([X]%)\n\n£[AMOUNT] p.a. ([X]%)\n\nFee Cap (if applicable)\n\n£[AMOUNT] p.a.\n\n£[AMOUNT] p.a.\n\n£[AMOUNT] p.a.\n\nCash Account Fee/Interest\n\n[Detail]\n\n[Detail]\n\n[Detail]\n\nTransaction/Dealing Fees\n\n£[AMOUNT] per trade\n\n£[AMOUNT] per trade\n\n£[AMOUNT] per trade\n\nBuy/Sell Spread (managed funds)\n\n[X]% / [X]%\n\n[X]% / [X]%\n\n[X]% / [X]%\n\nTotal Estimated Fees p.a.\n\n£[AMOUNT] ([X]% of balance)\n\n£[AMOUNT] ([X]% of balance)\n\n£[AMOUNT] ([X]% of balance)\n\nInvestment Menu\n\nManaged Funds Available\n\n[Number]\n\n[Number]\n\n[Number]\n\nDirect Shares (Exchange-listed)\n\n[Yes / No - exchanges available]\n\n[Yes / No]\n\n[Yes / No]\n\nInternational Shares\n\n[Yes / No - markets available]\n\n[Yes / No]\n\n[Yes / No]\n\nETFs\n\n[Yes / No]\n\n[Yes / No]\n\n[Yes / No]\n\nFixed Term Deposits\n\n[Yes / No]\n\n[Yes / No]\n\n[Yes / No]\n\nModel Portfolios / DFM Services\n\n[Yes / No]\n\n[Yes / No]\n\n[Yes / No]\n\nReporting and Features\n\nTax Reporting (Annual)\n\n[Consolidated / Per-holding / Automated]\n\n[Detail]\n\n[Detail]\n\nPortfolio Rebalancing Tools\n\n[Yes / No]\n\n[Yes / No]\n\n[Yes / No]\n\nClient Portal / App\n\n[Yes / No - quality]\n\n[Yes / No]\n\n[Yes / No]\n\nAdviser Service Tools\n\n[Detail]\n\n[Detail]\n\n[Detail]\n\nAccount Types Supported\n\nIndividual\n\n[Yes / No]\n\n[Yes / No]\n\n[Yes / No]\n\nJoint\n\n[Yes / No]\n\n[Yes / No]\n\n[Yes / No]\n\nISA\n\n[Yes / No]\n\n[Yes / No]\n\n[Yes / No]\n\nCompany / Trust\n\n[Yes / No]\n\n[Yes / No]\n\n[Yes / No]\n\nPension (SIPP)\n\n[Yes / No]\n\n[Yes / No]\n\n[Yes / No]\n\nRecommended\n\n[Yes / No]\n\n[Yes / No]\n\n[Yes / No]\n\nFee calculation rule: All percentage-based fees must be converted to pound amounts using the client's current balance. Include fee caps where applicable - for larger balances, a capped fee structure may be significantly cheaper.\n\nInvestment menu relevance: Do not simply compare the number of options available. Focus on whether the client's current holdings and recommended strategy can be replicated on the new platform. If specific holdings cannot be transferred in-specie, flag this as a cost (forced sell/rebuy = capital gains event + buy/sell spread).",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Our Platform Recommendation",
+          "type": "standard",
+          "guidance": "Write a concise paragraph (4-8 sentences) explaining why the recommended platform is preferable. You must:",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "1. Quantify the fee saving in pound terms",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for 1. Quantify the fee saving in pound terms.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "2. Address whether the client's current investment strategy can be maintained on the new platform",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for 2. Address whether the client's current investment strategy can be maintained on the new platform.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "3. Address any holdings that cannot be transferred in-specie (must be sold and repurchased)",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for 3. Address any holdings that cannot be transferred in-specie (must be sold and repurchased).",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "4. Link features to the client's specific needs (e.g., direct share trading, international access, reporting quality)",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for 4. Link features to the client's specific needs (e.g., direct share trading, international access, reporting quality).",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "6. If the recommendation is to retain the current platform, explain why",
+          "type": "standard",
+          "guidance": "[PLATFORM RECOMMENDATION - personalised to client]",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Managed Fund / Investment Product Comparison [CONDITIONAL]",
+          "type": "table",
+          "guidance": "Condition: Include this section if the advice involves comparing specific managed funds, ETFs, or investment products (as distinct from the platform they sit on).\n\nFeature\n\nCurrent Investment\n\n[OPTION 1]\n\n[OPTION 2 if applicable]\n\nFund/Product Name\n\n[Name]\n\n[Name]\n\n[Name]\n\nFund Manager / Issuer\n\n[Manager]\n\n[Manager]\n\n[Manager]\n\nAsset Class\n\n[UK equities / International equities / Fixed income / Multi-asset / Other]\n\n[Asset class]\n\n[Asset class]\n\nInvestment Style\n\n[Active / Passive / Index]\n\n[Style]\n\n[Style]\n\nCurrent Investment\n\n£[AMOUNT]\n\n-\n\n-\n\nFees\n\nOngoing Charges Figure (OCF)\n\n[X]% p.a. (£[AMOUNT])\n\n[X]% p.a. (£[AMOUNT])\n\n[X]% p.a. (£[AMOUNT])\n\nPerformance Fee\n\n[X]% above benchmark / Nil]\n\n[Detail / Nil]\n\n[Detail / Nil]\n\nBuy/Sell Spread\n\n[X]% / [X]%\n\n[X]% / [X]%\n\n[X]% / [X]%\n\nPerformance\n\n1-Year Return\n\n[X]%\n\n[X]%\n\n[X]%\n\n3-Year Return (p.a.)\n\n[X]%\n\n[X]%\n\n[X]%\n\n5-Year Return (p.a.)\n\n[X]%\n\n[X]%\n\n[X]%\n\n10-Year Return (p.a.)\n\n[X]%\n\n[X]%\n\n[X]%\n\nBenchmark\n\n[Benchmark name]\n\n[Benchmark name]\n\n[Benchmark name]\n\nExcess Return vs Benchmark (5yr)\n\n[+/- X]% p.a.\n\n[+/- X]% p.a.\n\n[+/- X]% p.a.\n\nRisk Metrics\n\nStandard Deviation (5yr)\n\n[X]%\n\n[X]%\n\n[X]%\n\nMaximum Drawdown\n\n[X]% ([Period])\n\n[X]% ([Period])\n\n[X]% ([Period])\n\nResearch Rating\n\n[Rating and agency]\n\n[Rating and agency]\n\n[Rating and agency]\n\nFund Details\n\nFund Size (AUM)\n\n£[AMOUNT]\n\n£[AMOUNT]\n\n£[AMOUNT]\n\nDistribution Frequency\n\n[Quarterly / Semi-annually / Annually]\n\n[Frequency]\n\n[Frequency]\n\nMinimum Investment\n\n£[AMOUNT]\n\n£[AMOUNT]\n\n£[AMOUNT]\n\nRecommended\n\n[Yes / No]\n\n[Yes / No]\n\n[Yes / No]\n\nPerformance comparison rules:\n\nPast performance is not a reliable indicator of future performance. Performance figures shown are after investment fees and before tax. [FIXED - include when performance data is shown]",
+          "contentToInclude": [
+            "Compare like-for-like: same asset class, same benchmark, same time periods",
+            "If funds have different benchmarks, note this and explain why direct comparison may be limited",
+            "Always include the fixed disclaimer about past performance",
+            "Source performance data from product research reports or fund factsheets - do not fabricate"
+          ],
+          "subsections": []
+        },
+        {
+          "title": "Our Investment Product Recommendation",
+          "type": "standard",
+          "guidance": "Write a concise paragraph (4-8 sentences) explaining why the recommended investment is preferable. You must:",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "1. Reference specific comparison points - fees, performance, risk metrics, ratings",
+          "type": "table",
+          "guidance": "Provide required details and disclosures for 1. Reference specific comparison points - fees, performance, risk metrics, ratings.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "2. Link the investment style to the client's risk profile and investment objectives",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for 2. Link the investment style to the client's risk profile and investment objectives.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "3. Quantify the fee difference in pound terms",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for 3. Quantify the fee difference in pound terms.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "4. Address performance in context - not just raw returns but risk-adjusted and relative to benchmark",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for 4. Address performance in context - not just raw returns but risk-adjusted and relative to benchmark.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "6. If the recommendation is to retain the current investment, explain why",
+          "type": "standard",
+          "guidance": "[INVESTMENT PRODUCT RECOMMENDATION - personalised to client]",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Fee Comparison Summary",
+          "type": "table",
+          "guidance": "Create a consolidated fee comparison showing the total cost of the current arrangement vs the recommended arrangement. This gives the client a single view of the overall fee impact.\n\nCalculate all fees as pound amounts using the client's current balances.\n\nFee Component\n\nCurrent Arrangement p.a.\n\nRecommended Arrangement p.a.\n\nDifference\n\nAdministration / Platform Fee\n\n£[AMOUNT]\n\n£[AMOUNT]\n\n[+/- £AMOUNT]\n\nFund Charges (OCF)\n\n£[AMOUNT]\n\n£[AMOUNT]\n\n[+/- £AMOUNT]\n\nAdviser Service Fee\n\n£[AMOUNT]\n\n£[AMOUNT]\n\n[+/- £AMOUNT]\n\nLinked Protection Premiums (if applicable)\n\n£[AMOUNT]\n\n£[AMOUNT]\n\n[+/- £AMOUNT]\n\nOther Fees\n\n£[AMOUNT]\n\n£[AMOUNT]\n\n[+/- £AMOUNT]\n\nTotal Estimated Fees p.a.\n\n£[TOTAL]\n\n£[TOTAL]\n\n[+/- £TOTAL]\n\nTotal as % of Balance\n\n[X]%\n\n[X]%\n\n[+/- X]%\n\nIf multiple products are being compared (e.g., pension AND platform), include all fees across all products to show the total cost of ownership.\n\nIf the recommended arrangement is more expensive, this must be explicitly justified in the recommendation section - the higher cost must be offset by demonstrably better features, performance, or suitability.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Consequences of Replacing Your [PRODUCT TYPE] [CONDITIONAL]",
+          "type": "standard",
+          "guidance": "Condition: Include this section if ANY of the recommendations involve replacing one financial product with another.\n\nCreate one sub-section for each product being replaced. Do not combine multiple products into a single switching disclosure.\n\nAdapt the heading to the product type: \"Consequences of Replacing Your Pension\", \"Consequences of Replacing Your Investment Platform\", etc.\n\nThis section must appear in full in this document and cannot be incorporated by reference.\n\nReplacing Your [PRODUCT NAME] - [EXISTING PROVIDER] to [NEW PROVIDER]\n\nRepeat this sub-section for each product being replaced.\n\nCosts on Disposal\n\nState the costs the client will incur by exiting their existing product. Address each of the following:\n\n(a) Exit fees: State the pound amount, or \"No exit fee applies.\" Most modern funds and platforms do not charge exit fees, but older products may.\n\n(b) Buy/sell spreads on disposal: If units must be redeemed, calculate the sell spread cost. E.g., \"Sell spread of 0.10% on £385,773 = approximately £386.\"\n\n(c) Capital gains tax (CGT): \"Selling existing investments may crystallise a capital gains tax liability. Based on the unrealised gains in your portfolio of £[AMOUNT], the estimated tax impact is £[AMOUNT], depending on your annual exempt amount and applicable CGT rate. This is a tax matter - please confirm the exact impact with your tax adviser before proceeding.\"\n\nIf unrealised gains data is not available: \"Selling existing investments may crystallise capital gains. The tax impact depends on your unrealised gains, your remaining annual exempt amount and your applicable CGT rate. Please consult your tax adviser. [TBC - tax estimate to be confirmed.]\"\n\n(d) Pension transfers only: if the existing scheme has a defined benefit (safeguarded benefits) component and the transfer value exceeds the level at which regulated pension transfer advice is mandatory, state this and confirm that separate qualifying pension transfer advice from a Pension Transfer Specialist has been, or will be, obtained. This document does not itself constitute that advice.\n\n[COSTS ON DISPOSAL - pound amounts]\n\nCosts on Acquisition\n\nState the costs the client will incur on establishing the new product. Address:\n\n(a) Application/establishment fees: Pound amount or \"Nil.\"\n\n(b) Buy/sell spreads on acquisition: If units must be purchased, calculate the buy spread cost.\n\n(c) In-specie transfer limitations: \"The following holdings [can / cannot] be transferred in-specie (without selling and repurchasing): [LIST]. Holdings that cannot be transferred will need to be sold on the existing platform and repurchased on the new platform, incurring buy/sell spreads and potential tax consequences.\"\n\n(d) Cash requirements: \"The new [platform/scheme] requires a minimum cash holding of £[AMOUNT]. This may require selling £[AMOUNT] of existing investments to meet the cash requirement.\"\n\n(e) Expression of Wish: \"You will need to complete a new Expression of Wish nomination for the new scheme - your existing nomination does not transfer automatically.\"\n\n[COSTS ON ACQUISITION - pound amounts and conditions]",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Benefits You Will Lose",
+          "type": "standard",
+          "guidance": "This section is mandatory when a product is being replaced. Complete it thoroughly.\n\nAddress each of the following explicitly. If a point does not apply, state that rather than omitting it:\n\n(a) Grandfathered fee arrangements:\n\n\"Your existing [PRODUCT] was established on [DATE / before DATE]. [If grandfathered fees apply: Your current fee of [X]% is a grandfathered rate that is no longer available to new members. Moving to a new product means you will pay the current published rate of [X]%.] [If no grandfathered fees: We are not aware of any grandfathered fee arrangements on your existing product.]\"\n\n(b) Expression of Wish:\n\n\"Your current Expression of Wish nomination on [FUND NAME] will not transfer automatically. If you transfer your balance from this scheme, you must complete a new Expression of Wish nomination on the new scheme, or your death benefits may be paid at the new scheme administrator's discretion without your wishes on record.\"\n\n(c) Employer contribution arrangements:\n\nIf the current scheme receives employer pension contributions: \"Your employer currently contributes to [FUND NAME]. You will need to update your pension scheme nomination with your employer to redirect contributions to the new scheme. During the transition, there may be a short period where contributions are directed to the old scheme.\"\n\n(d) Defined benefit entitlements:\n\nIf the current scheme has a defined benefit (safeguarded benefits) component: \"Your [FUND NAME] includes a defined benefit component. Transferring out of a defined benefit scheme is generally an irreversible decision. The defined benefit formula entitles you to [DETAIL]. Where the cash equivalent transfer value exceeds the level at which regulated advice is mandatory, this transfer cannot proceed without qualifying pension transfer advice from a Pension Transfer Specialist, obtained separately from this document. Before proceeding, you should obtain a current transfer value from the scheme trustee.\" [This is a HIGH-RISK switching scenario - flag prominently.]\n\nIf not a defined benefit scheme, state: \"Your existing scheme is a defined contribution arrangement and does not include a defined benefit component.\"\n\n(e) Unique investment options:\n\nIf the current product offers investment options not available on the new product (e.g., specific unlisted property funds, direct property, specific manager strategies), flag these.\n\n(f) Loyalty or continuity benefits:\n\nFee discounts for tenure, bonus units, guaranteed annuity rates, or other loyalty features that would be lost.\n\n[BENEFITS LOST - specific and itemised]",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Other Significant Consequences",
+          "type": "standard",
+          "guidance": "Address any other material consequences not covered above. At minimum:\n\nMarket exposure during transition: \"There may be a period of [X] business days during the transfer where your funds are in transit and not invested. During this period, you will not benefit from market gains but will also not be exposed to market falls. This period is typically 3-10 business days for pension transfers.\"\n\nTax-free cash already taken: \"Once tax-free cash (Pension Commencement Lump Sum) has been taken from a pension, it cannot be re-taken from a new arrangement on transfer. Your current tax-free cash taken to date is £[AMOUNT] ([X]% of the crystallised fund).\" If this is not known: \"[TBC - tax-free cash taken to date to be confirmed from the existing scheme.]\"\n\nMeans-tested state benefits implications (if applicable): If the client receives any means-tested state benefits, note any implications of changing products on the assessment of those benefits.\n\nLost contribution history / continuity: Some schemes use contribution or membership history for loyalty pricing or guaranteed rates. This may be lost on transfer.\n\n[OTHER SIGNIFICANT CONSEQUENCES]",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Why This Change Is in Your Best Interest",
+          "type": "standard",
+          "guidance": "Write a concise paragraph (3-6 sentences) explaining why the switch is in the client's best interest despite the costs and consequences above. This must:",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "1. Quantify the net benefit - e.g., \"The fee saving of £[AMOUNT] per year over the next [X] years is expected to result in approximately £[AMOUNT] more in your pension fund, which outweighs the one-off transition costs of £[AMOUNT]\"",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for 1. Quantify the net benefit - e.g., \"The fee saving of £[AMOUNT] per year over the next [X] years is expected to result in approximately £[AMOUNT] more in your pension fund, which outweighs the one-off transition costs of £[AMOUNT]\".",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "2. Reference specific advantages of the new product",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for 2. Reference specific advantages of the new product.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "3. Link those advantages to the client's specific circumstances",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for 3. Link those advantages to the client's specific circumstances.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "4. Demonstrate that the benefits of switching outweigh the costs, lost benefits, and risks",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for 4. Demonstrate that the benefits of switching outweigh the costs, lost benefits, and risks.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "5. This paragraph satisfies the suitability evidence requirement for product switching advice and demonstrates a good outcome under the FCA's Consumer Duty",
+          "type": "standard",
+          "guidance": "[BEST INTEREST JUSTIFICATION - personalised to client]\n\nRepeat the entire \"Replacing Your [PRODUCT NAME]\" sub-section for each product being replaced.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Alternative Products Considered",
+          "type": "standard",
+          "guidance": "Document at least two alternative products that were investigated but not recommended. This demonstrates that a reasonable investigation of available products was conducted. Source from product research reports, wealth solver reports, or platform comparison tools.\n\nInclude the option of \"retaining existing product\" as an alternative considered.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Alternative Product",
+          "type": "standard",
+          "guidance": "Provider\n\nWhy Not Recommended\n\n[PRODUCT NAME]\n\n[PROVIDER]\n\n[Specific reason - e.g., \"Higher total fees at your balance level\"; \"Does not offer the direct share trading you require\"; \"Limited international investment options\"]\n\n[PRODUCT NAME]\n\n[PROVIDER]\n\n[Specific reason]\n\nRetaining existing product\n\n[EXISTING PROVIDER]\n\n[Reason - e.g., \"Higher fees and limited investment options compared to recommended product\"; or if retaining: \"Existing product remains suitable - no change recommended\"]\n\nIf the adviser's recommendations are restricted to a panel or Approved Product List (APL), state this: \"Our investigation was limited to products on our panel / Approved Product List. We have not assessed products outside this list.\"\n\nDo not use vague reasons. Each must reference a specific feature, fee, or characteristic.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Our Remuneration",
+          "type": "standard",
+          "guidance": "All fees must be expressed in pound amounts. Percentage-only disclosure is not sufficient - pound amounts must also be stated.\n\nSource from the engagement letter, company context file, or working papers.\n\nAdvice Fee\n\nFee\n\nAmount (inc. VAT if applicable)\n\nFrequency\n\nPayable To\n\nPayment Method\n\nInitial advice fee\n\n£[AMOUNT]\n\nOne-off\n\n[FIRM NAME]\n\n[Invoice / Product deduction]\n\nOngoing advice fee\n\n£[AMOUNT] p.a.\n\nPer annum\n\n[FIRM NAME]\n\n[Invoice / Product deduction]\n\nIf the ongoing fee is deducted from a pension or investment product, state this explicitly: \"The ongoing fee of £[AMOUNT] p.a. will be deducted from your [PRODUCT NAME] account.\"\n\nIf no ongoing fee applies, state \"Nil\" - do not omit the row.\n\nPlatform/Product Rebates or Payments\n\nCommission on new investment and pension business has generally been banned since the Retail Distribution Review (RDR); most UK advisers are remunerated by adviser charging, not commission. If the adviser or firm receives any legacy trail commission, platform payment, rebate, or other benefit from the recommended product provider, disclose it here in pound terms.\n\n[REBATE / LEGACY COMMISSION DISCLOSURE - pound amounts, or \"We do not receive any commission, rebate or other benefit from the recommended product provider.\"]\n\nSource the firm/adviser fee split from the company context file if applicable.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Our recommendation is based on your financial circumstances and objectives as discussed, and not on any commission, rebate, or other benefit we receive from any product provider. [FIXED]",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for Our recommendation is based on your financial circumstances and objectives as discussed, and not on any commission, rebate, or other benefit we receive from any product provider. [FIXED].",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Implementation Steps",
+          "type": "standard",
+          "guidance": "List the steps required to implement the recommendations. Sequence them correctly.\n\nStep\n\nAction\n\nResponsibility\n\nTimeline\n\n1\n\nSign Authority to Proceed\n\nClient\n\n[DATE]\n\n2\n\nComplete and sign application forms for [NEW PRODUCT]\n\nClient\n\n[DATE or \"Within 7 days\"]\n\n3\n\nSubmit transfer request to [NEW PROVIDER]\n\nAdviser\n\n[On receipt of signed forms]\n\n4\n\n[If workplace pension] Update pension scheme nomination with employer\n\nClient\n\n[On confirmation of new account]\n\n5\n\n[If defined benefit / safeguarded benefits] Obtain qualifying pension transfer advice from a Pension Transfer Specialist before proceeding\n\nAdviser + Client\n\n[Before Step 3]\n\n6\n\nConfirm transfer complete and holdings established\n\nAdviser\n\n[Typically 3-10 business days]\n\n7\n\nComplete Expression of Wish nomination on the new scheme\n\nClient\n\n[On confirmation of transfer]\n\n8\n\nImplement recommended investment strategy on new platform\n\nAdviser\n\n[On confirmation of transfer]\n\nAdjust steps based on the specific recommendations. Add or remove rows as needed.\n\nCritical sequencing rules:",
+          "contentToInclude": [
+            "If the existing scheme has safeguarded (defined benefit) benefits above the mandatory-advice threshold, the transfer must not proceed until qualifying pension transfer advice has been obtained",
+            "If tax is a concern (e.g., capital gains), consider staging the transfer across tax years - note this option if applicable",
+            "If multiple products are being transferred, sequence them to minimise time out of market"
+          ],
+          "subsections": []
+        },
+        {
+          "title": "Authority to Proceed",
+          "type": "standard",
+          "guidance": "I/We have read and understood the information in this document, including:",
+          "contentToInclude": [
+            "The comparison of my/our existing and recommended financial products",
+            "The consequences of replacing my/our existing products, including costs, benefits lost, and other significant consequences",
+            "The fees and remuneration our adviser will receive",
+            "The risks associated with the recommended changes"
+          ],
+          "subsections": []
+        },
+        {
+          "title": "[FIXED]",
+          "type": "standard",
+          "guidance": "Include signature blocks for each client.\n\nClient 1:\n\nName: ____\n\nSignature: ___\n\nDate: _____\n\nClient 2 (if applicable):\n\nName: ____\n\nSignature: ___\n\nDate: _____\n\nTEMPLATE ENDS",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Context Input Priority",
+          "type": "standard",
+          "guidance": "This section is for the generation engine only - it does not appear in the output document.\n\nPriority\n\nInput Type\n\nWhat to Extract\n\n1\n\nProduct research / comparison reports (PDF)\n\nFee comparisons, feature comparisons, performance data, ratings. Wealth solver reports, platform comparison tools, independent research.\n\n2\n\nPension / platform statements (PDF)\n\nCurrent balances, fee structures, investment allocations, death benefit nomination (Expression of Wish), tax-free cash taken to date, contribution history.\n\n3\n\nKey Features Documents / product guides (PDF)\n\nDetailed fee schedules, investment options, features, terms and conditions for recommended products.\n\n4\n\nMeeting transcript\n\nClient's goals, concerns, preferences, reason for review, discussion of options.\n\n5\n\nFact find (PDF/DOCX)",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Financial position, risk profile, retirement timeline, income needs, existing products held.",
+          "type": "standard",
+          "guidance": "6\n\nWorking papers / file notes\n\nAdviser's analysis, fee calculations, product investigation notes.\n\nMissing input handling:\n\nProduct types not in scope:",
+          "contentToInclude": [
+            "If current product statements are missing: Flag \"[CURRENT PRODUCT STATEMENT REQUIRED - fee comparison and benefits lost section cannot be completed accurately. Please attach before issuing.]\"",
+            "If product research/comparison reports are missing: Flag \"[PRODUCT RESEARCH REQUIRED - comparison cannot be completed without fee and feature data for alternative products. Please attach before issuing.]\"",
+            "Do not refuse to generate the document. Produce what you can with available data and flag gaps clearly with [TBC] markers.",
+            "Only include comparison sections for product types being reviewed. If the advice covers pensions only, omit the platform and managed fund sections.",
+            "State at the top: \"This comparison covers [PRODUCT TYPES IN SCOPE] only. Other financial products have not been reviewed as part of this advice.\""
+          ],
+          "subsections": []
+        }
+      ]
+    }
+  },
+  {
+    "name": "Fact Find Document",
+    "type": "Document",
+    "category": "Wealth",
+    "scope": "Company",
+    "icon": "📝",
+    "data": {
+      "globalInstructions": [
+        "This template creates a comprehensive fact-find report documenting client information to understand their circumstances, objectives, and preferences",
+        "Complete all sections based on client information available, documenting relevant details about the client's situation",
+        "Take your time to review all available client information thoroughly and document systematically",
+        "Always follow the structure of the report set out below, do not add additional or remove sections unless specifically prompted to do so",
+        "Ensure the writing style is concise, avoids unnecessary jargon, and focuses on clear, factual documentation",
+        "Where appropriate, summarise key points using bullet points for clarity and quick reference",
+        "Use spelling that is appropriate for the jurisdiction. This is very important to ensure",
+        "Use UK financial terminology throughout (ISA not IRA, LPA not POA, etc.)",
+        "All monetary amounts in GBP with appropriate formatting",
+        "Document only bullet points for topics where information is available",
+        "For each bullet point, summarise the topic of the bullet in bold in 4-6 words and then write the complete intended bullet point",
+        "CRITICAL: Focus exclusively on client circumstances and statements - never reference what the adviser said, noted, explained, or mentioned",
+        "Write all bullet points as factual statements about the client's situation, concerns, preferences, or circumstances",
+        "Examples of correct formatting:",
+        "Tax position: [CLIENT 1] and [CLIENT 2] are higher rate taxpayers at 40%",
+        "Protection concerns: [CLIENT 1] is concerned that if he couldn't work, the family would struggle financially",
+        "Investment approach: [CLIENT 1] and [CLIENT 2] currently keep all surplus funds in savings accounts",
+        "Never write bullet points referencing adviser input such as:",
+        "Tax implications: [ADVISER] noted that at their income levels...",
+        "Protection needs: [ADVISER] mentioned life insurance...",
+        "Investment options: The adviser explained...",
+        "Focus on factual information gathering - document client information as factual statements about the client's circumstances and situation",
+        "Document client circumstances, objectives, risk tolerance, and preferences as factual statements about the client",
+        "Section inclusion logic: Each major section includes a relevance check. Only complete sections that contain available client information"
+      ],
+      "sections": [
+        {
+          "title": "Client Details and Personal Circumstances",
+          "type": "standard",
+          "guidance": "Client Information Table: Names, dates of birth, contact details, and addresses\n\nFamily Structure Table: Marriage status, dependants with ages, and relationship details\n\nPersonal Circumstances: Health considerations, tax residence, nationality, and recent changes\n\nEmployment Status: Current occupation details and any planned changes\n\nCreate a client details table with columns [Name - 25%] [Client 1 - 37.5%] [Client 2 - 37.5%] including full names, dates of birth, contact numbers, email addresses, and residential address\n\nDocument marriage status, civil partnership details, and all dependants with names and dates of birth in table format where possible\n\nRecord any health information that impacts financial planning\n\nDocument tax residence status and any foreign tax obligations\n\nRecord current job titles, employers, length of service, and any planned career changes",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Financial Position Summary",
+          "type": "table",
+          "guidance": "Income Details: Employment income, benefits, and other income sources\n\nExpenditure Information: Living costs, debt servicing, and discretionary spending\n\nAsset Holdings: Property, investments, pensions, and cash holdings\n\nLiability Information: All debts, mortgages, and ongoing financial commitments\n\nNet Worth Information: Balance sheet details\n\nMANDATORY INCOME TABLE: Create a table with columns [Income Type - 30%] [Client 1 - 35%] [Client 2 - 35%] showing income per annum. Rows should include: Base salary, Bonuses/commission, Benefits in kind, Other employment income, Investment income, Rental income, Other income sources\n\nDocument all non-salary benefits including company car, private medical insurance, life insurance through employer, pension contributions, share schemes or options, other benefits with values\n\nMANDATORY DEBT TABLE: Create debt table with columns: Debt Type, Outstanding Balance, Monthly Payment, Interest Rate, Remaining Term, Lender. Include all debts with exact figures. If no debts exist, show table with £0 entries\n\nDocument surplus/deficit position or record income and expenditure figures\n\nMANDATORY NET WORTH TABLE: Create balance sheet table with all assets (all investment wrappers, pensions, cars, property, business shares, etc.) and liabilities. Calculate total net worth using figures provided\n\nRecord all property holdings with current values, mortgage details, rental income, and valuation basis\n\nDocument cash amounts and purpose for these funds",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Pension Information",
+          "type": "standard",
+          "guidance": "Current Pension Holdings: All workplace and personal pensions with values\n\nRetirement Objectives: Target retirement age and income requirements\n\nContribution Details: Current contribution levels and any planned changes\n\nState Pension Information: National Insurance record and projected entitlements\n\nCreate table with columns: Scheme Name, Scheme Type (DB/DC), Current Value/Accrued Benefit, Employer, Annual Contribution (employee), Annual Contribution (employer), Normal Retirement Age\n\nFor DB schemes, document accrued pension amounts, normal retirement age, early retirement options, death benefits, and CETV if known\n\nRecord National Insurance qualifying years if known, any gaps, and projected State Pension entitlement if available\n\nDocument target retirement age, desired retirement income, retirement lifestyle expectations, and specific retirement goals\n\nRecord current pension contributions and any planned changes\n\nDocument any pension consolidation needs, employer contribution optimization requirements, or salary sacrifice opportunities available to the client",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Investment Experience and Holdings",
+          "type": "standard",
+          "guidance": "Current Investment Portfolio: ISAs, general investment accounts, and other holdings",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Investment Experience: Previous investment history and knowledge levels",
+          "type": "standard",
+          "guidance": "Investment Preferences: Ethical considerations and product preferences\n\nLiquidity Requirements: Access needs and emergency fund provisions\n\nCreate table with columns: Investment Type, Provider, Current Value, Annual Contribution, Investment Objective. Include all investments\n\nDocument current year ISA contributions, remaining ISA allowances if known, and historical ISA holdings\n\nRecord previous investment experience, understanding of risk and volatility, any significant gains/losses, and comfort levels with different investments\n\nRecord any ESG or ethical investment preferences, specific exclusions, or requirements for sustainable investing\n\nDocument emergency fund requirements, any planned major expenditure, and desired access to investments",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Protection and Insurance Information",
+          "type": "standard",
+          "guidance": "Life Insurance Holdings: All life policies with cover amounts and structures\n\nIncome Protection: Existing coverage and workplace benefits\n\nCritical Illness Cover: Current arrangements and benefit levels\n\nGeneral Insurance: Buildings, contents, and other personal insurances\n\nCreate table with columns: Policy Type, Sum Assured, Provider, Premium, Policy Term, Trust Arrangements, Beneficiaries\n\nDocument any individual income protection, employer sick pay arrangements, permanent health insurance through work, and understanding of state benefits\n\nRecord current protection levels and any coverage gaps or concerns\n\nDocument whether any policies are written in trust, beneficiary arrangements, and trust deed status\n\nTax Position Information\n\nCurrent Tax Status: Income tax position and recent tax returns\n\nCapital Gains Information: Annual exemption usage and carried losses\n\nInheritance Tax Information: Estate values and any existing arrangements\n\nTax Planning Details: Current allowance usage and existing measures\n\nDocument current tax bands, any existing tax planning such as pension contributions for tax relief, salary sacrifice arrangements, dividend planning strategies\n\nRecord any significant capital gains or losses, unused annual exemptions, and assets with substantial unrealised gains\n\nRecord potential IHT exposure and any existing estate planning arrangements\n\nRecord current usage of ISA allowances, pension allowances, and other tax-efficient opportunities\n\nEstate Planning Information\n\nWill and Estate Details: Current arrangements\n\nPowers of Attorney: LPA arrangements\n\nInheritance Tax Information: Estate values and calculations\n\nTrust Details: Existing structures\n\nDocument current will arrangements including date of last will, executor appointments, main beneficiaries, specific bequests, and whether will reflects current circumstances\n\nRecord if Lasting Powers of Attorney are in place for both property/financial affairs and health/welfare decisions, who is appointed as attorney, and registration status\n\nRecord estate values using provided asset values. If any inheritance tax calculations or professional advice on IHT has been obtained, record details\n\nDocument any trust arrangements, purposes, and beneficiaries\n\nGoals and Objectives\n\nShort-term Goals (0-2 years)\n\nRecord each goal including specific amounts, target timeframes, and importance ranking. Document priority levels for different goals.\n\nMedium-term Objectives (2-5 years)\n\nRecord any home purchase plans, moving considerations, or buy-to-let aspirations with estimated costs and timelines. Document any family planning or major life changes.\n\nLong-term Aspirations (5+ years)\n\nRecord desired retirement lifestyle, activities, travel plans, and estimated income requirements. Document any intentions for wealth transfer, charitable giving, and family financial support.\n\nAttitude to Risk\n\nRisk Tolerance Assessment\n\nRisk questionnaire results and scoring\n\nClient's own words regarding market volatility comfort\n\nPast investment experience and reactions to losses\n\nComfort levels with different asset classes\n\nAny specific risk concerns or preferences expressed\n\nDocument the formal risk assessment score/category if completed\n\nRecord direct quotes about risk comfort: \"Client stated: 'I'm comfortable with some ups and downs but don't want to lose my shirt'\"\n\nNote any previous investment losses and client reactions\n\nRecord asset class preferences (equities, bonds, property, alternatives)\n\nRisk Capacity Analysis\n\nFinancial ability to sustain investment losses\n\nImpact assessment of maximum potential loss scenarios\n\nEssential vs discretionary goals affected by poor performance\n\nOther income sources available during poor performance periods\n\nAssess objectively based on financial circumstances, not emotional comfort\n\nCalculate potential impact: \"Could sustain 20% portfolio loss without affecting essential goals\"\n\nConsider recovery time: \"15 years to retirement allows time to recover from short-term losses\"\n\nDistinguish essential needs (mortgage payments) from discretionary goals (luxury holidays)\n\nInvestment Time Horizon\n\nTime available for different financial goals\n\nRequirements for capital access during investment periods\n\nEssential vs discretionary goal priorities and timeframes\n\nOther income sources available to support goals\n\nDocument specific timeframes for each major goal\n\nRecord any requirements for early access to investments\n\nNote which goals are flexible on timing vs fixed deadlines\n\nAssess how time horizon affects ability to take investment risk\n\nRisk Tolerance vs Capacity Alignment\n\nComparison of emotional risk tolerance against financial capacity\n\nAny misalignment identified between tolerance and capacity\n\nHow time horizon influences overall risk strategy\n\nIdentify discrepancies: \"High risk capacity but low risk tolerance\" or \"Wants growth but limited capacity for loss\"\n\nNote which factor should drive investment decisions\n\nRecord any education needed about risk-return relationships\n\nOverall Risk Profile Summary\n\nRecommended risk category for investment strategy\n\nKey factors influencing risk profile determination\n\nAny specific risk considerations for implementation\n\nConclude with clear risk category: \"Conservative,\" \"Balanced,\" \"Growth\"\n\nSummarize key determining factors\n\nNote any special considerations for portfolio construction",
+          "contentToInclude": [],
+          "subsections": []
+        }
+      ]
+    }
+  },
+  {
+    "name": "Letter of Authority Policy Analysis",
+    "type": "Document",
+    "category": "Wealth",
+    "scope": "Company",
+    "icon": "📄",
+    "data": {
+      "globalInstructions": [
+        "Ensure the writing style is concise, avoids unnecessary jargon, and focuses on clear, action-oriented language.",
+        "Always document each individual policy separately, never group together policies.",
+        "In first instance, always analyse the uploaded documents first, before undertaking a web search to find information.",
+        "If web data contradicts the uploaded document, default to the uploaded document unless the discrepancy is flagged in the 'Assumptions / Data Limits' box.",
+        "Where appropriate, summarise key points or actions using bullet points for clarity and quick reference.",
+        "Use British English spelling throughout — this is very important to ensure accuracy.",
+        "Document factual information rather than adviser opinions, or additional reflections / additions that were not discussed.",
+        "For each bullet point, summarise the topic of the bullet in bold in 4–6 words and then write the complete intended bullet point.",
+        "Analyse each policy individually — never group or combine policy assessments.",
+        "Extract information from both meeting notes and uploaded policy documents systematically.",
+        "Include explicit notes when specific features or data are not available from the source materials.",
+        "Focus on suitability analysis for report generation rather than meeting documentation.",
+        "Data completeness verification: Before concluding each policy analysis, verify all required data points in tables are populated and explicitly state:",
+        "Which data was sourced from uploaded documents.",
+        "Which data was obtained via web search (with sources).",
+        "Which data remains unavailable despite searches conducted.",
+        "Mandatory search terms for missing data:",
+        "Fund performance: \"[Fund Name] performance 1 year 3 year 5 year returns\"",
+        "Risk ratings: \"[Fund Name] risk rating volatility\"",
+        "Fund charges: \"[Fund Name] OCF ongoing charges figure\"",
+        "VCT data: \"[VCT Name] current NAV share price dividend\"",
+        "EIS updates: \"[Company Name] financial results funding rounds news\"",
+        "Regulatory updates: \"minimum pension age 2024 2025 regulatory changes\""
+      ],
+      "sections": [
+        {
+          "title": "Individual pension policy analysis",
+          "type": "standard",
+          "guidance": "Section relevance check: only include this section if pension policies require analysis. Create separate subsections for each individual pension policy — never combine multiple policies.\n\nIndividual policy identification and basic details.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Policy characteristics and benefit structure analysis.",
+          "type": "standard",
+          "guidance": "Current investment allocation and performance analysis.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Charging structure assessment with calculated costs.",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for Charging structure assessment with calculated costs..",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Death benefit arrangements and suitability.",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for Death benefit arrangements and suitability..",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Transfer value assessment and crystallisation options.",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for Transfer value assessment and crystallisation options..",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Overall policy suitability conclusion with specific reasoning.",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for Overall policy suitability conclusion with specific reasoning..",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Policy: [POLICY PROVIDER NAME] — [POLICY TYPE] — Policy Number: [REFERENCE]",
+          "type": "standard",
+          "guidance": "Repeat this entire subsection for each additional pension policy identified. Never combine multiple policies into a single analysis.\n\nIndividual policy identification and basic details\n\nInclude details of Provider name, Pension type, Policy number(s), start date, leaving date (if applicable), Crystallised/uncrystallised status, Normal retirement age, details of any pension contributions, fund/current value, transfer value, valuation date, Expression of Wishes (beneficiary nominations).\n\nProvider Name\n\n[PROVIDER NAME]\n\nPension Type\n\n[PENSION TYPE]\n\nPolicy Number(s)\n\n[POLICY NUMBER(S)]\n\nStart Date\n\n[START DATE]\n\nLeaving Date (if applicable)\n\n[LEAVING DATE]\n\nCrystallised / Uncrystallised Status\n\n[STATUS]\n\nNormal Retirement Age\n\n[AGE]\n\nPension Contributions\n\n[CONTRIBUTION DETAILS]\n\nFund / Current Value\n\n[VALUE]\n\nTransfer Value\n\n[VALUE]\n\nValuation Date\n\n[DATE]\n\nExpression of Wishes (Beneficiary Nominations)\n\n[BENEFICIARY DETAILS]",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Policy characteristics and benefit structure analysis",
+          "type": "standard",
+          "guidance": "Create the following table.\n\nCharacteristic\n\nDetail\n\nSource/Notes\n\nRetirement benefit types\n\n[e.g. Flexi-access drawdown, Annuity options, UFPLS — extract from policy documents]\n\n[Document name and page reference where found]\n\nDeath benefit options\n\n[e.g. Lump sum, Dependant's pension, Annuity — extract from policy terms]\n\n[Document name and page reference where found]\n\nGuarantees\n\n[e.g. Guaranteed annuity rates, Guaranteed minimum pension, With-profits guarantees — extract from policy schedule]\n\n[Document name and page reference where found]\n\nTax-free cash entitlement\n\n[e.g. 25% of fund, Fixed amount, Protected rights — extract from policy documents]\n\n[Document name and page reference where found]\n\nMinimum pension age\n\n[e.g. Age 55, Age 57 from 2028, Protected pension age — check policy and conduct web search if not stated]\n\n[Document source or web search result with date]\n\nWith-profits features\n\n[e.g. Annual bonus, Final bonus, Market value reductions — if applicable, extract from policy documents]\n\n[Document name and page reference where found]\n\nTransfer restrictions\n\n[e.g. Exit penalties, Market value adjustments, Notice periods — extract from policy terms]\n\n[Document name and page reference where found]\n\nContribution flexibility\n\n[e.g. Regular premiums, Single premiums, Salary sacrifice compatibility — extract from policy documents]\n\n[Document name and page reference where found]\n\nNumber of funds available\n\n[Extract total fund range from policy documents or provider literature]\n\n[Document name and page reference where found]\n\nAvailable policy features\n\n[e.g. Withdrawal options, Switching options, Transfer options — extract from policy terms]\n\n[Document name and page reference where found]\n\nEnhanced pension protections\n\nDocument any enhanced protections including: Guaranteed Minimum Pension (GMP) details and impact on transfer values, Protected pension ages (access before age 55), Annual allowance protections (Enhanced protection, Fixed protection, Individual protection), Lifetime allowance protections and benefit calculations, Pension sharing orders from divorce settlements.\n\n[ENHANCED PENSION PROTECTIONS — GMP, protected pension age, annual allowance protections, lifetime allowance protections, pension sharing orders — or \"No enhanced protections identified\"]\n\nCurrent investment allocation and performance analysis\n\nCreate the following table listing ALL funds referenced in uploaded documents.\n\nFund Name\n\nISIN Code\n\nFund Value\n\nCurrent Value\n\nReturn (1yr)\n\nReturn (3yr)\n\nReturn (5yr)\n\nBenchmark Comparison\n\nRisk Rating\n\nData Source\n\n[Extract complete fund name from policy document or factsheet]\n\n[Extract ISIN code — use as primary matching criterion between documents]\n\n[Extract individual fund value if broken down in policy statement]\n\n[Extract current total value from latest policy statement with valuation date]\n\n[Extract from factsheet first, then web search \"[Fund Name] performance 1 year\" if unavailable]\n\n[Extract from factsheet first, then web search \"[Fund Name] performance 3 year\" if unavailable]\n\n[Extract from factsheet first, then web search \"[Fund Name] performance 5 year\" if unavailable]\n\n[Extract benchmark and relative performance from factsheet or web search \"[Fund Name] benchmark comparison\"]\n\n[Extract risk rating from factsheet or web search \"[Fund Name] risk rating volatility morningstar\"]\n\n[State specific document name/page or web source with date]\n\nRepeat the row above for each additional fund identified in the policy documents. Every fund named in a policy document must have its own row, regardless of data availability.\n\nMANDATORY fund identification and analysis requirements:\n\nComplete list extraction rule: when any document contains comma-separated fund names, investment names, or policy names, you MUST:\n\nSplit the entire text at each comma.\n\nTreat each segment as a separate item requiring individual analysis.\n\nCreate analysis entries for ALL items found, not just the last one.\n\nIf you find a list with multiple items, state: \"Found [X] items in list: [item 1], [item 2], [item 3]\" before proceeding with analysis.\n\nExhaustive fund identification: before analysing any funds, perform a complete document scan:\n\nList every fund/investment name found in ALL policy documents.\n\nList every fund name found in ALL factsheets.\n\nCreate a matching table showing potential connections.\n\nEnsure every identified fund gets its own analysis section, regardless of source document.\n\nDocument analysis priority hierarchy:\n\nFirst: extract all fund names from policy documents.\n\nSecond: match each fund to uploaded factsheets using name similarity and ISIN codes.\n\nThird: for matched funds, use factsheet data as primary source.\n\nFourth: MANDATORY WEB SEARCH for funds where no factsheet is available or for missing data points (performance, risk ratings) not shown in factsheets.\n\nAlways: create individual analysis entries for every fund listed in policy documents, regardless of data availability.\n\nPolicy-to-factsheet cross-referencing: for each fund listed in the \"Current Fund(s)\" section of any policy document, immediately check if a corresponding factsheet has been uploaded. Create a fund analysis entry for every fund mentioned in policy documents, using uploaded factsheets as the primary data source. If a fund is listed in a policy but no factsheet is uploaded, then CONDUCT MANDATORY WEB SEARCH. Never skip funds that are explicitly listed in policy documents.\n\nFund name matching: when comparing fund names between policy documents and uploaded factsheets, match funds even when naming conventions differ. Look for key identifying words (e.g., \"World Selection Balanced\" matches \"ReAssure HL World Selection Balanced Pn\"). Use ISIN codes as the definitive matching criterion where available. If fund names are similar but not identical, treat them as the same fund and note the naming variation in the analysis.\n\nMANDATORY web search for missing fund data: when fund performance, risk ratings, or charges are not available in policy documents or factsheets, you MUST search for:\n\n\"[Fund Name] performance 1 year 3 year 5 year returns\"\n\n\"[Fund Name] factsheet OCF ongoing charges\"\n\n\"[Fund Name] risk rating volatility morningstar\"\n\nDocument source as \"Web search — [Fund Provider/Morningstar/FE fundinfo] dated [date]\".\n\nIf search unsuccessful, state: \"Performance data unavailable despite web search conducted.\"\n\nWith-profits analysis\n\nFor with-profits policies, include: Bonus history and declaration rates over last 5 years, Market Value Reduction (MVR) policies and recent application, Smoothing mechanism effectiveness and impact on returns, With-profits fund performance vs bonus declarations, Surrender value basis (guaranteed vs current), Terminal bonus expectations and track record.\n\nMANDATORY WEB SEARCH: if bonus history not in documents, search \"[Provider name] with profits bonus history 2024\".\n\n[WITH-PROFITS ANALYSIS — or \"Not applicable — policy is not a with-profits arrangement\"]\n\nFund manager analysis\n\nInclude: Investment manager tenure and team stability, Track record across market cycles, Investment philosophy and process consistency, Manager changes and impact on performance, Fee justification relative to performance delivered.\n\nMANDATORY WEB SEARCH: if manager information not available, search \"[Fund name] fund manager team tenure track record\".\n\n[FUND MANAGER ANALYSIS]",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Charging structure assessment with calculated costs",
+          "type": "standard",
+          "guidance": "Create the following table.\n\nCharge Type\n\nRate %\n\nAnnual Cost £\n\nSource Document\n\nPage Reference\n\nAMC\n\n[Extract exact percentage rate]\n\n[Calculate: Policy value × rate percentage = £ amount]\n\n[State specific document name]\n\n[State page number where rate found]\n\nPlatform/custody charge\n\n[Extract exact percentage rate — check for tiered structure]\n\n[Calculate based on policy value — show tiered calculation if applicable]\n\n[State specific document name]\n\n[State page number where rate found]\n\nFund charges/OCF\n\n[Extract exact percentage rate for each fund held]\n\n[Calculate: Fund value × OCF = £ amount for each fund, then sum total]\n\n[State factsheet name or web source]\n\n[State page number or web search date]\n\nAdministration charges\n\n[Extract exact percentage rate or fixed £ amount]\n\n[Calculate based on policy value or state fixed amount]\n\n[State specific document name]\n\n[State page number where rate found]\n\nOther charges\n\n[Extract rate or fixed amount]\n\n[Calculate or state amount]\n\n[State specific document name]\n\n[State page number where rate found]\n\nTotal Annual Charges\n\n[Calculate blended rate: Total £ / Policy value × 100]\n\n[Sum all individual charge amounts]\n\n[Calculation summary]\n\n[Cross-reference all sources]\n\nCRITICAL: beware of tiered charging structures (e.g. first £250,000 at 1%, £250,000–£1,000,000 at 0.5%). For tiered structures, show the complete calculation.\n\nExample format: \"Total fund value: £750,000. First £250,000 @ 1.00% = £2,500. Next £500,000 @ 0.50% = £2,500. Total annual charge: £5,000 (0.67% blended rate).\"",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Overall policy suitability conclusion with specific reasoning",
+          "type": "standard",
+          "guidance": "Highlight the key benefits and drawbacks of retaining the product — this should look at all of the information extracted highlighting both good and bad features.\n\nComparative assessment: where discussed, compare against alternatives or market standards.\n\n[POLICY SUITABILITY CONCLUSION — key benefits, key drawbacks, comparative assessment where discussed]\n\nIndividual ISA and investment account analysis\n\nSection relevance check: only include this section if ISA or investment accounts require analysis. Create separate subsections for each individual account — never combine multiple accounts.\n\nIndividual policy identification and basic details.\n\nPlatform assessment and investment choice evaluation.\n\nCurrent investment allocation and performance analysis.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Individual investment bond analysis",
+          "type": "standard",
+          "guidance": "Section relevance check: only include this section if investment bonds require analysis. Create separate subsections for each individual bond — never combine multiple policies.\n\nBond identification including onshore/offshore status.\n\nTax position including chargeable events and withdrawal history.\n\nInvestment performance and underlying fund analysis.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Charging structure and cost efficiency assessment.",
+          "type": "standard",
+          "guidance": "Overall bond suitability conclusion.\n\nBond: [PROVIDER NAME] — [BOND TYPE] — Policy Number: [REFERENCE]\n\nRepeat this entire subsection for each additional bond identified. Never combine multiple bonds into a single analysis.\n\nBond identification including onshore/offshore status\n\nInclude details of the policy start date, total premiums paid, capital redemption or life assured, all withdrawals and current surrender value. Distinguish clearly between onshore and offshore bonds due to different tax treatment (i.e. where is the provider situated — example: Isle of Man or Ireland).\n\nPolicy Start Date\n\n[DATE]\n\nOnshore / Offshore\n\n[ONSHORE / OFFSHORE — state provider domicile, e.g. Isle of Man, Ireland]\n\nTotal Premiums Paid\n\n[AMOUNT]\n\nCapital Redemption or Life Assured Basis\n\n[DETAIL]\n\nWithdrawals to Date\n\n[DETAIL — dates and amounts]\n\nCurrent Surrender Value\n\n[AMOUNT]\n\nTax position including chargeable events and withdrawal history\n\nTotal withdrawals to date and calculation method. Calculate the total 5% allowance and how much is remaining calculation. Chargeable events history and impact. Assignment history and tax implications.\n\n5% rule calculation: show working: \"Cumulative 5% allowance: £[premiums] × 5% × [years] = £[total allowance]. Withdrawals: £[amount]. Remaining: £[balance].\"\n\nChargeable event calculation: only calculate where sufficient information available for accurate assessment.\n\nTax deferral benefit: quantify tax deferral advantage where possible.\n\n[TAX POSITION — 5% allowance calculation, chargeable events history, assignment history, tax deferral benefit]\n\nInvestment performance and underlying fund analysis\n\nCreate the following table listing ALL funds referenced in uploaded documents.\n\nFund Name\n\nISIN Code\n\nFund Value\n\nCurrent Value\n\nReturn (1yr)\n\nReturn (3yr)\n\nReturn (5yr)\n\nBenchmark Comparison\n\nRisk Rating\n\nData Source\n\n[Extract complete fund name from policy document or factsheet]\n\n[Extract ISIN code — use as primary matching criterion between documents]\n\n[Extract individual fund value if broken down in policy statement]\n\n[Extract current total value from latest policy statement with valuation date]\n\n[Extract from factsheet first, then web search \"[Fund Name] performance 1 year\" if unavailable]\n\n[Extract from factsheet first, then web search \"[Fund Name] performance 3 year\" if unavailable]\n\n[Extract from factsheet first, then web search \"[Fund Name] performance 5 year\" if unavailable]\n\n[Extract benchmark and relative performance from factsheet or web search \"[Fund Name] benchmark comparison\"]\n\n[Extract risk rating from factsheet or web search \"[Fund Name] risk rating volatility morningstar\"]\n\n[State specific document name/page or web source with date]\n\nRepeat the row above for each additional fund identified. Follow the same exhaustive fund identification and web search requirements set out in the Individual Pension Policy Analysis section above. CONDUCT MANDATORY WEB SEARCH for any missing fund performance, risk ratings, or manager information.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Individual protection policy analysis",
+          "type": "standard",
+          "guidance": "Section relevance check: only include this section if life insurance or protection policies require analysis. Create separate subsections for each individual policy — never combine multiple policies.\n\nPolicy identification and coverage details.\n\nPremium analysis and value assessment.\n\nPolicy features and flexibility evaluation.\n\nClaims history and service experience.\n\nBeneficiary arrangements and suitability.\n\nPolicy performance for investment-linked products.\n\nCoverage adequacy against current needs.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Overall policy suitability assessment.",
+          "type": "standard",
+          "guidance": "Provide required details and disclosures for Overall policy suitability assessment..",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Policy: [PROVIDER NAME] — [POLICY TYPE] — Policy Number: [REFERENCE]",
+          "type": "standard",
+          "guidance": "Repeat this entire subsection for each additional protection policy identified. Never combine multiple policies into a single analysis. Assess each protection policy separately.\n\nCoverage evaluation\n\nCompare coverage against client's stated protection needs.\n\n[COVERAGE EVALUATION AGAINST STATED PROTECTION NEEDS]\n\nValue analysis\n\nAssess premium cost against coverage provided and market alternatives where discussed.\n\nMANDATORY WEB SEARCH: if market comparison data needed, search \"[Policy type] market rates comparison 2024 [age] [coverage amount]\".\n\n[VALUE ANALYSIS]\n\nFeature relevance\n\nFocus on policy features relevant to client's current life stage and objectives.\n\n[FEATURE RELEVANCE]\n\nCoverage and premium analysis\n\nCreate the following table.\n\nCoverage Type\n\nSum Assured\n\nAnnual Premium\n\nPremium per £1000 Cover\n\nPolicy Term\n\nBeneficiaries\n\n[Extract coverage type e.g. Life Cover, Critical Illness, Income Protection]\n\n[Extract sum assured amount from policy schedule]\n\n[Extract annual premium from policy schedule or calculate from monthly/quarterly premium]\n\n[Calculate: (Annual premium / Sum assured) × 1000]\n\n[Extract policy term end date or state \"Whole of life\"]\n\n[Extract beneficiary names from policy schedule or Expression of Wishes]\n\nTotal\n\n[Total sum assured across all coverage types]\n\n[Total annual premium]\n\n[Weighted average premium per £1000]\n\n[Overall policy term]\n\n[All beneficiaries listed]\n\nRepeat the first row above for each additional coverage type within the same policy.\n\nValue assessment\n\nCalculate cost per £1000 of cover and assess against client's protection budget and needs.\n\n[VALUE ASSESSMENT]\n\nPolicy features evaluation\n\nInclude: Waiver of premium benefits and continuation during claims, Terminal illness acceleration of life cover, Children's cover and automatic coverage for dependants, Unemployment cover and short-term premium holidays, Indexation provisions and long-term premium growth impacts.\n\n[POLICY FEATURES EVALUATION]\n\nPolicy suitability conclusion\n\nAssess whether policy should be retained, replaced, or modified based on coverage adequacy, premium value, feature suitability, and alignment with client's current protection objectives.\n\n[POLICY SUITABILITY CONCLUSION]\n\nConsolidated suitability assessment\n\nOverall portfolio composition and asset allocation.\n\nTotal investment costs across all products.\n\nCombined investment performance and risk analysis.\n\nTax efficiency across all tax wrappers.\n\nLiquidity and emergency fund provision.\n\nAlignment with client objectives and risk tolerance.\n\nPriority recommendations for improvement.\n\nRegulatory compliance considerations.\n\nHolistic evaluation\n\nAssess how all products work together rather than just individual analysis.\n\n[HOLISTIC EVALUATION — how all products work together across the client's portfolio]\n\nCost aggregation\n\nCalculate total annual costs across all investment products.\n\n[COST AGGREGATION — total annual costs across all products, cross-referenced from the charging tables above]\n\nRisk consolidation\n\nEvaluate overall portfolio risk and diversification including: Single asset concentration limits, Sector and geographic concentration, Manager concentration across holdings, Liquidity risk assessment across portfolio, Correlation analysis between different holdings.\n\n[RISK CONSOLIDATION]\n\nTax coordination\n\nAssess how different products work together for tax efficiency.\n\n[TAX COORDINATION ACROSS ALL WRAPPERS]\n\nObjective alignment\n\nEvaluate how current arrangements support client's stated goals.\n\n[OBJECTIVE ALIGNMENT]\n\nPriority recommendations and regulatory compliance considerations\n\n[PRIORITY RECOMMENDATIONS FOR IMPROVEMENT AND ANY REGULATORY COMPLIANCE CONSIDERATIONS]\n\nPortfolio consolidation summary\n\nCreate the following table with consolidated figures from all policies analysed above.\n\nData\n\nCategory\n\nValue\n\nTotal Pension Value\n\nRetirement Savings\n\n[£ sum of all pension policy values — cross-reference individual pension sections]\n\nTotal ISA Value\n\nTax-Efficient Savings\n\n[£ sum of all ISA values — cross-reference individual ISA sections]\n\nTotal Investment Bond Value\n\nTax-Deferred Investments\n\n[£ sum of all bond values — cross-reference individual bond sections]\n\nTotal VCT Value\n\nTax-Efficient Investments\n\n[£ sum of all VCT holdings — cross-reference individual VCT sections]\n\nTotal EIS Value\n\nHigh-Risk Tax-Efficient Investments\n\n[£ sum of all EIS holdings — cross-reference individual EIS sections]\n\nTotal GIA Value\n\nGeneral Investments\n\n[£ sum of all general investment account values]\n\nTotal Protection Cover\n\nLife/Critical Illness Cover\n\n[£ sum of all sum assured amounts — cross-reference protection section]\n\nTotal Annual Investment Costs\n\nOngoing Investment Charges\n\n[£ sum of all annual charges from charging tables across all sections]\n\nTotal Annual Protection Premiums\n\nProtection Costs\n\n[£ sum of all protection premiums — cross-reference protection section]\n\nTotal Portfolio Value\n\nCombined Investment Assets\n\n[£ grand total of all investment holdings]\n\nEmail summary of missing information for provider follow-up\n\nThis is a template email for chasing outstanding information from a provider, generated from the gaps identified across the analysis above — not part of the analysis report itself.\n\nDear [PROVIDER NAME],\n\nI am writing to request your assistance in providing the following information required to progress the client’s case. The following items are outstanding:\n\nDynamically insert each section/field where information is missing or incomplete from the completed template, e.g. \"Policy number for existing life cover\", \"Current investment portfolio valuation date\", \"Latest policy documentation\", etc.\n\n[MISSING ITEM 1]\n\nPlease could you supply the above information at your earliest convenience? If you require any clarification on the requested items, let me know.\n\nKind regards,\n\n[YOUR NAME]\n\n[YOUR FIRM/POSITION]\n\n[CONTACT DETAILS]\n\n📥 Download This Template",
+          "contentToInclude": [],
+          "subsections": []
+        }
+      ]
+    }
+  },
+  {
+    "name": "Annual Review Letter",
+    "type": "Document",
+    "category": "Wealth",
+    "scope": "Company",
+    "icon": "✉️",
+    "data": {
+      "globalInstructions": [
+        "Document Type: Ongoing Suitability Report — a review letter confirming the outcome of a periodic review of existing client arrangements. Written in first person adviser voice, addressed directly to the client using \"you/your\" language. Tone is clear, concise, and written in language the client will understand, in keeping with Consumer Duty requirements.",
+        "Personalisation Guidance: when adding additional text to personalise this template, ensure it is clear, concise, and provided in language the client will understand, in keeping with Consumer Duty directives.",
+        "Conditional Sections: this template contains multiple conditional sections. Include only those sections relevant to the advice being given. Omit sections entirely where the advice area does not apply to the client's circumstances.",
+        "Red Text Convention: any text highlighted in red in the source template should either be removed or amended depending on its relevance to the client's specific circumstances and the recommendation being made."
+      ],
+      "sections": [
+        {
+          "title": "1. Change in Circumstances",
+          "type": "standard",
+          "guidance": "Write a short narrative paragraph covering: any changes to the client's circumstances since the last meeting (what changed and the key impact); a brief note on what remains unchanged; and a closing sentence directing the reader to the summary table below.\n\nFor example: \"We reviewed your circumstances at the start of our meeting. Since we last met, you have reduced your working week to four days, reducing your gross income to approximately £72,000. Everything else — your mortgage, family situation, health, and residency — remains unchanged. The key details are summarised in the table below:\"\n\n[CHANGE IN CIRCUMSTANCES — narrative paragraph]\n\nCategory\n\nPrevious Position\n\nUpdated Position\n\n[CATEGORY]\n\n[PREVIOUS STATUS/AMOUNT/SITUATION]\n\n[CURRENT STATUS/AMOUNT/SITUATION OR \"No change\"]\n\n[CATEGORY]\n\n[PREVIOUS STATUS]\n\n[CURRENT STATUS OR \"No change\"]\n\n[CATEGORY]\n\n[PREVIOUS STATUS]\n\n[CURRENT STATUS OR \"No change\"]\n\n[CATEGORY]\n\n[PREVIOUS STATUS]\n\n[CURRENT STATUS OR \"No change\"]\n\n[CATEGORY]\n\n[PREVIOUS STATUS]\n\n[CURRENT STATUS OR \"No change\"]\n\n[CATEGORY]\n\n[PREVIOUS STATUS]\n\n[CURRENT STATUS OR \"No change\"]\n\nInclude all relevant categories discussed: employment status, income, marital status, dependants (with current ages), health, residency, mortgage/debts, or other material changes. Omit rows for categories not discussed or not relevant to this client.\n\nDocument closing italicised paragraph reminding client to notify adviser if anything changes between reviews (work changes, inheritance, health matters, etc.) to ensure plan remains current. Use narrative prose.\n\nFor example: \"If anything else changes between now and your next review – whether that is a change at work, an inheritance, a health matter, or anything else – please do let me know straight away so that we can make sure your plan still reflects your real-world situation.\"\n\n[CLOSING REMINDER — italicised]",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "2. Your Financial Objectives",
+          "type": "standard",
+          "guidance": "Write a short opening paragraph explaining that financial goals were reviewed during the meeting. Cover: whether previous objectives remain appropriate and whether priorities have shifted given any changes in circumstances. Use concise narrative prose.\n\nFor example: \"We then moved on to talk about your financial goals. I wanted to check that the objectives we set out last year are still the right ones for you, and to understand whether your priorities have shifted given any changes in your circumstances.\"\n\nConditional — objectives unchanged or changed:\n\nIf the client confirmed their objectives remain the same since the last meeting, use: \"You confirmed that your objectives remain the same since our last meeting, as follows.\"\n\nIf the client's objectives have changed since the last meeting, use: \"You confirmed that your objectives have changed since our last meeting, as follows.\"\n\nFor each objective, briefly document in narrative format: the objective itself, its current status (on track / amended / removed), and any connection to changes in circumstances. Keep language clear and direct.\n\nFor example: \"Your retirement objective remains in place. You would like to build a pension fund providing around £30,000 per year from age 60. Based on current contributions and fund growth, you remain on track. You confirmed you are comfortable continuing contributions of £500 per month.\"\n\nNote any new objectives agreed during the meeting and any objectives removed or modified, with a brief explanation for each.\n\nClose with an invitation to refer to the summary table below. For example: \"The table below summarises all objectives and their current status.\"\n\n[FINANCIAL OBJECTIVES — opening paragraph and per-objective narrative]\n\n#\n\nObjective\n\nPriority\n\nStatus\n\n1\n\n[Document objective with specific details including target amounts/timeframes]\n\n[High/Medium/Low]\n\n[On track/Met/Under review/New objective/etc]\n\n2\n\n[Document objective]\n\n[Priority level]\n\n[Current status]\n\n3\n\n[Document objective]\n\n[Priority level]\n\n[Current status]\n\n4\n\n[Document objective]\n\n[Priority level]\n\n[Current status]\n\n5\n\n[Document objective]\n\n[Priority level]\n\n[Current status]\n\nAdd or remove rows as needed to capture all objectives discussed. Number sequentially. Use bold formatting to highlight new objectives or significant status changes.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "3. Your Risk Profile",
+          "type": "standard",
+          "guidance": "Conditional Section — risk profile unchanged or newly assessed:\n\nIf the client's risk profile remains unchanged since the last meeting, use: \"As part of our review, we discussed your risk profile, and you were happy to continue with a risk profile of [risk profile level].\"\n\nIf a new risk questionnaire was completed, use: \"As part of our review, we completed a new risk questionnaire which we discussed and agreed that you would adopt a new risk profile of [risk profile level].\"\n\nIn either case, follow the opening sentence with the standard definition of the agreed risk profile from the firm's risk profiling framework. The definition should correspond to the agreed level and be sourced from the firm's standard paragraphs (reference A1).\n\nThen document the client's attitude to risk in full: whether a risk profiling questionnaire was completed, the current score, the corresponding risk profile label, and confirmation that this remains appropriate — or details of any change noted.\n\nFor example: \"Your attitude to risk was reassessed during the meeting using our standard risk profiling questionnaire, and your score remains at 5 out of 10, which corresponds to a medium risk profile.\"\n\n[RISK PROFILE — opening statement, standard definition, and attitude to risk detail]\n\nDocument discussion of capacity for loss: the client's ability to absorb investment falls without impacting their standard of living, referencing factors such as income stability, debt levels, and cash reserves. Confirm whether capacity for loss remains adequate for the level of investment risk being taken.\n\nFor example: \"We also discussed your capacity for loss — that is, your ability to absorb a fall in the value of your investments without it having a serious impact on your standard of living. Given your stable household income, manageable mortgage, and healthy cash reserves, I am satisfied that your capacity for loss remains adequate for the level of investment risk you are taking.\"\n\n[CAPACITY FOR LOSS DISCUSSION]",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "4. Your Existing Arrangements",
+          "type": "standard",
+          "guidance": "You have the following arrangements, and this includes the underlying investments, in place that are being reviewed:\n\nList all client arrangements under review using bullet points. For each arrangement, document the provider name, product type, and current value in £.\n\nList every arrangement discussed during the review meeting, regardless of whether changes are being recommended.\n\nFor example:\n\n[PROVIDER] [PRODUCT TYPE] £[CURRENT VALUE]",
+          "contentToInclude": [
+            "Aviva General Investment Account £85,000",
+            "Scottish Widows Individual Savings Account £42,000"
+          ],
+          "subsections": []
+        },
+        {
+          "title": "5. Drawdown Review [CONDITIONAL]",
+          "type": "standard",
+          "guidance": "Conditional Section: include this entire section only if the client holds a drawdown pension arrangement that was reviewed. Omit entirely if not applicable.\n\nIncome recommendation — no changes or changes:\n\nIf no changes to income are recommended, use: \"As part of my review, I considered the level of income currently being taken from your drawdown plan. I recommend there are no changes.\"\n\nIf changes to income are recommended, use: \"As part of my review, I considered the level of income currently being taken from your drawdown plan. I reviewed the level of income and I recommend the following changes:\"\n\nThen document the specific income changes using the applicable options below:\n\nFor regular income: \"Take Regular income of [gross amount per month or per annum] (which after tax of [tax amount]) will provide you with [net amount per month or per annum].\"\n\nFor lump sum withdrawal: \"Take a Lump Sum [gross amount] (which after tax of [tax amount]) will provide you with [net amount].\"\n\nInclude both lines if the client is taking both regular income and a lump sum.\n\n[DRAWDOWN INCOME RECOMMENDATION]\n\nThere may be tax payable on any pension lump sum or income. Any tax payable will be deducted by the provider before you receive your money and details are documented above.\n\nConditional — emergency tax basis: include the following paragraph only if the client is taking a taxable withdrawal that may be subject to emergency tax.\n\nBecause you are taking a taxable withdrawal, your initial payment may be taxed on an emergency tax basis which will be higher than would normally be the case, however you are able to reclaim this tax.\n\nSustainability assessment — sustainable or unsustainable:\n\nIf the adviser's analysis indicates the income level is sustainable, use one of the following as appropriate:\n\n\"Taking into account the value of your current pension savings, the amount of income [and/or the lump sum] being taken now, I believe this level of regular income will be sustainable into the future.\"\n\nOR\n\n\"Taking into account the value of your current pension savings, the amount of income [and/or the lump sum] being taken now, I believe despite accessing [lump sum amount] now you will be likely to achieve your required income in retirement.\"\n\nIf the adviser's analysis indicates the income level may not be sustainable, use one of the following:\n\n\"I have considered the value of your current pension savings, the amount of income [and/or the lump sum] being taken now. My analysis indicates your pension may be unable to sustain the level of income I have recommended.\"\n\nOR\n\n\"I have considered the value of your current pension savings, the amount of income [and/or the lump sum] being taken now. My analysis indicates your pension may be unable to provide the level of income you will require when you retire.\"\n\nFollowed by: \"However, I have recommended you take this level of income because [document the specific rationale — why despite unsustainability this remains appropriate for this client's circumstances, e.g. other income sources, short-term need, planned future adjustments].\"\n\nThe rationale must be bespoke to the client's circumstances. Do not use generic statements.\n\n[SUSTAINABILITY ASSESSMENT AND RATIONALE]\n\nThere is a risk of running out of money in retirement and it is important to keep this under regular review. There is no guarantee over the future investment performance of your pension, the value of your pension can go down as well as up over time. The investment returns may be less than those shown in the illustration and the level of income you are taking may not be sustainable, and both of these points may result in the value of your pension being eroded over time. The advice in this letter is based on current legislation and may be subject to change in the future.\n\nConditional — annuity consideration: include this paragraph unless the client is taking tax-free cash only and is still working.\n\n\"An annuity will provide you with a guaranteed income which will not go down. As part of my research, I have considered this option. It would be possible to purchase [annual guaranteed income amount] guaranteed income for life by using [pension fund amount] of your pension funds. I have discounted this option because [document the specific reasons the annuity option was not suitable for this client — e.g. need for flexibility, health considerations, desire to preserve capital for beneficiaries, current annuity rates compared to drawdown income, client's other guaranteed income sources].\"\n\nThis must include a specific annuity quote figure and a bespoke rationale for why drawdown was preferred. Do not use generic reasons — link to this client's circumstances.\n\n[ANNUITY CONSIDERATION AND RATIONALE]\n\nYou can select a guaranteed income in future; however, you should be aware the rates used in the calculation can change meaning there is a risk that you will receive a lower level of income than currently available.\n\nConditional — money purchase annual allowance (MPAA): include the following paragraph only if the client is taking or has taken taxable income from their pension, triggering the MPAA.\n\n\"Because you are taking income from your pension the amount you can contribute to other pension arrangements is reduced to £10,000 per annum.\"\n\nNote: verify the £10,000 MPAA figure against current legislation at the time of document production.\n\n[MPAA NOTICE — if applicable]\n\nThe illustration provided details the charges applicable to this advice and the effect on investment returns. It is essential you read this document as it contains important information about your advice.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "6. Bed and ISA [CONDITIONAL]",
+          "type": "standard",
+          "guidance": "Conditional Section: include this entire section only if recommending a transfer of funds from a general investment account to an ISA wrapper. Omit entirely if not applicable.\n\nOpening confirmation and recommendation amount: document using the following structure.\n\n\"Having reviewed these arrangements, I can confirm that they remain suitable for your needs and continue to match your risk profile and objectives, however I recommend you switch [£amount] from your general investment account to an ISA.\"\n\nInsert the specific amount being recommended for transfer from the meeting notes or recommendation documents.\n\n[BED AND ISA OPENING CONFIRMATION AND AMOUNT]\n\nISA allowance remaining — full or partial use:\n\nIf the client is using the full annual ISA allowance (currently £20,000), use: \"As you are moving £20,000 into an ISA you will be unable to make any further contributions in this tax year.\"\n\nIf the client is using less than the full annual ISA allowance, use: \"As you are moving [£amount] into an ISA you will be able to add a further [£remaining allowance] to your ISA in this tax year.\"\n\nNote: verify the current annual ISA allowance at the time of document production.\n\n[ISA ALLOWANCE POSITION]\n\nSwitching money from your general investment account to your ISA could result in a drop in your investment due to time out of the market.\n\nCapital gains tax position: document the capital gains position arising from the sale of investments in the general investment account.\n\n\"Selling [£amount] of the investment held in your [product name] will result in a [gain/loss] of [£amount]. This [gain/loss] should be reported when you complete your tax return.\"\n\nConditional — if a gain results in a tax charge:\n\n\"Having analysed your tax position, I have established this gain will result in a tax charge of [£amount]. However, I still believe my recommendation is suitable because [document the specific rationale for why the bed and ISA switch remains in the client's best interest despite the tax charge — e.g. future tax-free growth, dividend tax savings, long-term benefit outweighing one-off charge, use of annual CGT exemption].\"\n\nThe suitability rationale must be bespoke to the client's tax position and investment objectives. Do not use generic statements.\n\n[CAPITAL GAINS TAX POSITION AND RATIONALE IF APPLICABLE]",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "7. Fund and Portfolio Switching [CONDITIONAL]",
+          "type": "standard",
+          "guidance": "Conditional Section: include this entire section only if recommending changes to the client's existing fund or portfolio holdings. Omit entirely if no fund or portfolio changes are being recommended.\n\nHaving reviewed these investments, I recommend the following changes to ensure they remain suitable for your needs and continue to match your risk profile and objectives.\n\nDocument the specific reasons for recommending the fund or portfolio switch. The rationale should address one or more of the following as applicable to the client's circumstances:\n\nCharges — if the recommended solution has lower costs.\n\nPerformance — if the recommended solution has demonstrated stronger returns.\n\nVolatility — if the recommended solution has more appropriate volatility characteristics for the client's risk profile.\n\nRisk alignment — if the current fund/portfolio no longer aligns with the client's agreed risk profile.\n\nAny other client-specific reasons discussed during the review.\n\nIf volatility is cited as a reason, include the following explanation: \"Volatility is the degree to which the fund/portfolio varies in price over time.\"\n\nDocument the transfer value in £ upon which the charges comparison is based, using the following introductory sentence: \"The table below shows the difference in charges from the original solution to the recommended solution based on a transfer value of [£amount].\"\n\n[SWITCH RATIONALE AND TRANSFER VALUE INTRODUCTION]\n\nExisting Arrangement\n\nRecommended Solution\n\nCharge\n\n%\n\n£\n\n%\n\n£\n\nInitial Adviser Fee\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\nOngoing Adviser Fee\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\nGuaranteed Charge\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\nFund / Portfolio Charge\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\nPlatform / Custody Charge\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\nDFM Charge\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\nTotal Product Charges\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\nTotal Ongoing Charges\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\n[COPY VERBATIM from fee schedule/illustration]\n\nAmend the charge category names in the table above as required to match the actual charge types applicable to the existing and recommended arrangements. Add or remove rows as necessary to reflect all relevant charge categories.\n\nDocument the charges comparison outcome using the following structure: \"As can be seen from the above table the recommended switch will result in [increased/decreased] costs of [difference in %] or [£difference] per annum based on a fund value of [£fund value].\"\n\n[CHARGES COMPARISON OUTCOME]\n\nPerformance and volatility comparison\n\nThe comparison below may be presented as cumulative or discrete data depending on what is available. Use the appropriate format based on the performance data available. Adjust column headers to reflect the time periods used (e.g. 6m, 1y, 3y, 5y).\n\nArrangement\n\n6m\n\n1y\n\n2y\n\n3y\n\nVolatility\n\nExisting arrangement\n\n[COPY VERBATIM from performance data]\n\n[COPY VERBATIM from performance data]\n\n[COPY VERBATIM from performance data]\n\n[COPY VERBATIM from performance data]\n\n[COPY VERBATIM from performance data]\n\nNew arrangement\n\n[COPY VERBATIM from performance data]\n\n[COPY VERBATIM from performance data]\n\n[COPY VERBATIM from performance data]\n\n[COPY VERBATIM from performance data]\n\n[COPY VERBATIM from performance data]\n\nFund/portfolio recommendation and switch rationale: document the specific fund or portfolio recommendation using the following structure.\n\n\"After carrying out our research, I am recommending you invest in [fund/portfolio name].\"\n\n\"I am recommending you switch from the [existing fund/portfolio name] to the [recommended fund/portfolio name] for the following reasons:\"\n\nThen document the specific reasons as bullet points, selecting and adapting from the following as applicable:\n\n\"Your risk profile is [risk level] and your current fund/portfolio does not align to your risk profile. The switch will ensure your fund/portfolio are aligned to your risk profile.\"\n\n\"The fund/portfolio is [X]% cheaper so you will benefit from lower costs going forwards.\"\n\n\"The performance of the new fund/portfolio has been greater over [X] years.\"\n\n\"The volatility of your existing fund/portfolio has been [greater/less appropriate] over the past [X] years.\"\n\nInclude only those reasons that are relevant and supported by the data presented in the charges and performance tables above. Each reason should be factual and linked to the analysis shown.\n\n[FUND/PORTFOLIO RECOMMENDATION AND SWITCH RATIONALE]\n\nFollowing this recommendation, I have provided you with a fund fact sheet, that provides you with details about the investment. It is essential you read this document as it contains important information about your advice.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "8. No Change Confirmation [CONDITIONAL]",
+          "type": "standard",
+          "guidance": "Conditional Section: include this section for any arrangements reviewed where no changes are being recommended. State this for each arrangement or group of arrangements where no changes are recommended. Omit entirely if changes have been recommended for all arrangements reviewed.\n\nUse the following wording: \"Having reviewed these arrangements, I can confirm that they remain suitable for your needs and continue to match your risk profile and objectives.\"\n\n[NO CHANGE CONFIRMATION — per arrangement/group where applicable]",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "9. Ongoing Suitability of Existing Products & Providers",
+          "type": "standard",
+          "guidance": "Document opening paragraph explaining importance of annual suitability review: ensuring products and providers continue to be appropriate, noting that markets change, providers adjust charges, and new options emerge. Use narrative prose.\n\nFor example: \"A key part of the annual review process is making sure that the products and providers you are invested with continue to be appropriate for your needs. Markets move, providers change their charging structures, and new options become available – so it is important that we do not simply assume that what was right twelve months ago is still right today.\"\n\n[OPENING PARAGRAPH]\n\nFor each product/policy held by client, document detailed suitability assessment in narrative format covering:\n\nProduct type and provider name.\n\nCurrent value or sum assured as applicable.\n\nAssessment of whether product remains suitable with specific reasoning.\n\nPerformance commentary where relevant (relative to benchmarks, client expectations, market conditions).\n\nReview of charges and whether they remain competitive.\n\nUnderlying fund selections and appropriateness for client's risk profile (if applicable).\n\nAny concerns or areas flagged for further review.\n\nRecommendation: remains suitable, under review, recommend change, or new product needed.\n\nUse detailed narrative prose for each product. Connect suitability assessment to client's specific circumstances, objectives, and any changes discussed in earlier sections. Maintain conversational but thorough analytical tone.\n\nFor example: \"Starting with your personal pension held with Aviva, I am satisfied that this remains a suitable home for your retirement savings. The platform continues to offer competitive charges, a strong range of fund options, and the flexibility you may need as you approach retirement. Your current fund value stands at £187,450, and the underlying fund selections – a diversified mix of global equities, bonds, and property – remain appropriate for your medium risk profile. Performance over the review period was broadly in line with benchmark expectations, and I do not recommend any changes to the fund allocation at this time.\"\n\nFor example: \"Your Level Term Life Cover with Legal & General is the one product I would like to review further, given the change in your income. I will provide a separate recommendation on this if any changes are warranted.\"\n\nDocument invitation to refer to product summary table below. For example: \"For reference, a summary of all products is set out in the table below:\"\n\n[PER-PRODUCT SUITABILITY ASSESSMENT — narrative, one paragraph per product]\n\nProduct\n\nProvider\n\nCurrent Value\n\nRisk Profile\n\nSuitability\n\n[Document product type]\n\n[Document provider]\n\n[Document current value with £ format or \"£X SA\" for sum assured]\n\n[Medium/High/Low/N/A]\n\n[Remains suitable/Under review/Recommend change]\n\n[Document product]\n\n[Provider]\n\n[Value]\n\n[Risk profile]\n\n[Suitability status]\n\n[Document product]\n\n[Provider]\n\n[Value]\n\n[Risk profile]\n\n[Suitability status]\n\n[Document product]\n\n[Provider]\n\n[Value]\n\n[Risk profile]\n\n[Suitability status]\n\n[Document product]\n\n[Provider]\n\n[Value]\n\n[Risk profile]\n\n[Suitability status]\n\nAdd or remove rows as needed for all products discussed. Format values consistently with £ symbol. Use \"N/A\" for risk profile on protection products.\n\n10. Confirmation of Charges\n\nDocument opening paragraph emphasising transparency about charges: client should have full visibility of both advice charges and product/platform costs, no surprises, and confidence in receiving good value. Use narrative prose.\n\nFor example: \"I believe it is important that you have full visibility of the charges you are paying – both for our advice service and for the products and platforms that hold your money. There should be no surprises, and I want you to feel confident that you are receiving good value.\"\n\n[OPENING PARAGRAPH ON CHARGES TRANSPARENCY]\n\nConfirm that the ongoing service agreed at the outset of the client relationship (e.g. annual review meeting, ongoing monitoring, ad hoc advice access) has been provided during this review period. State explicitly that this meeting and its associated activity satisfies that obligation for the year in question.\n\nFor example: \"As part of the ongoing service agreed when you became a client, I can confirm that this annual review meeting, along with the ongoing monitoring of your investments throughout the year, has been carried out in line with our agreement.\"\n\n[ONGOING SERVICE CONFIRMATION]\n\nDocument ongoing adviser charge arrangement including:\n\nPercentage charge applied.\n\nHow it is deducted (from which products).\n\nAnnual amount in £ based on current fund values for each relevant product.\n\nServices included in this charge (annual review, ongoing monitoring, ad hoc advice access, etc.).\n\nUse detailed narrative prose explaining the charging structure clearly.\n\nFor example: \"Our ongoing adviser charge is set at 0.50% per annum of the value of the funds we manage on your behalf. This is deducted directly from your pension and ISA funds, so there is nothing for you to pay separately. Based on current fund values, this equates to approximately £937 per year on your pension and £214 per year on your ISA. In return for this charge, you receive your annual review meeting, ongoing monitoring of your investments, access to ad hoc advice throughout the year, and the peace of mind that someone is keeping a close eye on your financial plan.\"\n\n[ONGOING ADVISER CHARGE ARRANGEMENT]\n\nDocument any additional charging arrangements for ad hoc advice outside the annual review: fee structure (hourly rate or project-based), rate per hour, and examples of when this might apply. Use narrative prose.\n\nFor example: \"Should you ever need advice on a specific matter outside of the annual review – for example, if you were considering a property purchase or needed help with inheritance tax planning – we would agree a separate fee with you in advance, typically charged at £150 per hour.\"\n\n[AD HOC ADVICE CHARGING ARRANGEMENT]\n\nConditional — provider charges statement or manual table:\n\nIf the provider is able to supply a charges statement, use: \"The provider statement issued/attached to this letter on [date of provider statement] provides a breakdown of the charges you have paid.\" In this case the charges table below may be omitted if the provider statement provides sufficient charges information.\n\nIf the provider is unable to supply a statement, use: \"I have included the charges below for information.\" Then include the charges table below.\n\n[PROVIDER CHARGES STATEMENT OR MANUAL TABLE INTRODUCTION]\n\nDocument explanation that product providers levy their own charges in addition to the adviser charge, with an invitation to refer to the summary table where applicable.\n\nFor example: \"In addition to our advice charge, your product providers also levy their own charges. These are summarised in the table below:\"\n\nProduct\n\nPlatform Fee\n\nFund OCF (avg)\n\nTotal Annual Cost\n\n[Document product name]\n\n[X.XX%]\n\n[X.XX%]\n\n[X.XX% (incl. adviser)]\n\n[Document product]\n\n[X.XX%]\n\n[X.XX%]\n\n[X.XX% (incl. adviser)]\n\nAdd rows for all relevant investment products. Use consistent percentage formatting. Bold total annual cost column. Include \"(incl. adviser)\" notation.\n\nConditional — charges table: include this table only if the provider is unable to supply a charges statement, or if the provider statement does not provide sufficient charges information. Otherwise omit.\n\nCosts and Charges\n\nOngoing Charges Applied £\n\nOngoing Charges Applied %\n\nServices costs and charges\n\nAdviser\n\n[COPY VERBATIM from charges data: £]\n\n[COPY VERBATIM from charges data: %]\n\nPlatform\n\n[COPY VERBATIM from charges data: £]\n\n[COPY VERBATIM from charges data: %]\n\nDiscretionary management services\n\n[COPY VERBATIM from charges data: £]\n\n[COPY VERBATIM from charges data: %]\n\nTotal service cost and charges\n\n[COPY VERBATIM from charges data: £]\n\n[COPY VERBATIM from charges data: %]\n\nInvestment / product costs and charges\n\n[Document investment name from client's holdings — e.g. Investment 1]\n\n[COPY VERBATIM from charges data: £]\n\n[COPY VERBATIM from charges data: %]\n\n[Document investment name from client's holdings — e.g. Investment 2]\n\n[COPY VERBATIM from charges data: £]\n\n[COPY VERBATIM from charges data: %]\n\nTotal investment / product costs and charges\n\n[COPY VERBATIM from charges data: £]\n\n[COPY VERBATIM from charges data: %]\n\nTotal aggregated costs and charges\n\n[COPY VERBATIM from charges data: £]\n\n[COPY VERBATIM from charges data: %]\n\nAdd or remove investment/product rows as required to match the number of investments held by the client. Each investment or product should have its own row with the corresponding charges.\n\nA breakdown of each investment / product is available on request.\n\nDocument closing paragraph confirming charges remain competitive and represent fair value for quality of platforms and fund management. Offer to provide full cost illustration showing projected impact of charges over time if client wishes. Use narrative prose.\n\nFor example: \"I am comfortable that these charges remain competitive within the market and represent fair value for the quality of the platforms and fund management you are receiving. If you would like me to provide a full cost illustration showing the projected impact of charges over time, I am happy to do so – just let me know.\"\n\n[CLOSING CHARGES CONFIRMATION]\n\n11. Important Risk Warnings\n\nDocument opening paragraph explaining regulatory requirement to document important risk warnings annually, acknowledging many have been discussed before but must be formally documented. Invite client to ask questions if they wish to discuss further. Use narrative prose.\n\nFor example: \"As part of our regulatory obligations, I am required to draw your attention to a number of important risk warnings. I appreciate that we have discussed many of these before, but it is important that they are formally documented each year. Please take a moment to read through them, and do ask me if you would like to discuss any of these points further.\"\n\n[OPENING PARAGRAPH]\n\nCapital at Risk:\n\nThe value of investments and the income from them can go down as well as up. You may get back less than the amount you originally invested. Past performance is not a reliable indicator of future results.\n\nInflation Risk:\n\nThe purchasing power of your investments may be eroded over time if investment returns do not keep pace with inflation. This is particularly relevant to cash holdings and lower-risk investments.\n\nPension Access:\n\nPension funds are not normally accessible until age 55, rising to age 57 from 6 April 2028 under current legislation. The tax treatment of pensions depends on your individual circumstances and may be subject to change in the future.\n\nTax & Legislation:\n\nTax rules and legislation are subject to change, and their effects depend on your individual circumstances. The tax treatment of ISAs and pensions may change in the future. Any tax reliefs or allowances referred to in this letter are based on current HMRC rules and practice.\n\nFSCS Protection:\n\nYour eligible investments are protected by the Financial Services Compensation Scheme (FSCS) up to the applicable limit per eligible person, per firm, per claim category.\n\nDocument the current FSCS protection limit applicable at the time of writing, and confirm how it applies across the client's providers. If the client holds multiple products with the same provider (increasing concentration above a single FSCS limit), note this explicitly.\n\nFor example: \"Your investments held with Aviva are protected up to £85,000 under the FSCS. As you hold both your pension and ISA with Aviva, your total exposure with this provider is worth keeping in mind, though FSCS limits apply per eligible claim type.\"\n\n[FSCS PROTECTION DETAIL — current limit and provider concentration note if applicable]\n\nLife Insurance & Protection:\n\nLife insurance and protection policies have no cash-in value at any time. If you stop paying your premiums, your cover will lapse and you will no longer be protected. It is therefore important that premiums are maintained for the duration of the policy term.\n\nInclude only risk warnings relevant to products and advice provided to this client. Standard warnings above cover most annual reviews, but add or remove rows as needed for specific circumstances (e.g., SIPP warnings, offshore bond taxation, commercial property risks, unregulated investments).\n\nDocument closing paragraph reassuring client that risk warnings are standard and important part of advice process, not intended to alarm. Explain that financial plan has been designed with these risks in mind and diversification is specifically intended to help manage them over long term. Use supportive, reassuring narrative prose.\n\nFor example: \"These risk warnings are not intended to alarm you – they are a standard and important part of the advice process. Your financial plan has been designed with these risks in mind, and the diversification built into your portfolio is specifically intended to help manage them over the long term.\"\n\n[CLOSING REASSURANCE PARAGRAPH]",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "12. Cancellation Rights [CONDITIONAL]",
+          "type": "standard",
+          "guidance": "Conditional Section: include this paragraph only if a new personal recommendation has been made in this review (drawdown income change in Section 5, Bed and ISA switch in Section 6, or fund/portfolio switch in Section 7). Omit entirely if the review resulted in no new recommendations (i.e. only Section 8 No Change Confirmation applies).\n\nDocument the applicable cancellation right for each new recommendation made, specifying the product type and correct cancellation period for that product (this varies by product — do not use a single generic figure).\n\nFor example: \"As I am recommending [document specific change, e.g. a switch of your General Investment Account into an ISA], you have the right to cancel this transaction. You have [document cancellation period applicable to this product — e.g. 14 days for an ISA, 30 days for a pension] from the date you receive the relevant documentation. If you wish to cancel, please contact me and I will explain the process and any implications this may have.\"\n\nNote: if more than one new recommendation is made in this review (e.g. both a Bed and ISA switch and a fund switch), document cancellation rights separately for each, as periods may differ.\n\n[CANCELLATION RIGHTS — one paragraph per new recommendation]\n\n13. Next Steps & Sign-Off\n\nDocument opening paragraph explaining that specific actions were agreed during meeting and it is important both parties are clear on what needs to happen and who is responsible. Use narrative prose.\n\nFor example: \"Before we wrapped up, we agreed on a number of actions to take forward over the coming weeks. I want to make sure we are both clear on what needs to happen and who is responsible, so I have set these out in the table below:\"\n\n[OPENING PARAGRAPH]\n\n#\n\nAction\n\nOwner / Deadline\n\n1\n\n[Document specific action item with full detail]\n\n[Adviser/Client name – by DD MMM YYYY]\n\n2\n\n[Document action item]\n\n[Owner – deadline]\n\n3\n\n[Document action item]\n\n[Owner – deadline]\n\n4\n\n[Document action item]\n\n[Owner – deadline]\n\nAdd or remove rows as needed for all agreed actions. Number sequentially. Specify clear ownership (Adviser, Client name, or both) and realistic deadline dates. Include \"Ongoing\" for continuous actions like maintaining contributions.\n\nDocument paragraph confirming adviser will be in touch over coming weeks to progress specific actions (reference key actions by topic, not number). Remind client they can contact at any time between reviews and should never feel they need to wait until next review. Use warm, accessible narrative prose.\n\nFor example: \"I will be in touch over the next few weeks to progress the Junior ISA applications and to update you on the life cover review. In the meantime, if anything crops up or you simply want to chat something through, you know where I am – please never feel that you need to wait until the next review to get in touch.\"\n\n[FOLLOW-UP PARAGRAPH]\n\nDocument closing paragraph expressing pleasure at seeing client (use first name), acknowledging progress made with financial plan over past year, and looking forward to continuing support in year ahead. Use genuine, warm narrative prose appropriate to relationship with this client.\n\nFor example: \"It was a real pleasure to see you, Alice. I am proud of the progress you have made with your financial plan over the past year, and I look forward to continuing to support you and your family in the year ahead.\"\n\n[CLOSING PARAGRAPH]\n\nWe have agreed to meet again next year to track your progress to meeting your objectives, any changes in your circumstances, and to enable me to assess the ongoing suitability of my recommendation. Should you require further information please do not hesitate to contact me.\n\nWith kind regards,\n\nDocument the adviser's full name, job title, firm name, phone number, and email address from the adviser profile.\n\n[ADVISER FULL NAME]\n\n[JOB TITLE]\n\n[FIRM NAME]\n\n[PHONE NUMBER]\n\n[EMAIL ADDRESS]\n\nClient Acknowledgement\n\nI confirm that I have read and understood this Annual Review Letter. The information recorded above is accurate and reflects the discussions held during our review meeting on [MEETING DATE — DD Month YYYY]. I understand the risk warnings provided and am happy to proceed on the basis set out in this letter.\n\nSigned:\n\n[CLIENT FULL NAME WITH TITLE] | Date: [DATE]\n\n📥 Download This Template",
+          "contentToInclude": [],
+          "subsections": []
+        }
+      ]
+    }
+  },
+  {
+    "name": "Vulnerability Assessment Check",
+    "type": "Document",
+    "category": "Wealth",
+    "scope": "Company",
+    "icon": "🛡️",
+    "data": {
+      "globalInstructions": [
+        "Blank Field Protocol: if information cannot be determined from the source materials, leave the field blank. Never write \"not discussed\", \"TBD\", \"not specified\", \"N/A\", \"[TBC]\", or any placeholder that defers content to a human. An empty cell is always preferable to a placeholder.",
+        "Section",
+        "Mandatory / Conditional",
+        "Comments"
+      ],
+      "sections": [
+        {
+          "title": "Client details table",
+          "type": "table",
+          "guidance": "Mandatory\n\nCore identification and review metadata",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "1. Sources reviewed on the client record",
+          "type": "standard",
+          "guidance": "Mandatory\n\nItemised log of all record items reviewed",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "2. Indicators identified, with evidence",
+          "type": "standard",
+          "guidance": "Mandatory\n\nEvidenced vulnerability indicators with FCA driver classification",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "3. Assessment against the FCA drivers (FG21/1)",
+          "type": "standard",
+          "guidance": "Mandatory\n\nStructured assessment against the four FCA vulnerability drivers",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "4. Suggested classification and adjustments",
+          "type": "standard",
+          "guidance": "Mandatory\n\nClassification recommendation and practical service adjustments",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "5. Adviser review and sign-off",
+          "type": "standard",
+          "guidance": "Mandatory\n\nConfirmation, consent, record update and review scheduling\n\nInsert firm name, FCA Firm Reference Number, and state that this is an internal client record.\n\n[FIRM NAME] — FCA Firm Reference No. [FRN]\n\nInternal client record.\n\nVulnerability Assessment: Client Record Review\n\nGenerated by reviewing the emails, files and meeting transcripts held on this client's record. All findings are evidenced against the source items below and require adviser confirmation before the client's record is updated.\n\nClient Name\n\n[Document the client's full name as it appears on the client record, including any preferred name or known-as name in parentheses if evident from the source materials]\n\nClient Reference\n\n[Document the client's internal reference number from the client record or firm systems]\n\nDate of Birth\n\n[Document the client's date of birth in DD Month YYYY format, followed by their current age in parentheses]\n\nAdviser\n\n[Insert adviser name and qualifications from provided context — may appear in global instructions, company context, meeting notes, or adviser instruction]\n\nReview Date\n\n[Document the date on which this vulnerability assessment was completed, in DD Month YYYY format]\n\nRecord Items Reviewed\n\n[Document a summary count of the record items reviewed, broken down by type (e.g. meeting transcripts, emails, files), and state the period covered. Format as: \"[X] meeting transcripts, [X] emails, [X] files (period reviewed: [start date] to [end date])\"]\n\nOutcome\n\n[Document the headline outcome of the assessment. State whether indicators of vulnerability were identified. If identified, state the suggested classification using one of: vulnerable (temporary), vulnerable (ongoing), or not currently vulnerable. Note that this is pending adviser confirmation. Format as a single statement, e.g.: \"Indicators of vulnerability identified. Suggested classification: vulnerable (temporary), pending adviser confirmation.\" or \"No indicators of vulnerability identified on the evidence reviewed.\"]",
+          "contentToInclude": [],
+          "subsections": []
+        }
+      ]
+    }
+  },
+  {
+    "name": "Client Proposal Letter",
+    "type": "Document",
+    "category": "Wealth",
+    "scope": "Company",
+    "icon": "💼",
+    "data": {
+      "globalInstructions": [
+        "This document is a formal proposal prepared for a prospective new client following an initial meeting. Use formal language throughout. Do not use contractions. Do not use em-dashes or hyphens. Write in the first person (\"I\" and \"my firm\") unless instructed otherwise. Use £ for all monetary values. If any section is not applicable based on the source material, omit it and do not leave placeholders.",
+        "Introduction",
+        "Write a personalised introduction addressed directly to the client by their first name. The introduction should be four to five sentences in length and cover the following, drawing from the meeting notes and source material:",
+        "Open by thanking the client for their time and referencing the meeting (include the date of the meeting if available).",
+        "Briefly acknowledge their personal scenario in one or two sentences, referencing their specific circumstances, for example their family situation, career position, or key life stage.",
+        "Note the primary financial objective or concern they raised, in their own terms.",
+        "Explain that this proposal has been prepared in response to that conversation and sets out the next steps you are recommending.",
+        "Write in the first person, in a warm but professional tone. Address the client as \"Dear [First Name],\" at the opening. Do not use generic or templated language. Every sentence should reflect something specific to this client."
+      ],
+      "sections": [
+        {
+          "title": "1. Your Situation: My Understanding",
+          "type": "standard",
+          "guidance": "Document the prospective client's personal and financial circumstances as understood from the initial meeting. Write in narrative prose using a warm but professional tone. Cover the following where information is available:\n\nFull name and any relevant personal details (age, relationship status, dependants).\n\nCurrent employment or business situation.\n\nBroad financial position (assets, liabilities, income, expenditure) at a summary level only, as appropriate for a proposal document.\n\nKey financial concerns, priorities, or goals discussed at the meeting.\n\nAny significant life events or upcoming changes referenced (for example retirement, property purchase, inheritance, business exit).\n\nWrite this as a coherent narrative, not a bulleted list. Use language such as: \"Based on our conversation, I understand that...\" or \"You mentioned that your primary objective is...\"\n\nDo not include any specific figures or product details that were not confirmed in the meeting. If a detail is uncertain, note it as something to be confirmed at the next stage.\n\n[YOUR SITUATION — narrative prose, personalised to this client]",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "2. Scope of Advice",
+          "type": "standard",
+          "guidance": "Based on my understanding of your situation and objectives, I am proposing to provide advice in the following areas:\n\nList the specific areas of advice being proposed for this client. For each area, provide a brief explanation of why it is relevant to their circumstances and what the advice will seek to achieve. Use a structured format as follows for each area:\n\nArea of advice (for example: retirement planning, protection, investment, mortgage, inheritance tax planning).\n\nBrief explanation of relevance to the client's situation.\n\nWhat the advice will seek to address or deliver.\n\nWhere an area was discussed but is not within scope at this stage, note it briefly and explain why (for example: \"We discussed [topic] briefly; however, I recommend we address this at a later stage once [condition].\"). This manages expectations clearly.\n\nIf there are areas that are explicitly out of scope, note these at the end of this section under a subheading \"Outside the Scope of This Proposal\".\n\n[AREA OF ADVICE 1 — name, relevance to this client, what the advice will address]",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "Outside the Scope of This Proposal [CONDITIONAL]",
+          "type": "standard",
+          "guidance": "Conditional Section: Include this subsection only if there are areas discussed at the meeting that are explicitly outside the scope of the current proposal. Omit entirely if not applicable.\n\nList any areas that were raised but will not be addressed in this engagement, with a brief reason for each. For example: \"Existing employer pension arrangements: these fall outside the scope of this proposal as they are managed through your employer and no changes are currently proposed.\"\n\n[AREA OUTSIDE SCOPE — brief reason]",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "3. Fees and Charges",
+          "type": "standard",
+          "guidance": "I believe it is important to be transparent about the cost of financial advice from the outset. Below I have set out the fees that would apply to the services I am proposing.\n\nConditional Section: Include this introductory paragraph only if an initial advice fee applies. Omit if the initial advice is provided at no charge or if fee details were not discussed.\n\nDocument the agreed or proposed initial advice fee, including how it is calculated (fixed fee, hourly rate, or percentage of assets) and when it becomes payable. For example: \"For the initial advice and preparation of a suitability report, my fee is £[amount], payable upon completion of the advice process.\"\n\n[INITIAL ADVICE FEE — amount, basis of calculation, when payable — if applicable]\n\nService\n\nDescription\n\nFee\n\nBasis\n\n[e.g. Initial Advice and Suitability Report]\n\n[BRIEF DESCRIPTION OF WHAT THIS SERVICE COVERS]\n\n[FEE AMOUNT IN £, OR PERCENTAGE]\n\n[FIXED FEE / PERCENTAGE OF ASSETS / HOURLY RATE]\n\n[e.g. Ongoing Adviser Charge]\n\n[BRIEF DESCRIPTION OF ONGOING SERVICE INCLUDED]\n\n[FEE AMOUNT IN £ PER ANNUM, OR PERCENTAGE]\n\n[DEDUCTED FROM PLAN / DIRECT DEBIT / OTHER]\n\nRepeat the row structure above for each additional service or fee applicable to this client. Remove either example row if it does not apply.\n\nAfter the table, include a short paragraph summarising the total estimated cost where possible, and note any conditions or assumptions. For example: \"The total estimated cost of initial advice is £[amount]. Ongoing charges will apply from the point at which advice is implemented and will be confirmed in the suitability report.\" If VAT applies to any fees, note this clearly.\n\nIf fee details were not finalised at the meeting, note that fees will be confirmed prior to any advice being provided and that the client will be asked to provide their agreement before any charges are incurred.\n\n[TOTAL ESTIMATED COST SUMMARY — conditions, assumptions, VAT treatment if applicable]\n\nAll fees will be clearly confirmed in writing before any advice is provided or charges are incurred. You will always be asked to provide your explicit agreement before any fees are applied.",
+          "contentToInclude": [],
+          "subsections": []
+        },
+        {
+          "title": "4. Next Steps",
+          "type": "standard",
+          "guidance": "To progress matters, I propose the following next steps:\n\nList the specific action points agreed or proposed at the end of the initial meeting. For each action, note:\n\nWhat the action is.\n\nWho is responsible (adviser or client).\n\nAny relevant deadline or target date where discussed.\n\nFormat as a bullet point list for clarity. Include actions for both the adviser and the client. Typical actions may include: gathering further financial information, completing a fact find or risk questionnaire, obtaining illustrations or product information, and scheduling a follow-up meeting.\n\nIf a follow-up meeting date was agreed, state it explicitly. If not, include an action to confirm a suitable date.\n\n[NEXT STEP — action, responsibility, deadline/date]\n\nImportant Information\n\nFixed Text — Include Verbatim\n\nThis proposal has been prepared based on the information discussed at our initial meeting and is intended as an overview only. It does not constitute a personal recommendation at this stage. A formal suitability report will be provided following the completion of a full fact find and analysis of your circumstances.\n\nThe information contained in this document is based on our current understanding of legislation, regulation, and HM Revenue and Customs practice, all of which may be subject to change. The value of investments and the income from them can fall as well as rise, and you may not get back the full amount invested.\n\nIf you have any questions about this proposal or would like to discuss any aspect in further detail, please do not hesitate to contact me.\n\n[ADVISER NAME AND DESIGNATION]\n\n[FIRM NAME]\n\n[DATE]\n\n[CONTACT DETAILS]\n\n📥 Download This Template",
+          "contentToInclude": [],
+          "subsections": []
+        }
+      ]
+    }
+  }
+]

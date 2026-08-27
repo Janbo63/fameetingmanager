@@ -26,6 +26,7 @@ interface TemplateItem {
 
 export default function TemplateCatalogPage() {
   const router = useRouter();
+  const [templateType, setTemplateType] = useState<'Meeting' | 'Document'>('Meeting');
   const [templates, setTemplates] = useState<TemplateItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -35,12 +36,20 @@ export default function TemplateCatalogPage() {
 
   useEffect(() => {
     setMounted(true);
+    // Check URL search params for type
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const urlType = params.get('type');
+      if (urlType === 'Document' || urlType === 'Meeting') {
+        setTemplateType(urlType);
+      }
+    }
   }, []);
 
   const fetchTemplates = useCallback(async () => {
     try {
       setLoading(true);
-      const res = await fetch(`/api/templates?scope=${activeTab}`);
+      const res = await fetch(`/api/templates?type=${templateType}&scope=${activeTab}`);
       const json = await res.json();
       if (json.success) {
         setTemplates(json.data);
@@ -50,7 +59,7 @@ export default function TemplateCatalogPage() {
     } finally {
       setLoading(false);
     }
-  }, [activeTab]);
+  }, [activeTab, templateType]);
 
   useEffect(() => {
     fetchTemplates();
@@ -138,12 +147,48 @@ export default function TemplateCatalogPage() {
 
   return (
     <div className="p-8 max-w-6xl w-full mx-auto space-y-6">
+      {/* Top Template Type Switcher */}
+      <div className="flex items-center gap-2 p-1.5 bg-slate-900/80 border border-slate-800 rounded-xl w-fit">
+        <button
+          onClick={() => {
+            setTemplateType('Meeting');
+            router.push('/templates?type=Meeting');
+          }}
+          className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition ${
+            templateType === 'Meeting'
+              ? 'bg-sky-600 text-white shadow-md shadow-sky-600/20'
+              : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
+          }`}
+        >
+          <span>🎙️</span>
+          <span>Meeting Templates</span>
+        </button>
+        <button
+          onClick={() => {
+            setTemplateType('Document');
+            router.push('/templates?type=Document');
+          }}
+          className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition ${
+            templateType === 'Document'
+              ? 'bg-sky-600 text-white shadow-md shadow-sky-600/20'
+              : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
+          }`}
+        >
+          <span>📄</span>
+          <span>Document Templates</span>
+        </button>
+      </div>
+
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-extrabold text-white tracking-tight">Meeting templates</h1>
+          <h1 className="text-3xl font-extrabold text-white tracking-tight">
+            {templateType === 'Meeting' ? 'Meeting templates' : 'Document templates'}
+          </h1>
           <p className="text-sm text-slate-400 mt-1">
-            Create, manage and customize structured documentation templates for FA Meeting Notes.
+            {templateType === 'Meeting'
+              ? 'Create, manage and customize structured meeting documentation templates for FA Meeting Notes.'
+              : 'Manage policy analysis, suitability reports, fact finds, and client letter templates.'}
           </p>
         </div>
         <div className="flex items-center gap-3">
@@ -159,7 +204,7 @@ export default function TemplateCatalogPage() {
             className="flex items-center gap-2 px-4 py-2 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-sm font-semibold shadow-lg shadow-sky-600/20 transition"
           >
             <Plus className="w-4 h-4" />
-            New meeting template
+            {templateType === 'Meeting' ? 'New meeting template' : 'New document template'}
           </Link>
         </div>
       </div>

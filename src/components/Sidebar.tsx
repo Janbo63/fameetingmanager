@@ -34,8 +34,8 @@ export default function Sidebar() {
   const isInsideTemplate = pathname.startsWith('/templates/') && pathname !== '/templates/new' && activeTemplate;
 
   const navItems = [
-    { label: 'Meeting Templates', href: '/templates', icon: Layers, active: pathname.startsWith('/templates') },
-    { label: 'Documents', href: '#', icon: FileText, disabled: true },
+    { label: 'Meeting Templates', href: '/templates?type=Meeting', icon: Layers, active: pathname === '/templates' },
+    { label: 'Document Templates', href: '/templates?type=Document', icon: FileText, active: false },
     { label: 'Tasks', href: '#', icon: CheckSquare, disabled: true },
     { label: 'Meetings', href: '#', icon: Calendar, disabled: true },
   ];
