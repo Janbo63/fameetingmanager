@@ -13,6 +13,15 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     }),
   ],
   callbacks: {
+    authorized({ auth, request: { nextUrl } }) {
+      const isLoggedIn = !!auth?.user;
+      const isOnLoginPage = nextUrl.pathname === '/login';
+      if (isOnLoginPage) {
+        if (isLoggedIn) return Response.redirect(new URL('/templates', nextUrl));
+        return true;
+      }
+      return isLoggedIn;
+    },
     async signIn({ user }) {
       if (!user?.email) return false;
       const email = user.email.toLowerCase();
