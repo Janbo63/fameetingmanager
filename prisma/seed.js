@@ -71,9 +71,11 @@ async function main() {
       };
     }
 
+    const internalId = item.internalId || `MTG-${String(meetingOrder + 1).padStart(3, '0')}`;
     await prisma.template.create({
       data: {
         id: item.id || crypto.randomUUID(),
+        internalId: internalId,
         name: item.name,
         type: 'Meeting',
         category: item.category || 'Wealth',
@@ -86,7 +88,7 @@ async function main() {
       },
     });
 
-    console.log('Seeded [Meeting]: ' + item.name);
+    console.log(`Seeded [Meeting]: ${item.name} (${internalId})`);
   }
 
   // Seed Document Templates
@@ -106,9 +108,11 @@ async function main() {
       },
     };
 
+    const internalId = item.internalId || `DOC-${String(docOrder + 1).padStart(3, '0')}`;
     await prisma.template.create({
       data: {
-        id: crypto.randomUUID(),
+        id: item.id || crypto.randomUUID(),
+        internalId: internalId,
         name: item.name,
         type: 'Document',
         category: item.category || 'Wealth',
@@ -121,7 +125,7 @@ async function main() {
       },
     });
 
-    console.log('Seeded [Document]: ' + item.name);
+    console.log(`Seeded [Document]: ${item.name} (${internalId})`);
   }
 
   console.log('🎉 Seeding complete! Seeded 10 Meeting Templates and 6 Document Templates.');

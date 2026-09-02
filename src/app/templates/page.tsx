@@ -16,6 +16,7 @@ import {
 
 interface TemplateItem {
   id: string;
+  internalId?: string;
   name: string;
   category: string;
   scope: string;
@@ -337,6 +338,11 @@ function TemplateCatalogContent() {
                       <h3 className="font-semibold text-white text-base group-hover:text-sky-300 transition-colors">
                         {tmpl.name}
                       </h3>
+                      {tmpl.internalId && (
+                        <span className="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-slate-850 text-sky-400/90 border border-slate-700/80">
+                          {tmpl.internalId}
+                        </span>
+                      )}
                       {tmpl.tiers && tmpl.tiers.length > 0 && (
                         <div className="flex items-center gap-1">
                           {tmpl.tiers.map((t) => (

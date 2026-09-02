@@ -4,8 +4,9 @@ import { NextResponse } from 'next/server';
 export default auth((req) => {
   const isLoginPage = req.nextUrl.pathname === '/login';
   const isAuthApi = req.nextUrl.pathname.startsWith('/api/auth');
+  const isPublicApi = req.nextUrl.pathname.startsWith('/api/v1');
 
-  if (!req.auth && !isLoginPage && !isAuthApi) {
+  if (!req.auth && !isLoginPage && !isAuthApi && !isPublicApi) {
     const loginUrl = new URL('/login', req.nextUrl.origin);
     loginUrl.searchParams.set('callbackUrl', req.nextUrl.pathname);
     return NextResponse.redirect(loginUrl);

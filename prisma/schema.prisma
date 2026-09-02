@@ -9,6 +9,7 @@ datasource db {
 
 model Template {
   id                 String   @id @default(uuid())
+  internalId         String?  @unique
   name               String
   type               String   @default("Meeting") // "Meeting" | "Document"
   category           String   @default("Wealth")
