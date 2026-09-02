@@ -15,19 +15,33 @@ Enterprise Wealth Management & Financial Advisory Meeting Template Studio.
 | **Process Manager** | **PM2** (`fameetingmanager`) |
 | **Reverse Proxy** | **Caddy** (Auto-SSL) |
 | **Database** | SQLite + Prisma ORM (`prisma/superbia.db`) |
-| **Authentication** | NextAuth v5 Google OAuth (`janskifura@gmail.com`, `lee13parkinson@gmail.com`) |
+| **Authentication** | NextAuth v5 Google OAuth (`janskifura@gmail.com`, `lee13parkinson@gmail.com`, `wilkmaksym@gmail.com`) |
 | **Telemetry** | Centralized logging to Stef CEO Dashboard |
+
+---
+
+## 📡 Developer REST API
+
+Full documentation is available in [API_DOCUMENTATION.md](./API_DOCUMENTATION.md).
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/api/v1/templates` | List all templates with internal IDs & metadata |
+| `GET` | `/api/v1/templates/:id` | Get full prompt directives & sections (by `DOC-001` or UUID) |
+| `POST` | `/api/v1/templates` | Programmatically import new document/meeting templates |
 
 ---
 
 ## 🚀 Key Features
 
-* **Template Catalog (`/templates`):** Pre-loaded with all 11 Wealth & Advisory templates (*Review, Advice Presentation, Onboarding, Fact Find, Initial Strategy, etc.*).
+* **Meeting & Document Catalogs:** Separate, dedicated workspaces for Meeting Notes (10 templates) and Advisory Documents (6 templates).
+* **Internal IDs & Developer API:** Programmatic access with standardized IDs (`DOC-001`, `MTG-001`).
+* **Multi-Tier Complexity (`Simple` / `Standard` / `Complex`):** Toggle between granular narrative and streamlined versions with 1-click forking.
+* **Invisible Drag-and-Drop Sorting:** Custom catalog re-ordering persisted to SQLite database.
 * **Two-Layer Interactive Section Editor (`/templates/[id]`):**
-  * Dynamic sidebar outline with smooth scroll-to-section navigation.
+  * Dynamic outline with smooth scroll-to-section navigation.
   * Global Instructions & AI Rules manager.
-  * Section & Subsection tree management (§ 1, 1.1, 1.2...).
-  * Directives / AI Guidance boxes, Content to Include bullet prompts, Table schemas, and Compliance checklists.
+  * Directives / AI Guidance boxes, Content to Include bullet prompts, and Tables.
 * **1-Click Actions:** Duplicate, Delete, and JSON Export/Import.
 
 ---
